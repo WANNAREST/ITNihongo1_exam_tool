@@ -1,0 +1,28 @@
+[
+  {
+    "scenario": {
+      "title": "Tình huống 1: Báo cáo Vắng mặt (欠席の連絡)",
+      "japanese": "あなたはSun*の学生です。今朝、熱があります。それで、今日の授業を休みたいです。Slackで先生に連絡してください。",
+      "reading": "あなたは Sun*のがくせいです。けさ、ねつが あります。それで、きょうの じゅぎょうを やすみたいです。Slackで せんせいに れんらくしてください。",
+      "meaning": "Bạn là học viên Sun*. Sáng nay, bạn bị sốt. Vì vậy, bạn muốn nghỉ buổi học hôm nay. Hãy viết tin nhắn Slack liên lạc cho giáo viên."
+    },
+    "model_answer": {
+      "japanese": "@...先生\n\n先生、こんにちは。\nHUSTの IT日本語1の水1の「夢」チームのNguyen Minh Quanです。学籍番号は 20235815 です。\n\n発熱のため本日の授業（11/14）に欠席させていただきます。\n\nタスクじょうきょうと欠席することをチームメンバーに連絡しました。\nよろしくお願いします。",
+      "reading": "@...せんせい\n\nせんせい、こんにちは。\nHUSTの ITにほんご1の みず1の「ゆめ」チームの Nguyen Minh Quanです。がくせきばんごうは 20235815 です。\n\nはつねつの ため ほんじつの じゅぎょう（11/14）に けっせき させて いただきます。\n\nタスク じょうきょうと けっせき することを チームメンバーに れんらくしました。\nよろしく おねがいします。",
+      "meaning": "@Thầy/Cô...\n\nThầy/Cô ơi, em chào Thầy/Cô ạ.\nEm là Nguyen Minh Quan, thuộc nhóm \"Yume\" (Ước mơ) của lớp IT Tiếng Nhật 1 - Lớp Thứ 4 (1). Mã số sinh viên của em là 20235815.\n\nVì bị sốt nên em xin phép được vắng mặt buổi học hôm nay (14/11) ạ.\n\nEm đã liên lạc với các thành viên trong nhóm về tình hình (task) và việc em nghỉ học.\nEm mong Thầy/Cô xem xét giúp em ạ."
+    }
+  },
+  {
+    "scenario": {
+      "title": "Tình huống 2: Báo cáo Đi muộn (遅刻の連絡)",
+      "japanese": "あなたはSun*の学生です。今日、病院に行くので、授業に15分ぐらい遅れます。Slackで先生に連絡してください。",
+      "reading": "あなたは Sun*のがくせいです。きょう、びょういんに いくので、じゅぎょうに 15ふんぐらい おくれます。Slackで せんせいに れんらくしてください。",
+      "meaning": "Bạn là học viên Sun*. Hôm nay, vì phải đi bệnh viện, bạn sẽ bị muộn học khoảng 15 phút. Hãy viết tin nhắn Slack liên lạc cho giáo viên."
+    },
+    "model_answer": {
+      "japanese": "@...先生\n\n先生、こんにちは。\nHUSTのIT日本語1の水１の「夢」チームのNguyen Minh Quan です。学籍番号は20235815です。\n\n今日は病院にいくので、授業開始時間から15分ぐらい遅れました。\n\n遅刻することをチームメンバーにれんらくしました。\nよろしくおねがいします。",
+      "reading": "@...せんせい\n\nせんせい、こんにちは。\nHUSTの ITにほんご1の みず1の「ゆめ」チームの Nguyen Minh Quan です。がくせきばんごうは 20235815 です。\n\nきょうは びょういんに いくので、じゅぎょう かいし じかんから 15ふんぐらい おくれました。\n\nちこく することを チームメンバーに れんらくしました。\nよろしく おねがいします。",
+      "meaning": "@Thầy/Cô...\n\nThầy/Cô ơi, em chào Thầy/Cô ạ.\nEm là Nguyen Minh Quan, thuộc nhóm \"Yume\" (Ước mơ) của lớp IT Tiếng Nhật 1 - Lớp Thứ 4 (1). Mã số sinh viên của em là 20235815.\n\nVì hôm nay em phải đi bệnh viện, nên em đã bị muộn (so với giờ bắt đầu) khoảng 15 phút ạ.\n\nEm đã liên lạc với các thành viên trong nhóm về việc em đến muộn.\nEm mong Thầy/Cô thông cảm ạ."
+    }
+  }
+]

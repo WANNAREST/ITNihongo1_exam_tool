@@ -1,0 +1,290 @@
+[
+  {
+    "question": "WANに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "WANに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về WAN?"
+    },
+    "options": [
+      "WANは同じ建物内で使われるネットワークである",
+      "WANは物理的に離れたLAN同士を接続する広域ネットワークである",
+      "WANではLANよりも範囲が狭くなる",
+      "WANは必ず自社で回線を用意して構築する必要がある"
+    ],
+    "answer": "WANは物理的に離れたLAN同士を接続する広域ネットワークである",
+    "explanations": {
+      "WANは同じ建物内で使われるネットワークである": {
+        "reading": "WANは おなじ たてものないで つかわれる ネットワークである",
+        "meaning": "WAN là mạng được sử dụng trong cùng một tòa nhà.",
+        "note": "❌ Sai. Đây là định nghĩa của LAN (Local Area Network)."
+      },
+      "WANは物理的に離れたLAN同士を接続する広域ネットワークである": {
+        "reading": "WANは ぶつりてきに はなれた LANどうしを せつぞくする こういき ネットワークである",
+        "meaning": "WAN là mạng diện rộng kết nối các mạng LAN ở xa nhau về mặt vật lý.",
+        "note": "✅ Đúng. Đây là định nghĩa của WAN (Wide Area Network)."
+      },
+      "WANではLANよりも範囲が狭くなる": {
+        "reading": "WANでは LANよりも はんいが せまくなる",
+        "meaning": "Ở WAN, phạm vi hẹp hơn LAN.",
+        "note": "❌ Sai. Ngược lại, WAN (Wide) có phạm vi rộng hơn nhiều so với LAN (Local)."
+      },
+      "WANは必ず自社で回線を用意して構築する必要がある": {
+        "reading": "WANは かならず じしゃで かいせんを よういして こうちくする ひつようがある",
+        "meaning": "WAN bắt buộc phải tự công ty chuẩn bị đường truyền và xây dựng.",
+        "note": "❌ Sai. Các công ty thường thuê đường truyền (ví dụ: leased lines, VPN) từ các nhà cung cấp dịch vụ viễn thông (通信事業者)."
+      }
+    }
+  },
+  {
+    "question": "専用線方式に関する説明として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "せんようせん ほうしきに かんする せつめいとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Giải thích nào phù hợp nhất về phương thức \"Đường truyền chuyên dụng\" (Dedicated Line)?"
+    },
+    "options": [
+      "回線を複数人で共有することでコストを削減できる",
+      "通信相手を決めず、自由に通信できる方式である",
+      "セキュリティや通信の安定性が高く、大量のデータ通信に向いている",
+      "回線の使用状況に応じて料金が変動する"
+    ],
+    "answer": "セキュリティや通信の安定性が高く、大量のデータ通信に向いている",
+    "explanations": {
+      "回線を複数人で共有することでコストを削減できる": {
+        "reading": "かいせんを ふくすうにんで きょうゆう することで コストを さくげんできる",
+        "meaning": "Có thể giảm chi phí bằng cách chia sẻ đường truyền với nhiều người.",
+        "note": "❌ Sai. Đây là đặc điểm của Chuyển mạch gói (パケット交換方式). Đường truyền chuyên dụng là *không* chia sẻ."
+      },
+      "通信相手を決めず、自由に通信できる方式である": {
+        "reading": "つうしん あいてを きめず、じゆうに つうしんできる ほうしきである",
+        "meaning": "Là phương thức có thể giao tiếp tự do mà không quyết định trước đối tác.",
+        "note": "❌ Sai. Đường truyền chuyên dụng là kết nối 1-1 cố định giữa hai điểm đã định trước."
+      },
+      "セキュリティや通信の安定性が高く、大量のデータ通信に向いている": {
+        "reading": "セキュリティや つうしんの あんていせいが たかく、たいりょうの データ つうしんに むいている",
+        "meaning": "Tính bảo mật và ổn định truyền thông cao, phù hợp cho việc truyền lượng lớn dữ liệu.",
+        "note": "✅ Đúng. Vì là đường truyền 1-1, không chia sẻ nên rất bảo mật, băng thông được đảm bảo (ổn định)."
+      },
+      "回線の使用状況に応じて料金が変動する": {
+        "reading": "かいせんの しよう じょうきょうに おうじて りょうきんが へんどうする",
+        "meaning": "Phí dịch vụ biến động tùy theo tình hình sử dụng đường truyền.",
+        "note": "❌ Sai. Đường truyền chuyên dụng thường có chi phí cố định (固定料金) hàng tháng, bất kể bạn dùng nhiều hay ít."
+      }
+    }
+  },
+  {
+    "question": "パケット交換方式の特徴として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "パケット こうかん ほうしきの とくちょうとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Đặc trưng nào sau đây là phù hợp nhất của phương thức \"Chuyển mạch gói\" (Packet Switching)?"
+    },
+    "options": [
+      "1対1専用の回線を常に確保する必要がある",
+      "回線は使用中でも他の人が使うことはできない",
+      "パケットという単位でデータを分割し、共有回線で効率よく送信する",
+      "通信は常に一定の速度と順序で行われる"
+    ],
+    "answer": "パケットという単位でデータを分割し、共有回線で効率よく送信する",
+    "explanations": {
+      "1対1専用の回線を常に確保する必要がある": {
+        "reading": "1たい1 せんようの かいせんを つねに かくほする ひつようがある",
+        "meaning": "Luôn cần phải đảm bảo một đường truyền 1-1 chuyên dụng.",
+        "note": "❌ Sai. Đây là mô tả của Chuyển mạch kênh (回線交換方式) hoặc Đường truyền chuyên dụng."
+      },
+      "回線は使用中でも他の人が使うことはできない": {
+        "reading": "かいんばんは しようちゅうでも ほかの ひとが つかう ことは できない",
+        "meaning": "Đường truyền đang được sử dụng thì người khác không thể dùng.",
+        "note": "❌ Sai. Đây là Chuyển mạch kênh. Chuyển mạch gói cho phép *chia sẻ* (共有) đường truyền."
+      },
+      "パケットという単位でデータを分割し、共有回線で効率よく送信する": {
+        "reading": "パケットという たんいで データを ぶんかつし、きょうゆう かいせんで こうりつよく そうしんする",
+        "meaning": "Phân chia dữ liệu theo đơn vị gọi là 'packet', và gửi một cách hiệu quả trên đường truyền chia sẻ.",
+        "note": "✅ Đúng. Đây là định nghĩa chính xác của Chuyển mạch gói, phương thức cốt lõi của Internet."
+      },
+      "通信は常に一定の速度と順序で行われる": {
+        "reading": "つうしんは つねに いっていの そくどと じゅんじょで おこなわれる",
+        "meaning": "Truyền thông luôn được thực hiện với tốc độ và thứ tự không đổi.",
+        "note": "❌ Sai. Tốc độ có thể thay đổi (ví dụ: nghẽn mạng) và các gói tin (packet) có thể đến sai thứ tự (cần TCP để sắp xếp lại)."
+      }
+    }
+  },
+  {
+    "question": "FTTHに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "FTTHに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về FTTH?"
+    },
+    "options": [
+      "FTTHは電話やテレビ、インターネットなどのサービスを光ファイバーでまとめて提供する",
+      "FTTHは同軸ケーブルを用いて、音声通話のみを提供するサービスである",
+      "FTTHは会社専用で、個人の家庭では使えない",
+      "FTTHはパケット通信を利用せず、常時接続を行わない"
+    ],
+    "answer": "FTTHは電話やテレビ、インターネットなどのサービスを光ファイバーでまとめて提供する",
+    "explanations": {
+      "FTTHは電話やテレビ、インターネットなどのサービスを光ファイバーでまとめて提供する": {
+        "reading": "FTTHは でんわや テレビ、インターネットなどの サービスを ひかりファイバーで まとめて ていきょうする",
+        "meaning": "FTTH cung cấp các dịch vụ như điện thoại, TV, Internet... một cách tổng hợp bằng cáp quang.",
+        "note": "✅ Đúng. FTTH (Fiber To The Home) là dịch vụ cáp quang tốc độ cao đến tận nhà."
+      },
+      "FTTHは同軸ケーブルを用いて、音声通話のみを提供するサービスである": {
+        "reading": "FTTHは どうじくケーブルを もちいて、おんせい つうわのみを ていきょうする サービスである",
+        "meaning": "FTTH là dịch vụ chỉ cung cấp thoại, sử dụng cáp đồng trục.",
+        "note": "❌ Sai. FTTH dùng cáp quang (光ファイバー), không phải cáp đồng trục (同軸ケーブル)."
+      },
+      "FTTHは会社専用で、個人の家庭では使えない": {
+        "reading": "FTTHは かいしゃ せんようで、こじんの かていでは つかえない",
+        "meaning": "FTTH là đường truyền chuyên dụng cho công ty, không thể dùng ở nhà riêng cá nhân.",
+        "note": "❌ Sai. Chữ 'H' trong FTTH chính là 'Home' (gia đình)."
+      },
+      "FTTHはパケット通信を利用せず、常時接続を行わない": {
+        "reading": "FTTHは パケット つうしんを りようせず、じょうじ せつぞくを おこなわない",
+        "meaning": "FTTH không sử dụng truyền thông gói (packet) và không thực hiện kết nối thường trực.",
+        "note": "❌ Sai. Internet qua FTTH sử dụng Chuyển mạch gói và là kết nối thường trực (常時接続 - always-on)."
+      }
+    }
+  },
+  {
+    "question": "通信プロトコルについて正しく説明しているものはどれですか。",
+    "analysis": {
+      "reading": "つうしん プロトコルについて ただしく せつめい している ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về \"Giao thức truyền thông\" (Communication Protocol)?"
+    },
+    "options": [
+      "通信プロトコルはコンピュータの電源を入れる順番を定めたルールである",
+      "通信プロトコルは同じメーカーのコンピュータ間のみで使われるルールである",
+      "通信プロトコルは物理的に接続された機器間でしか必要ない",
+      "通信プロトコルはネットワークで通信するために必要な約束事のことである"
+    ],
+    "answer": "通信プロトコルはネットワークで通信するために必要な約束事のことである",
+    "explanations": {
+      "通信プロトコルはコンピュータの電源を入れる順番を定めたルールである": {
+        "reading": "つうしん プロトコルは コンピュータの でんげんを いれる じゅんばんを さだめた ルールである",
+        "meaning": "Giao thức truyền thông là quy tắc quy định thứ tự bật nguồn máy tính.",
+        "note": "❌ Sai. Hoàn toàn không liên quan."
+      },
+      "通信プロトコルは同じメーカーのコンピュータ間のみで使われるルールである": {
+        "reading": "つうしん プロトコルは おなじ メーカーの コンピュータかんのみで つかわれる ルールである",
+        "meaning": "Giao thức truyền thông là quy tắc chỉ được dùng giữa các máy tính cùng một nhà sản xuất.",
+        "note": "❌ Sai. Giao thức (protocol) được tạo ra để chuẩn hóa, giúp các máy tính *khác* nhà sản xuất có thể giao tiếp được với nhau."
+      },
+      "通信プロトコルは物理的に接続された機器間でしか必要ない": {
+        "reading": "つうしん プロトコルは ぶつりてきに せつぞくされた ききかんでしか ひつようない",
+        "meaning": "Giao thức truyền thông chỉ cần thiết giữa các thiết bị được kết nối vật lý.",
+        "note": "❌ Sai. Giao thức cần thiết ở mọi tầng (ví dụ: Tầng 7 - Ứng dụng, Tầng 4 - Vận chuyển)."
+      },
+      "通信プロトコルはネットワークで通信するために必要な約束事のことである": {
+        "reading": "つうしん プロトコルは ネットワークで つうしん するために ひつような やくそくごとのことである",
+        "meaning": "Giao thức truyền thông là những quy ước (luật lệ) cần thiết để giao tiếp trên mạng.",
+        "note": "✅ Đúng. Đây là định nghĩa chính xác. Nó giống như 'ngôn ngữ' chung (ví dụ: Tiếng Anh) mà các máy tính dùng để nói chuyện."
+      }
+    }
+  },
+  {
+    "question": "OSI基本参照モデルの目的として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "OSI きほん さんしょう モデルの もくてきとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Mục đích nào sau đây là phù hợp nhất của \"Mô hình tham chiếu cơ bản OSI\"?"
+    },
+    "options": [
+      "コンピュータ間で共通の通信機能を持たせて異なる機器でも通信できるようにする仕組みである",
+      "通信の速度を高めるためにコンピュータを分解する仕組みである",
+      "ネットワークを利用するユーザーの認証情報を記録する仕組みである",
+      "ネットワークをすべて無線化するための手順である"
+    ],
+    "answer": "コンピュータ間で共通の通信機能を持たせて異なる機器でも通信できるようにする仕組みである",
+    "explanations": {
+      "コンピュータ間で共通の通信機能を持たせて異なる機器でも通信できるようにする仕組みである": {
+        "reading": "コンピュータかんで きょうつうの つうしん きのうを もたせて ことなる ききでも つうしんできるようにする しくみである",
+        "meaning": "Là cơ chế cung cấp các chức năng truyền thông chung giữa các máy tính, để các thiết bị khác nhau vẫn có thể giao tiếp được.",
+        "note": "✅ Đúng. OSI chia nhỏ truyền thông thành 7 tầng (lớp), giúp các nhà sản xuất khác nhau có thể tạo ra các sản phẩm tương thích (interoperable)."
+      },
+      "通信の速度を高めるためにコンピュータを分解する仕組みである": {
+        "reading": "つうしんの そくどを たかめるために コンピュータを ぶんかいする しくみである",
+        "meaning": "Là cơ chế tháo rời máy tính để tăng tốc độ truyền thông.",
+        "note": "❌ Sai. Hoàn toàn vô nghĩa."
+      },
+      "ネットワークを利用するユーザーの認証情報を記録する仕組みである": {
+        "reading": "ネットワークを りようする ユーザーの にんしょう じょうほうを きろくする しくみである",
+        "meaning": "Là cơ chế ghi lại thông tin xác thực của người dùng sử dụng mạng.",
+        "note": "❌ Sai. Đây là chức năng của máy chủ xác thực (Authentication Server) hoặc Directory Service."
+      },
+      "ネットワークをすべて無線化するための手順である": {
+        "reading": "ネットワークを すべて むせんか するための てじゅんである",
+        "meaning": "Là quy trình để biến tất cả mạng thành không dây.",
+        "note": "❌ Sai. OSI áp dụng cho cả mạng có dây (wired) và không dây (wireless)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、OSI基本参照モデルの「プレゼンテーション層」の役割として正しいものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、OSI きほん さんしょう モデルの 「プレゼンテーションそう」の やくわりとして ただしい ものは どれですか。",
+      "meaning": "Trong số sau, vai trò của \"Tầng Trình bày\" (Presentation Layer) trong mô hình OSI là gì?"
+    },
+    "options": [
+      "通信経路の選択を行う",
+      "データの表現形式や文字コードを統一する",
+      "通信の開始や終了などの手順を調整する",
+      "電気信号などの物理的な伝送手段を定める"
+    ],
+    "answer": "データの表現形式や文字コードを統一する",
+    "explanations": {
+      "通信経路の選択を行う": {
+        "reading": "つうしん けいろの せんたくを おこなう",
+        "meaning": "Thực hiện việc lựa chọn đường truyền.",
+        "note": "❌ Sai. Đây là vai trò của Tầng 3 (Network Layer) - Chức năng định tuyến (Routing)."
+      },
+      "データの表現形式や文字コードを統一する": {
+        "reading": "データの ひょうげん けいしきや もじコードを とういつする",
+        "meaning": "Thống nhất định dạng biểu diễn dữ liệu và mã ký tự.",
+        "note": "✅ Đúng. Tầng 6 (Presentation) đảm bảo dữ liệu được trình bày ở định dạng mà máy nhận có thể hiểu (ví dụ: mã hóa (Encryption), nén (Compression), và chuyển đổi định dạng như ASCII/EBCDIC, JPEG, v.v.)."
+      },
+      "通信の開始や終了などの手順を調整する": {
+        "reading": "つうしんの かいしや しゅうりょうなどの てじゅんを ちょうせいする",
+        "meaning": "Điều chỉnh các quy trình như bắt đầu hay kết thúc truyền thông.",
+        "note": "❌ Sai. Đây là vai trò của Tầng 5 (Session Layer)."
+      },
+      "電気信号などの物理的な伝送手段を定める": {
+        "reading": "でんきしんごうなどの ぶつりてきな でんそう しゅだんを さだめる",
+        "meaning": "Quy định các phương tiện truyền tải vật lý như tín hiệu điện.",
+        "note": "❌ Sai. Đây là vai trò của Tầng 1 (Physical Layer)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、OSI基本参照モデルの階層を上位層から順に並べたものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、OSI きほん さんしょう モデルの かいそうを じょういそうから じゅんに ならべた ものは どれですか。",
+      "meaning": "Trong số sau, đâu là thứ tự đúng của các tầng OSI (từ tầng trên xuống tầng dưới)?"
+    },
+    "options": [
+      "アプリケーション層 → セッション層 → データリンク層 → 物理層",
+      "物理層 → データリンク層 → ネットワーク層 → アプリケーション層",
+      "アプリケーション層 → プレゼンテーション層 → セッション層 → トランスポート層 → ネットワーク層 → データリンク層 → 物理層",
+      "トランスポート層 → プレゼンテーション層 → ネットワーク層 → 物理層"
+    ],
+    "answer": "アプリケーション層 → プレゼンテーション層 → セッション層 → トランスポート層 → ネットワーク層 → データリンク層 → 物理層",
+    "explanations": {
+      "アプリケーション層 → セッション層 → データリンク層 → 物理層": {
+        "reading": "アプリケーションそう → セッションそう → データリンクそう → ぶつりそう",
+        "meaning": "Tầng Ứng dụng -> Tầng Phiên -> Tầng Liên kết dữ liệu -> Tầng Vật lý",
+        "note": "❌ Sai. Thiếu Tầng 6 (Presentation) và Tầng 4 (Transport)."
+      },
+      "物理層 → データリンク層 → ネットワーク層 → アプリケーション層": {
+        "reading": "ぶつりそう → データリンクそう → ネットワークそう → アプリケーションそう",
+        "meaning": "Tầng Vật lý -> Tầng Liên kết dữ liệu -> Tầng Mạng -> Tầng Ứng dụng",
+        "note": "❌ Sai. Đây là thứ tự từ dưới lên (bottom-up) và còn thiếu tầng."
+      },
+      "アプリケーション層 → プレゼンテーション層 → セッション層 → トランスポート層 → ネットワーク層 → データリンク層 → 物理層": {
+        "reading": "アプリケーションそう → プレゼンテーションそう → セッションそう → トランスポートそう → ネットワークそう → データリンクそう → ぶつりそう",
+        "meaning": "Application -> Presentation -> Session -> Transport -> Network -> Data Link -> Physical",
+        "note": "✅ Đúng. Đây là thứ tự 7 tầng (Tầng 7 đến Tầng 1) từ trên xuống."
+      },
+      "トランスポート層 → プレゼンテーション層 → ネットワーク層 → 物理層": {
+        "reading": "トランスポートそう → プレゼンテーションそう → ネットワークそう → ぶつりそう",
+        "meaning": "Transport -> Presentation -> Network -> Physical",
+        "note": "❌ Sai. Sai thứ tự. Tầng Transport (T4) nằm dưới Tầng Presentation (T6)."
+      }
+    }
+  }
+]

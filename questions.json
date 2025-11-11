@@ -1,0 +1,1586 @@
+[
+  {
+    "question": "リピータに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "リピータに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về Repeater?"
+    },
+    "options": [
+      "信号の波形を整えて伝送距離を延ばす",
+      "IPアドレスをもとにデータを転送する",
+      "異なるネットワークを相互接続する",
+      "通信内容を暗号化して保護する"
+    ],
+    "answer": "信号の波形を整えて伝送距離を延ばす",
+    "explanations": {
+      "信号の波形を整えて伝送距離を延ばす": {
+        "reading": "しんごうの はけいを ととのえて でんそうきょりを のばす",
+        "meaning": "Chỉnh sửa dạng sóng của tín hiệu và kéo dài khoảng cách truyền.",
+        "note": "✅ Đúng. Đây là chức năng của Repeater (Bộ lặp), hoạt động ở Tầng 1 (Vật lý)."
+      },
+      "IPアドレスをもとにデータを転送する": {
+        "reading": "IPアドレスを もとに データを てんそうする",
+        "meaning": "Chuyển tiếp dữ liệu dựa trên địa chỉ IP.",
+        "note": "❌ Sai. Đây là chức năng của Router (Bộ định tuyến), hoạt động ở Tầng 3."
+      },
+      "異なるネットワークを相互接続する": {
+        "reading": "ことなる ネットワークを そうご せつぞくする",
+        "meaning": "Kết nối qua lại các mạng khác nhau.",
+        "note": "❌ Sai. Đây là chức năng của Router (Tầng 3) hoặc Gateway."
+      },
+      "通信内容を暗号化して保護する": {
+        "reading": "つうしん ないようを あんごうか して ほごする",
+        "meaning": "Mã hóa và bảo vệ nội dung truyền thông.",
+        "note": "❌ Sai. Đây là chức năng của các thiết bị bảo mật như VPN Gateway."
+      }
+    }
+  },
+  {
+    "question": "リピータがOSI基本参照モデルのどの層で動作するか、正しいものはどれですか。",
+    "analysis": {
+      "reading": "リピータが OSI きほん さんしょう モデルの どの そうで どうさするか、 ただしい ものは どれですか。",
+      "meaning": "Repeater hoạt động ở tầng nào trong mô hình tham chiếu OSI?"
+    },
+    "options": [
+      "第2層のデータリンク層",
+      "第3層のネットワーク層",
+      "第1層の物理層",
+      "第7層のアプリケーション層"
+    ],
+    "answer": "第1層の物理層",
+    "explanations": {
+      "第2層のデータリンク層": {
+        "reading": "だい2そうの データリンクそう",
+        "meaning": "Tầng 2, Tầng liên kết dữ liệu.",
+        "note": "❌ Sai. Tầng 2 là của Bridge (Cầu nối) và Switch."
+      },
+      "第3層のネットワーク層": {
+        "reading": "だい3そうの ネットワークそう",
+        "meaning": "Tầng 3, Tầng mạng.",
+        "note": "❌ Sai. Tầng 3 là của Router (Bộ định tuyến)."
+      },
+      "第1層の物理層": {
+        "reading": "だい1そうの ぶつりそう",
+        "meaning": "Tầng 1, Tầng vật lý.",
+        "note": "✅ Đúng. Repeater chỉ đơn giản là lặp lại tín hiệu điện/quang ở Tầng 1."
+      },
+      "第7層のアプリケーション層": {
+        "reading": "だい7そうの アプリケーションそう",
+        "meaning": "Tầng 7, Tầng ứng dụng.",
+        "note": "❌ Sai. Tầng 7 là của các Gateway ứng dụng (ví dụ: proxy)."
+      }
+    }
+  },
+  {
+    "question": "ブリッジに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "ブリッジに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về Bridge (Cầu nối)?"
+    },
+    "options": [
+      "IPアドレスを見て中継を行う",
+      "MACアドレスを見て同一ネットワーク内で中継を行う",
+      "通信内容を暗号化して転送する",
+      "異なるプロトコルを変換して中継する"
+    ],
+    "answer": "MACアドレスを見て同一ネットワーク内で中継を行う",
+    "explanations": {
+      "IPアドレスを見て中継を行う": {
+        "reading": "IPアドレスを みて ちゅうけいを おこなう",
+        "meaning": "Thực hiện chuyển tiếp (relay) bằng cách xem địa chỉ IP.",
+        "note": "❌ Sai. Đây là chức năng của Router (Tầng 3)."
+      },
+      "MACアドレスを見て同一ネットワーク内で中継を行う": {
+        "reading": "MACアドレスを みて どういつ ネットワークないで ちゅうけいを おこなう",
+        "meaning": "Thực hiện chuyển tiếp (relay) trong cùng một mạng bằng cách xem địa chỉ MAC.",
+        "note": "✅ Đúng. Bridge (Cầu nối) và Switch hoạt động ở Tầng 2, sử dụng địa chỉ MAC."
+      },
+      "通信内容を暗号化して転送する": {
+        "reading": "つうしん ないようを あんごうか して てんそうする",
+        "meaning": "Mã hóa và chuyển tiếp nội dung truyền thông.",
+        "note": "❌ Sai. Đây là chức năng của thiết bị bảo mật."
+      },
+      "異なるプロトコルを変換して中継する": {
+        "reading": "ことなる プロトコルを へんかん して ちゅうけいする",
+        "meaning": "Chuyển đổi giao thức khác nhau và chuyển tiếp.",
+        "note": "❌ Sai. Đây là chức năng của Gateway."
+      }
+    }
+  },
+  {
+    "question": "ブリッジがOSI基本参照モデルのどの層で動作するか、正しいものはどれですか。",
+    "analysis": {
+      "reading": "ブリッジが OSI きほん さんしょう モデルの どの そうで どうさするか、 ただしい ものは どれですか。",
+      "meaning": "Bridge hoạt động ở tầng nào trong mô hình tham chiếu OSI?"
+    },
+    "options": [
+      "物理層",
+      "データリンク層",
+      "ネットワーク層",
+      "アプリケーション層"
+    ],
+    "answer": "データリンク層",
+    "explanations": {
+      "物理層": {
+        "reading": "ぶつりそう",
+        "meaning": "Tầng vật lý.",
+        "note": "❌ Sai. Tầng 1 (Physical) là của Repeater và Hub."
+      },
+      "データリンク層": {
+        "reading": "データリンクそう",
+        "meaning": "Tầng liên kết dữ liệu.",
+        "note": "✅ Đúng. Tầng 2 (Data Link) là nơi Bridge/Switch hoạt động, đọc địa chỉ MAC."
+      },
+      "ネットワーク層": {
+        "reading": "ネットワークそう",
+        "meaning": "Tầng mạng.",
+        "note": "❌ Sai. Tầng 3 (Network) là của Router."
+      },
+      "アプリケーション層": {
+        "reading": "アプリケーションそう",
+        "meaning": "Tầng ứng dụng.",
+        "note": "❌ Sai. Tầng 7 (Application) là của Gateway."
+      }
+    }
+  },
+  {
+    "question": "ルータに関する説明として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "ルータに かんする せつめいとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là phù hợp nhất về Router?"
+    },
+    "options": [
+      "通信速度を制限することでネットワークを保護する",
+      "MACアドレスを確認して通信を管理する",
+      "電源制御を行ってネットワーク全体を管理する",
+      "IPアドレスをもとに異なるネットワーク間でデータを中継する"
+    ],
+    "answer": "IPアドレスをもとに異なるネットワーク間でデータを中継する",
+    "explanations": {
+      "通信速度を制限することでネットワークを保護する": {
+        "reading": "つうしん そくどを せいげん することで ネットワークを ほごする",
+        "meaning": "Bảo vệ mạng bằng cách giới hạn tốc độ truyền thông.",
+        "note": "❌ Sai. Đây là chức năng của QoS hoặc bộ định hình băng thông (Bandwidth Shaper)."
+      },
+      "MACアドレスを確認して通信を管理する": {
+        "reading": "MACアドレスを かくにん して つうしんを かんりする",
+        "meaning": "Quản lý truyền thông bằng cách xác nhận địa chỉ MAC.",
+        "note": "❌ Sai. Đây là chức năng của Bridge/Switch (Tầng 2)."
+      },
+      "電源制御を行ってネットワーク全体を管理する": {
+        "reading": "でんげん せいぎょを おこなって ネットワーク ぜんたいを かんりする",
+        "meaning": "Thực hiện kiểm soát nguồn điện và quản lý toàn bộ mạng.",
+        "note": "❌ Sai. Chức năng này không liên quan."
+      },
+      "IPアドレスをもとに異なるネットワーク間でデータを中継する": {
+        "reading": "IPアドレスを もとに ことなる ネットワークかんで データを ちゅうけいする",
+        "meaning": "Chuyển tiếp dữ liệu giữa các mạng khác nhau dựa trên địa chỉ IP.",
+        "note": "✅ Đúng. Đây là định nghĩa chính xác của Router (Tầng 3)."
+      }
+    }
+  },
+  {
+    "question": "ルータがOSI基本参照モデルのどの層で動作するか、正しいものはどれですか。",
+    "analysis": {
+      "reading": "ルータが OSI きほん さんしょう モデルの どの そうで どうさするか、 ただしい ものは どれですか。",
+      "meaning": "Router hoạt động ở tầng nào trong mô hình tham chiếu OSI?"
+    },
+    "options": [
+      "第2層のデータリンク層",
+      "第3層のネットワーク層",
+      "第5層のセッション層",
+      "第7層のアプリケーション層"
+    ],
+    "answer": "第3層のネットワーク層",
+    "explanations": {
+      "第2層のデータリンク層": {
+        "reading": "だい2そうの データリンクそう",
+        "meaning": "Tầng 2, Tầng liên kết dữ liệu.",
+        "note": "❌ Sai. Tầng 2 là của Bridge/Switch."
+      },
+      "第3層のネットワーク層": {
+        "reading": "だい3そうの ネットワークそう",
+        "meaning": "Tầng 3, Tầng mạng.",
+        "note": "✅ Đúng. Router đọc địa chỉ IP (logic) để định tuyến tại Tầng 3."
+      },
+      "第5層のセッション層": {
+        "reading": "だい5そうの セッションそう",
+        "meaning": "Tầng 5, Tầng phiên.",
+        "note": "❌ Sai. Tầng 5 là của Gateway."
+      },
+      "第7層のアプリケーション層": {
+        "reading": "だい7そうの アプリケーションそう",
+        "meaning": "Tầng 7, Tầng ứng dụng.",
+        "note": "❌ Sai. Tầng 7 là của Application Gateway."
+      }
+    }
+  },
+  {
+    "question": "MACアドレスについての説明として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "MACアドレスに ついての せつめいとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là phù hợp nhất về địa chỉ MAC?"
+    },
+    "options": [
+      "ベンダが製造時に割り当てる48ビットの物理アドレスである",
+      "ネットワークの構成ごとに動的に割り当てられるアドレスである",
+      "通信時に使用される論理アドレスであり、IPアドレスと同じ役割を持つ",
+      "通信ごとに自動的に再設定される一時的なアドレスである"
+    ],
+    "answer": "ベンダが製造時に割り当てる48ビットの物理アドレスである",
+    "explanations": {
+      "ベンダが製造時に割り当てる48ビットの物理アドレスである": {
+        "reading": "ベンダが せいぞうじに わりあてる 48ビットの ぶつりアドレスである",
+        "meaning": "Là địa chỉ vật lý 48-bit do nhà cung cấp (vendor) gán khi sản xuất.",
+        "note": "✅ Đúng. Đây là địa chỉ vật lý (physical) 48-bit, duy nhất, được nhà sản xuất gán."
+      },
+      "ネットワークの構成ごとに動的に割り当てられるアドレスである": {
+        "reading": "ネットワークの こうせいごとに どうてきに わりあてられる アドレスである",
+        "meaning": "Là địa chỉ được gán động tùy theo cấu hình mạng.",
+        "note": "❌ Sai. Đây là mô tả của địa chỉ IP động (được cấp bởi DHCP)."
+      },
+      "通信時に使用される論理アドレスであり、IPアドレスと同じ役割を持つ": {
+        "reading": "つうしんじに しようされる ろんりアドレスであり、IPアドレスと おなじ やくわりを もつ",
+        "meaning": "Là địa chỉ logic được sử dụng khi truyền thông, và có vai trò giống địa chỉ IP.",
+        "note": "❌ Sai. Đây là mô tả của địa chỉ IP (địa chỉ logic, Tầng 3). MAC là địa chỉ vật lý (Tầng 2)."
+      },
+      "通信ごとに自動的に再設定される一時的なアドレスである": {
+        "reading": "つうしんごとに じどうてきに さいせっていされる いちじてきな アドレスである",
+        "meaning": "Là địa chỉ tạm thời được tự động cài đặt lại sau mỗi lần truyền thông.",
+        "note": "❌ Sai. Địa chỉ MAC là cố định (trừ khi bị giả mạo)."
+      }
+    }
+  },
+  {
+    "question": "ARPの役割として正しいものはどれですか。",
+    "analysis": {
+      "reading": "ARPの やくわりとして ただしい ものは どれですか。",
+      "meaning": "Vai trò của ARP là gì?"
+    },
+    "options": [
+      "MACアドレスをIPアドレスに変換する",
+      "IPアドレスをDNSに変換する",
+      "IPアドレスをルーティングテーブルに追加する",
+      "IPアドレスをMACアドレスに変換する"
+    ],
+    "answer": "IPアドレスをMACアドレスに変換する",
+    "explanations": {
+      "MACアドレスをIPアドレスに変換する": {
+        "reading": "MACアドレスを IPアドレスに へんかんする",
+        "meaning": "Chuyển đổi địa chỉ MAC thành địa chỉ IP.",
+        "note": "❌ Sai. Đây là RARP (Reverse ARP)."
+      },
+      "IPアドレスをDNSに変換する": {
+        "reading": "IPアドレスを DNSに へんかんする",
+        "meaning": "Chuyển đổi địa chỉ IP thành DNS.",
+        "note": "❌ Sai. Đây là Reverse DNS (tra cứu ngược)."
+      },
+      "IPアドレスをルーティングテーブルに追加する": {
+        "reading": "IPアドレスを ルーティングテーブルに ついかする",
+        "meaning": "Thêm địa chỉ IP vào bảng định tuyến.",
+        "note": "❌ Sai. Đây là chức năng của một giao thức định tuyến (ví dụ: RIP, OSPF)."
+      },
+      "IPアドレスをMACアドレスに変換する": {
+        "reading": "IPアドレスを MACアドレスに へんかんする",
+        "meaning": "Chuyển đổi địa chỉ IP thành địa chỉ MAC.",
+        "note": "✅ Đúng. Address Resolution Protocol (ARP) dùng để tìm địa chỉ MAC (Tầng 2) từ một địa chỉ IP (Tầng 3) đã biết."
+      }
+    }
+  },
+  {
+    "question": "TCP/IPに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "TCP/IPに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về TCP/IP?"
+    },
+    "options": [
+      "TCP/IPはLAN専用に開発された古い通信プロトコルである",
+      "TCP/IPは単一の通信手順で構成された単純なプロトコルである",
+      "TCP/IPは複数のプロトコルで構成され、OSI参照モデルに対応している",
+      "TCP/IPは物理層からアプリケーション層のすべてを省略している"
+    ],
+    "answer": "TCP/IPは複数のプロトコルで構成され、OSI参照モデルに対応している",
+    "explanations": {
+      "TCP/IPはLAN専用に開発された古い通信プロトコルである": {
+        "reading": "TCP/IPは LAN せんように かいはつされた ふるい つうしん プロトコルである",
+        "meaning": "TCP/IP là một giao thức truyền thông cũ được phát triển riêng cho LAN.",
+        "note": "❌ Sai. TCP/IP là tiêu chuẩn thực tế (de facto standard) cho cả LAN, WAN và Internet, không phải là 'cũ'."
+      },
+      "TCP/IPは単一の通信手順で構成された単純なプロトコルである": {
+        "reading": "TCP/IPは たんいつの つうしん てじゅんで こうせいされた たんじゅんな プロトコルである",
+        "meaning": "TCP/IP là một giao thức đơn giản bao gồm một quy trình truyền thông duy nhất.",
+        "note": "❌ Sai. TCP/IP là một *bộ* (suite) giao thức, bao gồm nhiều giao thức như TCP, UDP, IP, HTTP, v.v."
+      },
+      "TCP/IPは複数のプロトコルで構成され、OSI参照モデルに対応している": {
+        "reading": "TCP/IPは ふくすうの プロトコルで こうせいされ、OSI さんしょう モデルに たいおうしている",
+        "meaning": "TCP/IP bao gồm nhiều giao thức, và tương ứng với mô hình tham chiếu OSI.",
+        "note": "✅ Đúng. TCP/IP là một bộ giao thức. 4 tầng của nó (Network Interface, Internet, Transport, Application) tương ứng với 7 tầng của OSI."
+      },
+      "TCP/IPは物理層からアプリケーション層のすべてを省略している": {
+        "reading": "TCP/IPは ぶつりそうから アプリケーションそうの すべてを しょうりゃくしている",
+        "meaning": "TCP/IP lược bỏ tất cả mọi thứ từ tầng vật lý đến tầng ứng dụng.",
+        "note": "❌ Sai. Nó không lược bỏ, mà nó *bao gồm* các chức năng tương ứng, chỉ là gom chúng lại (ví dụ: Tầng 1-2 của OSI -> Tầng 1 của TCP/IP)."
+      }
+    }
+  },
+  {
+    "question": "TCPとUDPの違いに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "TCPと UDPの ちがいに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về sự khác biệt giữa TCP và UDP?"
+    },
+    "options": [
+      "TCPは即時性を重視し、UDPは信頼性を重視する",
+      "UDPはチェック機能があり、通信の信頼性を保証する",
+      "TCPは信頼性を重視し、UDPは即時性を重視する",
+      "TCPは主に映像配信に用いられ、UDPは電子メールに使われる"
+    ],
+    "answer": "TCPは信頼性を重視し、UDPは即時性を重視する",
+    "explanations": {
+      "TCPは即時性を重視し、UDPは信頼性を重視する": {
+        "reading": "TCPは そくじせいを じゅうしし、UDPは しんらいせいを じゅうしする",
+        "meaning": "TCP chú trọng tính tức thời, UDP chú trọng tính tin cậy.",
+        "note": "❌ Sai. Ngược lại. TCP (tin cậy) chậm hơn, UDP (tức thời) nhanh hơn."
+      },
+      "UDPはチェック機能があり、通信の信頼性を保証する": {
+        "reading": "UDPは チェック きのうが あり、つうしんの しんらいせいを ほしょうする",
+        "meaning": "UDP có chức năng kiểm tra và đảm bảo độ tin cậy của truyền thông.",
+        "note": "❌ Sai. UDP *không* đảm bảo độ tin cậy (không có 3-way handshake, không có gửi lại)."
+      },
+      "TCPは信頼性を重視し、UDPは即時性を重視する": {
+        "reading": "TCPは しんらいせいを じゅうしし、UDPは そくじせいを じゅうしする",
+        "meaning": "TCP chú trọng tính tin cậy, UDP chú trọng tính tức thời.",
+        "note": "✅ Đúng. TCP đảm bảo dữ liệu đến đúng thứ tự (ví dụ: Email, Web). UDP gửi nhanh nhất có thể, chấp nhận mất gói (ví dụ: Game, Gọi video)."
+      },
+      "TCPは主に映像配信に用いられ、UDPは電子メールに使われる": {
+        "reading": "TCPは おもに えいぞう はいしんに もちいられ、UDPは でんしメールに つかわれる",
+        "meaning": "TCP chủ yếu dùng để truyền phát video, UDP dùng cho email.",
+        "note": "❌ Sai. Ngược lại. Email (cần tin cậy) dùng TCP. Video (cần tức thời) dùng UDP."
+      }
+    }
+  },
+  {
+    "question": "次のうち、Webページの送受信に使われるプロトコルはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、Webページの そうじゅしんに つかわれる プロトコルは どれですか。",
+      "meaning": "Giao thức nào sau đây được sử dụng để gửi và nhận các trang Web?"
+    },
+    "options": [
+      "SMTP",
+      "HTTP",
+      "SNMP",
+      "TELNET"
+    ],
+    "answer": "HTTP",
+    "explanations": {
+      "SMTP": {
+        "reading": "エスエムティーピー",
+        "meaning": "SMTP (Simple Mail Transfer Protocol)",
+        "note": "❌ Sai. Dùng để *gửi* email."
+      },
+      "HTTP": {
+        "reading": "エイチティーティーピー",
+        "meaning": "HTTP (HyperText Transfer Protocol)",
+        "note": "✅ Đúng. Dùng để truyền tải nội dung các trang web."
+      },
+      "SNMP": {
+        "reading": "エスエヌエムピー",
+        "meaning": "SNMP (Simple Network Management Protocol)",
+        "note": "❌ Sai. Dùng để quản lý các thiết bị mạng."
+      },
+      "TELNET": {
+        "reading": "テルネット",
+        "meaning": "TELNET",
+        "note": "❌ Sai. Dùng để đăng nhập và điều khiển máy tính từ xa (không mã hóa)."
+      }
+    }
+  },
+  {
+    "question": "電子メールの送信に使用されるプロトコルはどれですか。",
+    "analysis": {
+      "reading": "でんしメールの そうしんに しようされる プロトコルは どれですか。",
+      "meaning": "Giao thức nào được sử dụng để *gửi* thư điện tử?"
+    },
+    "options": [
+      "POP3",
+      "FTP",
+      "SMTP",
+      "NTP"
+    ],
+    "answer": "SMTP",
+    "explanations": {
+      "POP3": {
+        "reading": "ポップスリー",
+        "meaning": "POP3 (Post Office Protocol 3)",
+        "note": "❌ Sai. Dùng để *nhận* email từ máy chủ về máy khách."
+      },
+      "FTP": {
+        "reading": "エフティーピー",
+        "meaning": "FTP (File Transfer Protocol)",
+        "note": "❌ Sai. Dùng để truyền file."
+      },
+      "SMTP": {
+        "reading": "エスエムティーピー",
+        "meaning": "SMTP (Simple Mail Transfer Protocol)",
+        "note": "✅ Đúng. SMTP được sử dụng để *gửi* email (từ máy khách lên máy chủ, hoặc giữa các máy chủ)."
+      },
+      "NTP": {
+        "reading": "エヌティーピー",
+        "meaning": "NTP (Network Time Protocol)",
+        "note": "❌ Sai. Dùng để đồng bộ hóa thời gian."
+      }
+    }
+  },
+  {
+    "question": "POP3の役割として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "POP3の やくわりとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Vai trò nào sau đây là phù hợp nhất của POP3?"
+    },
+    "options": [
+      "ネットワーク上の機器を管理する",
+      "複数のコンピュータの時刻を同期する",
+      "メールサーバ間でメールを転送する",
+      "メールサーバからユーザのメールを受信する"
+    ],
+    "answer": "メールサーバからユーザのメールを受信する",
+    "explanations": {
+      "ネットワーク上の機器を管理する": {
+        "reading": "ネットワークじょうの ききを かんりする",
+        "meaning": "Quản lý các thiết bị trên mạng.",
+        "note": "❌ Sai. Đây là vai trò của SNMP."
+      },
+      "複数のコンピュータの時刻を同期する": {
+        "reading": "ふくすうの コンピュータの じこくを どうきする",
+        "meaning": "Đồng bộ hóa thời gian của nhiều máy tính.",
+        "note": "❌ Sai. Đây là vai trò của NTP."
+      },
+      "メールサーバ間でメールを転送する": {
+        "reading": "メールサーバかんで メールを てんそうする",
+        "meaning": "Chuyển tiếp email giữa các máy chủ email.",
+        "note": "❌ Sai. Đây là vai trò của SMTP."
+      },
+      "メールサーバからユーザのメールを受信する": {
+        "reading": "メールサーバから ユーザの メールを じゅしんする",
+        "meaning": "Nhận email của người dùng từ máy chủ email.",
+        "note": "✅ Đúng. POP3 (hoặc IMAP) được máy khách (client) sử dụng để *tải* (nhận) email về."
+      }
+    }
+  },
+  {
+    "question": "NTPの目的として正しいものはどれですか。",
+    "analysis": {
+      "reading": "NTPの もくてきとして ただしい ものは どれですか。",
+      "meaning": "Mục đích của NTP là gì?"
+    },
+    "options": [
+      "ネットワーク内のコンピュータの時刻を同期する",
+      "メールを送信者サーバで認証する",
+      "音声や画像をメールに添付する",
+      "リモートログインを実現する"
+    ],
+    "answer": "ネットワーク内のコンピュータの時刻を同期する",
+    "explanations": {
+      "ネットワーク内のコンピュータの時刻を同期する": {
+        "reading": "ネットワークないの コンピュータの じこくを どうきする",
+        "meaning": "Đồng bộ hóa thời gian của các máy tính trong mạng.",
+        "note": "✅ Đúng. NTP (Network Time Protocol) được dùng để đồng bộ đồng hồ."
+      },
+      "メールを送信者サーバで認証する": {
+        "reading": "メールを そうしんしゃ サーバで にんしょうする",
+        "meaning": "Xác thực người gửi tại máy chủ khi gửi email.",
+        "note": "❌ Sai. Đây là SMTP-AUTH."
+      },
+      "音声や画像をメールに添付する": {
+        "reading": "おんせいや がぞうを メールに てんぷする",
+        "meaning": "Đính kèm âm thanh hoặc hình ảnh vào email.",
+        "note": "❌ Sai. Đây là MIME."
+      },
+      "リモートログインを実現する": {
+        "reading": "リモートログインを じつげんする",
+        "meaning": "Thực hiện đăng nhập từ xa.",
+        "note": "❌ Sai. Đây là TELNET hoặc SSH."
+      }
+    }
+  },
+  {
+    "question": "SMTP-AUTHに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "SMTP-AUTHに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về SMTP-AUTH?"
+    },
+    "options": [
+      "メールに音声や画像を添付する拡張規格である",
+      "電子メールの暗号化と署名を行う仕組みである",
+      "メール送信時に送信者をサーバで認証する仕組みである",
+      "通信の即時性を確保するためのプロトコルである"
+    ],
+    "answer": "メール送信時に送信者をサーバで認証する仕組みである",
+    "explanations": {
+      "メールに音声や画像を添付する拡張規格である": {
+        "reading": "メールに おんせいや がぞうを てんぷする かくちょう きかくである",
+        "meaning": "Là tiêu chuẩn mở rộng để đính kèm âm thanh hoặc hình ảnh vào email.",
+        "note": "❌ Sai. Đây là MIME."
+      },
+      "電子メールの暗号化と署名を行う仕組みである": {
+        "reading": "でんしメールの あんごうかと しょめいを おこなう しくみである",
+        "meaning": "Là cơ chế thực hiện mã hóa và ký tên thư điện tử.",
+        "note": "❌ Sai. Đây là S/MIME."
+      },
+      "メール送信時に送信者をサーバで認証する仕組みである": {
+        "reading": "メール そうしんじに そうしんしゃを サーバで にんしょうする しくみである",
+        "meaning": "Là cơ chế xác thực người gửi tại máy chủ khi gửi email.",
+        "note": "✅ Đúng. SMTP-AUTH (Authentication) thêm một lớp xác thực (username/password) vào SMTP."
+      },
+      "通信の即時性を確保するためのプロトコルである": {
+        "reading": "つうしんの そくじせいを かくほ するための プロトコルである",
+        "meaning": "Là giao thức để đảm bảo tính tức thời của truyền thông.",
+        "note": "❌ Sai. Đây là đặc điểm của UDP hoặc RTP (Real-time Transport Protocol)."
+      }
+    }
+  },
+  {
+    "question": "MIMEに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "MIMEに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về MIME?"
+    },
+    "options": [
+      "電子メールに音声や画像なども含めて送れるようにする規格である",
+      "電子メールを送るための基本的なルールである",
+      "メール本文中に使われる文字コード変換手順である",
+      "メールサーバ間で時刻を同期するための規格である"
+    ],
+    "answer": "電子メールに音声や画像なども含めて送れるようにする規格である",
+    "explanations": {
+      "電子メールに音声や画像なども含めて送れるようにする規格である": {
+        "reading": "でんしメールに おんせいや がぞうなども ふくめて おくれる ようにする きかくである",
+        "meaning": "Là tiêu chuẩn cho phép gửi email bao gồm cả âm thanh và hình ảnh.",
+        "note": "✅ Đúng. MIME (Multipurpose Internet Mail Extensions) mở rộng email để hỗ trợ nhiều định dạng (tệp đính kèm, ký tự phi-ASCII)."
+      },
+      "電子メールを送るための基本的なルールである": {
+        "reading": "でんしメールを おくるための きほんてきな ルールである",
+        "meaning": "Là quy tắc cơ bản để gửi thư điện tử.",
+        "note": "❌ Sai. Đây là mô tả của SMTP."
+      },
+      "メール本文中に使われる文字コード変換手順である": {
+        "reading": "メール ほんぶんちゅうに つかわれる もじコード へんかん てじゅんである",
+        "meaning": "Là quy trình chuyển đổi mã ký tự được sử dụng trong nội dung email.",
+        "note": "❌ Sai. MIME xử lý việc *chỉ định* mã ký tự, nhưng bản thân nó không phải là *quy trình chuyển đổi* (như Base64)."
+      },
+      "メールサーバ間で時刻を同期するための規格である": {
+        "reading": "メールサーバかんで じこくを どうき するための きかくである",
+        "meaning": "Là tiêu chuẩn để đồng bộ hóa thời gian giữa các máy chủ email.",
+        "note": "❌ Sai. Đây là NTP."
+      }
+    }
+  },
+  {
+    "question": "LANはどのようなネットワークを指す言葉ですか。",
+    "analysis": {
+      "reading": "LANは どのような ネットワークを さす ことばですか。",
+      "meaning": "LAN là từ dùng để chỉ loại mạng nào?"
+    },
+    "options": [
+      "国全体をつなぐ大規模ネットワーク",
+      "複数の国をまたいで接続されたネットワーク",
+      "同じ建物内などの狭い範囲で構成される小規模ネットワーク",
+      "衛星通信を使ったネットワーク"
+    ],
+    "answer": "同じ建物内などの狭い範囲で構成される小規模ネットワーク",
+    "explanations": {
+      "国全体をつなぐ大規模ネットワーク": {
+        "reading": "くに ぜんたいを つなぐ だいきぼ ネットワーク",
+        "meaning": "Mạng quy mô lớn kết nối toàn bộ đất nước.",
+        "note": "❌ Sai. Đây là mô tả của WAN (Wide Area Network)."
+      },
+      "複数の国をまたいで接続されたネットワーク": {
+        "reading": "ふくすうの くにを またいで せつぞくされた ネットワーク",
+        "meaning": "Mạng được kết nối xuyên qua nhiều quốc gia.",
+        "note": "❌ Sai. Đây là mô tả của WAN hoặc Internet."
+      },
+      "同じ建物内などの狭い範囲で構成される小規模ネットワーク": {
+        "reading": "おなじ たてものないなどの せまい はんいで こうせいされる しょうきぼ ネットワーク",
+        "meaning": "Mạng quy mô nhỏ được cấu thành trong phạm vi hẹp như trong cùng một tòa nhà.",
+        "note": "✅ Đúng. LAN (Local Area Network) là mạng cục bộ, trong phạm vi hẹp."
+      },
+      "衛星通信を使ったネットワーク": {
+        "reading": "えいせい つうしんを つかった ネットワーク",
+        "meaning": "Mạng sử dụng truyền thông vệ tinh.",
+        "note": "❌ Sai. Mạng vệ tinh là một loại hình của WAN, không phải LAN."
+      }
+    }
+  },
+  {
+    "question": "LANに接続されたコンピュータができることとして最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "LANに せつぞくされた コンピュータが できる こととして もっとも てきせつな ものは どれですか。",
+      "meaning": "Điều nào sau đây là phù hợp nhất về việc mà máy tính kết nối LAN có thể làm?"
+    },
+    "options": [
+      "遠くの国のサーバと直接通信を行うことができる",
+      "ネットワーク経由でデータのやり取りや機器の共有を行う",
+      "すべての通信をインターネットを使って処理することができる",
+      "他の機器を使わず自分だけで処理をすべて完結させることができる"
+    ],
+    "answer": "ネットワーク経由でデータのやり取りや機器の共有を行う",
+    "explanations": {
+      "遠くの国のサーバと直接通信を行うことができる": {
+        "reading": "とおくの くにの サーバと ちょくせつ つうしんを おこなう ことが できる",
+        "meaning": "Có thể giao tiếp trực tiếp với máy chủ ở quốc gia xa xôi.",
+        "note": "❌ Sai. Việc này cần có Internet và Router, không phải là chức năng cơ bản của *chỉ* LAN."
+      },
+      "ネットワーク経由でデータのやり取りや機器の共有を行う": {
+        "reading": "ネットワーク けいゆで データの やりとりや ききの きょうゆうを おこなう",
+        "meaning": "Thực hiện trao đổi dữ liệu và chia sẻ thiết bị qua mạng.",
+        "note": "✅ Đúng. Đây là mục đích chính của LAN: chia sẻ tài nguyên (như file, máy in) trong một khu vực cục bộ."
+      },
+      "すべての通信をインターネットを使って処理することができる": {
+        "reading": "すべての つうしんを インターネットを つかって しょり する ことが できる",
+        "meaning": "Có thể xử lý tất cả truyền thông bằng cách sử dụng Internet.",
+        "note": "❌ Sai. LAN có thể hoạt động mà không cần Internet (ví dụ: chia sẻ file nội bộ)."
+      },
+      "他の機器を使わず自分だけで処理をすべて完結させることができる": {
+        "reading": "ほかの ききを つかわず じぶんだけで しょりを すべて かんけつ させる ことが できる",
+        "meaning": "Có thể tự mình hoàn thành tất cả xử lý mà không cần dùng thiết bị khác.",
+        "note": "❌ Sai. Đây là mô tả của một máy tính độc lập (standalone), không phải máy tính kết nối mạng."
+      }
+    }
+  },
+  {
+    "question": "アクセス制御方式の目的として正しいものはどれですか。",
+    "analysis": {
+      "reading": "アクセス せいぎょ ほうしきの もくてきとして ただしい ものは どれですか。",
+      "meaning": "Mục đích của phương thức kiểm soát truy cập (access control) là gì?"
+    },
+    "options": [
+      "通信速度を最大限に上げるため",
+      "ネットワークの接続台数を制限するため",
+      "外部からの攻撃を防止するため",
+      "データ送信の衝突を防ぎ、正しく通信を行うため"
+    ],
+    "answer": "データ送信の衝突を防ぎ、正しく通信を行うため",
+    "explanations": {
+      "通信速度を最大限に上げるため": {
+        "reading": "つうしん そくどを さいだいげんに あげる ため",
+        "meaning": "Để tăng tốc độ truyền thông lên tối đa.",
+        "note": "❌ Sai. Kiểm soát truy cập (như CSMA/CD) thực tế có thể làm *giảm* tốc độ hiệu dụng (throughput) do phải xử lý xung đột."
+      },
+      "ネットワークの接続台数を制限するため": {
+        "reading": "ネットワークの せつぞくだいすうを せいげん する ため",
+        "meaning": "Để giới hạn số lượng thiết bị kết nối mạng.",
+        "note": "❌ Sai. Đây là chức năng của quản lý mạng (network administration), không phải của giao thức kiểm soát truy cập."
+      },
+      "外部からの攻撃を防止するため": {
+        "reading": "がいぶからの こうげきを ぼうし する ため",
+        "meaning": "Để phòng chống tấn công từ bên ngoài.",
+        "note": "❌ Sai. Đây là mục đích của tường lửa (Firewall) hoặc IDS/IPS."
+      },
+      "データ送信の衝突を防ぎ、正しく通信を行うため": {
+        "reading": "データ そうしんの しょうとつを ふせぎ、ただしく つうしんを おこなう ため",
+        "meaning": "Để ngăn chặn xung đột (collision) khi gửi dữ liệu và thực hiện truyền thông một cách chính xác.",
+        "note": "✅ Đúng. Phương thức kiểm soát truy cập (Access Control) như CSMA/CD hay Token Ring được thiết kế để quyết định 'ai được phép gửi dữ liệu' và 'khi nào', nhằm tránh xung đột trên đường truyền."
+      }
+    }
+  },
+  {
+    "question": "CSMA/CD方式では、データの衝突が起きた場合にどうしますか。",
+    "analysis": {
+      "reading": "CSMA/CD ほうしきでは、データの しょうとつが おきた ばあいに どうしますか。",
+      "meaning": "Trong phương thức CSMA/CD, khi xảy ra xung đột dữ liệu, nó sẽ làm gì?"
+    },
+    "options": [
+      "即座に送信を再試行する",
+      "通信を中止する",
+      "しばらく待ってから再送する",
+      "他の端末の送信を妨害する"
+    ],
+    "answer": "しばらく待ってから再送する",
+    "explanations": {
+      "即座に送信を再試行する": {
+        "reading": "そくざに そうしんを さいしこう する",
+        "meaning": "Thử gửi lại (re-try) ngay lập tức.",
+        "note": "❌ Sai. Nếu gửi lại ngay lập tức, xung đột sẽ lại xảy ra. Cần phải chờ."
+      },
+      "通信を中止する": {
+        "reading": "つうしんを ちゅうし する",
+        "meaning": "Hủy bỏ việc truyền thông.",
+        "note": "❌ Sai. Dữ liệu vẫn cần được gửi đi, không thể hủy bỏ."
+      },
+      "しばらく待ってから再送する": {
+        "reading": "しばらく まってから さいそう する",
+        "meaning": "Chờ một lát rồi gửi lại (re-send).",
+        "note": "✅ Đúng. CSMA/CD sẽ phát tín hiệu jam, sau đó mỗi thiết bị sẽ chờ một khoảng thời gian *ngẫu nhiên* (backoff) trước khi thử gửi lại."
+      },
+      "他の端末の送信を妨害する": {
+        "reading": "ほかの たんまつの そうしんを ぼうがい する",
+        "meaning": "Cản trở việc gửi của thiết bị khác.",
+        "note": "❌ Sai. Đây không phải là một hành vi được thiết kế trong giao thức."
+      }
+    }
+  },
+  {
+    "question": "グローバルIPアドレスに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "グローバルIPアドレスに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về địa chỉ Global IP?"
+    },
+    "options": [
+      "社内ネットワーク内だけで使用されるIPアドレスである",
+      "インターネットに直接接続される機器に割り振られるIPアドレスである",
+      "各家庭で自由に設定できるIPアドレスである",
+      "LAN内の機器にのみ割り振られるアドレスである"
+    ],
+    "answer": "インターネットに直接接続される機器に割り振られるIPアドレスである",
+    "explanations": {
+      "社内ネットワーク内だけで使用されるIPアドレスである": {
+        "reading": "しゃない ネットワークない だけで しようされる IPアドレスである",
+        "meaning": "Là địa chỉ IP chỉ được sử dụng trong mạng nội bộ công ty.",
+        "note": "❌ Sai. Đây là định nghĩa của địa chỉ Private IP."
+      },
+      "インターネットに直接接続される機器に割り振られるIPアドレスである": {
+        "reading": "インターネットに ちょくせつ せつぞくされる ききに わりふられる IPアドレスである",
+        "meaning": "Là địa chỉ IP được gán cho các thiết bị kết nối trực tiếp với Internet.",
+        "note": "✅ Đúng. Global IP là địa chỉ duy nhất trên toàn thế giới, cần thiết để truy cập Internet."
+      },
+      "各家庭で自由に設定できるIPアドレスである": {
+        "reading": "かくかていで じゆうに せっていできる IPアドレスである",
+        "meaning": "Là địa chỉ IP có thể tự do cài đặt tại mỗi gia đình.",
+        "note": "❌ Sai. Global IP được cấp phát bởi nhà cung cấp dịch vụ (ISP), người dùng không thể tự chọn bừa bãi."
+      },
+      "LAN内の機器にのみ割り振られるアドレスである": {
+        "reading": "LANないの ききにのみ わりふられる アドレスである",
+        "meaning": "Là địa chỉ chỉ được gán cho các thiết bị trong mạng LAN.",
+        "note": "❌ Sai. Đây là địa chỉ Private IP."
+      }
+    }
+  },
+  {
+    "question": "次のうち、プライベートIPアドレスの範囲に該当するものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、プライベートIPアドレスの はんいに がいとうする ものは どれですか。",
+      "meaning": "Trong số sau, cái nào thuộc phạm vi của địa chỉ Private IP?"
+    },
+    "options": [
+      "8.8.8.8",
+      "172.31.255.255",
+      "202.216.0.1",
+      "127.0.0.1"
+    ],
+    "answer": "172.31.255.255",
+    "explanations": {
+      "8.8.8.8": {
+        "reading": "ハチ ハチ ハチ ハチ",
+        "meaning": "8.8.8.8",
+        "note": "❌ Sai. Đây là địa chỉ Global IP (DNS công cộng của Google)."
+      },
+      "172.31.255.255": {
+        "reading": "172.31.255.255",
+        "meaning": "172.31.255.255",
+        "note": "✅ Đúng. Dải Private IP lớp B là từ 172.16.0.0 đến 172.31.255.255."
+      },
+      "202.216.0.1": {
+        "reading": "202.216.0.1",
+        "meaning": "202.216.0.1",
+        "note": "❌ Sai. Đây là địa chỉ Global IP (Lớp C)."
+      },
+      "127.0.0.1": {
+        "reading": "127.0.0.1",
+        "meaning": "127.0.0.1",
+        "note": "❌ Sai. Đây là địa chỉ Loopback (localhost), không phải Private IP dùng cho LAN."
+      }
+    }
+  },
+  {
+    "question": "ループバックアドレスに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "ループバックアドレスに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về địa chỉ Loopback?"
+    },
+    "options": [
+      "自宅用のインターネット契約で割り当てられるアドレスである",
+      "自分自身を指す特殊なIPアドレスであり通信テストなどに使われる",
+      "通常のグローバルIPアドレスとして利用されている",
+      "DHCPによって割り当てられる自動アドレスである"
+    ],
+    "answer": "自分自身を指す特殊なIPアドレスであり通信テストなどに使われる",
+    "explanations": {
+      "自宅用のインターネット契約で割り当てられるアドレスである": {
+        "reading": "じたくようの インターネット けいやくで わりあてられる アドレスである",
+        "meaning": "Là địa chỉ được cấp khi ký hợp đồng Internet gia đình.",
+        "note": "❌ Sai. Đó là Global IP."
+      },
+      "自分自身を指す特殊なIPアドレスであり通信テストなどに使われる": {
+        "reading": "じぶんじしんを さす とくしゅな IPアドレスであり つうしん テストなどに つかわれる",
+        "meaning": "Là địa chỉ IP đặc biệt chỉ chính bản thân máy tính đó, dùng để kiểm tra truyền thông.",
+        "note": "✅ Đúng. 127.0.0.1 (localhost) dùng để máy tính tự giao tiếp với chính nó."
+      },
+      "通常のグローバルIPアドレスとして利用されている": {
+        "reading": "つうじょうの グローバルIPアドレスとして りようされている",
+        "meaning": "Được sử dụng như một địa chỉ Global IP thông thường.",
+        "note": "❌ Sai. Địa chỉ này không thể đi ra Internet."
+      },
+      "DHCPによって割り当てられる自動アドレスである": {
+        "reading": "DHCPによって わりあてられる じどう アドレスである",
+        "meaning": "Là địa chỉ tự động được cấp bởi DHCP.",
+        "note": "❌ Sai. Loopback được quy định cứng trong hệ điều hành."
+      }
+    }
+  },
+  {
+    "question": "NATの役割として正しいものはどれですか。",
+    "analysis": {
+      "reading": "NATの やくわりとして ただしい ものは どれですか。",
+      "meaning": "Vai trò nào sau đây là đúng của NAT?"
+    },
+    "options": [
+      "複数のグローバルIPアドレスを1つのプライベートIPアドレスに変換する",
+      "プライベートIPアドレスとグローバルIPアドレスを1対1で変換する",
+      "通信機器のMACアドレスをIPアドレスに対応させて変換処理を行う",
+      "数値であるIPアドレスを人間が読みやすいホスト名に変換する処理を行う"
+    ],
+    "answer": "プライベートIPアドレスとグローバルIPアドレスを1対1で変換する",
+    "explanations": {
+      "複数のグローバルIPアドレスを1つのプライベートIPアドレスに変換する": {
+        "reading": "ふくすうの グローバルIPアドレスを 1つの プライベートIPアドレスに へんかんする",
+        "meaning": "Chuyển đổi nhiều Global IP thành 1 Private IP.",
+        "note": "❌ Sai. Ngược đời."
+      },
+      "プライベートIPアドレスとグローバルIPアドレスを1対1で変換する": {
+        "reading": "プライベートIPアドレスと グローバルIPアドレスを 1たい1で へんかんする",
+        "meaning": "Chuyển đổi địa chỉ Private IP và Global IP theo tỷ lệ 1:1.",
+        "note": "✅ Đúng. NAT (Network Address Translation) cơ bản là chuyển đổi 1-1."
+      },
+      "通信機器のMACアドレスをIPアドレスに対応させて変換処理を行う": {
+        "reading": "つうしん ききの MACアドレスを IPアドレスに たいおうさせて へんかん しょりを おこなう",
+        "meaning": "Xử lý chuyển đổi tương ứng giữa MAC và IP.",
+        "note": "❌ Sai. Đây là RARP."
+      },
+      "数値であるIPアドレスを人間が読みやすいホスト名に変換する処理を行う": {
+        "reading": "すうちである IPアドレスを にんげんが よみやすい ホストめいに へんかんする しょりを おこなう",
+        "meaning": "Xử lý chuyển đổi IP dạng số thành tên host dễ đọc cho con người.",
+        "note": "❌ Sai. Đây là DNS."
+      }
+    }
+  },
+  {
+    "question": "NAPT（IPマスカレード）の特徴として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "NAPT（IPマスカレード）の とくちょうとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Đặc trưng nào phù hợp nhất của NAPT (IP Masquerade)?"
+    },
+    "options": [
+      "IPアドレスを使用せず、名前だけで通信を行う技術である",
+      "1つのプライベートIPアドレスを複数のグローバルIPアドレスに変換する",
+      "複数のプライベートIPアドレスを1つのグローバルIPアドレスにまとめて変換する",
+      "通信内容を暗号化するための仕組みである"
+    ],
+    "answer": "複数のプライベートIPアドレスを1つのグローバルIPアドレスにまとめて変換する",
+    "explanations": {
+      "IPアドレスを使用せず、名前だけで通信を行う技術である": {
+        "reading": "IPアドレスを しようせず、なまえだけで つうしんを おこなう ぎじゅつである",
+        "meaning": "Kỹ thuật giao tiếp chỉ bằng tên mà không dùng IP.",
+        "note": "❌ Sai."
+      },
+      "1つのプライベートIPアドレスを複数のグローバルIPアドレスに変換する": {
+        "reading": "1つの プライベートIPアドレスを ふくすうの グローバルIPアドレスに へんかんする",
+        "meaning": "Chuyển 1 Private IP thành nhiều Global IP.",
+        "note": "❌ Sai. Lãng phí Global IP."
+      },
+      "複数のプライベートIPアドレスを1つのグローバルIPアドレスにまとめて変換する": {
+        "reading": "ふくすうの プライベートIPアドレスを 1つの グローバルIPアドレスに まとめて へんかんする",
+        "meaning": "Gộp và chuyển đổi nhiều Private IP thành 1 Global IP duy nhất.",
+        "note": "✅ Đúng. NAPT (Network Address Port Translation) dùng thêm số cổng (Port) để cho phép nhiều máy trong LAN cùng ra mạng bằng 1 IP công cộng."
+      },
+      "通信内容を暗号化するための仕組みである": {
+        "reading": "つうしん ないようを あんごうか するための しくみである",
+        "meaning": "Cơ chế để mã hóa nội dung truyền thông.",
+        "note": "❌ Sai. Đây là VPN hoặc SSL."
+      }
+    }
+  },
+  {
+    "question": "DHCPの役割として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "DHCPの やくわりとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Vai trò nào phù hợp nhất của DHCP?"
+    },
+    "options": [
+      "コンピュータに自動的にIPアドレスを割り当てる",
+      "グローバルIPアドレスをプライベートIPに変換する",
+      "ホスト名をMACアドレスに変換する",
+      "通信の暗号化と復号を行う"
+    ],
+    "answer": "コンピュータに自動的にIPアドレスを割り当てる",
+    "explanations": {
+      "コンピュータに自動的にIPアドレスを割り当てる": {
+        "reading": "コンピュータに じどうてきに IPアドレスを わりあてる",
+        "meaning": "Tự động gán địa chỉ IP cho máy tính.",
+        "note": "✅ Đúng. DHCP (Dynamic Host Configuration Protocol) giúp người dùng không cần cài đặt IP thủ công."
+      },
+      "グローバルIPアドレスをプライベートIPに変換する": {
+        "reading": "グローバルIPアドレスを プライベートIPに へんかんする",
+        "meaning": "Chuyển đổi Global IP sang Private IP.",
+        "note": "❌ Sai. Đây là NAT/NAPT."
+      },
+      "ホスト名をMACアドレスに変換する": {
+        "reading": "ホストめいを MACアドレスに へんかんする",
+        "meaning": "Chuyển đổi tên host sang địa chỉ MAC.",
+        "note": "❌ Sai. Không có giao thức nào làm việc này trực tiếp."
+      },
+      "通信の暗号化と復号を行う": {
+        "reading": "つうしんの あんごうかと ふくごうを おこなう",
+        "meaning": "Thực hiện mã hóa và giải mã truyền thông.",
+        "note": "❌ Sai."
+      }
+    }
+  },
+  {
+    "question": "DHCPの利用による利点として正しいものはどれですか。",
+    "analysis": {
+      "reading": "DHCPの りように よる りてんとして ただしい ものは どれですか。",
+      "meaning": "Lợi ích của việc sử dụng DHCP là gì?"
+    },
+    "options": [
+      "ネットワーク上の通信をすべてログに記録できる",
+      "インターネット接続が不要になる",
+      "IPアドレスを自動的に管理できるため設定が簡単になる",
+      "IPアドレスを固定することでネットワークが高速化する"
+    ],
+    "answer": "IPアドレスを自動的に管理できるため設定が簡単になる",
+    "explanations": {
+      "ネットワーク上の通信をすべてログに記録できる": {
+        "reading": "ネットワークじょうの つうしんを すべて ログに きろくできる",
+        "meaning": "Có thể ghi log tất cả truyền thông trên mạng.",
+        "note": "❌ Sai. Đây là chức năng giám sát mạng."
+      },
+      "インターネット接続が不要になる": {
+        "reading": "インターネット せつぞくが ふように なる",
+        "meaning": "Không cần kết nối Internet nữa.",
+        "note": "❌ Sai."
+      },
+      "IPアドレスを自動的に管理できるため設定が簡単になる": {
+        "reading": "IPアドレスを じどうてきに かんり できるため せっていが かんたんに なる",
+        "meaning": "Có thể quản lý IP tự động nên việc cài đặt trở nên đơn giản.",
+        "note": "✅ Đúng. Tránh trùng lặp IP và người dùng không cần kiến thức mạng vẫn kết nối được."
+      },
+      "IPアドレスを固定することでネットワークが高速化する": {
+        "reading": "IPアドレスを こてい することで ネットワークが こうそくか する",
+        "meaning": "Làm mạng nhanh hơn bằng cách cố định IP.",
+        "note": "❌ Sai. DHCP thường cấp IP động, và IP cố định hay động không ảnh hưởng đáng kể đến tốc độ."
+      }
+    }
+  },
+  {
+    "question": "IPv6の特徴として正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPv6の とくちょうとして ただしい ものは どれですか。",
+      "meaning": "Đặc trưng nào sau đây là đúng về IPv6?"
+    },
+    "options": [
+      "IPv6ではIPアドレスは32ビットで構成されている",
+      "IPv6のアドレス表記は英文字だけで構成されている",
+      "IPv6はIPv4よりもアドレス数が少ない",
+      "IPv6は128ビットで構成されており、アドレス数が大幅に増える"
+    ],
+    "answer": "IPv6は128ビットで構成されており、アドレス数が大幅に増える",
+    "explanations": {
+      "IPv6ではIPアドレスは32ビットで構成されている": {
+        "reading": "IPv6では IPアドレスは 32ビットで こうせいされている",
+        "meaning": "Trong IPv6, địa chỉ IP được cấu thành bởi 32 bit.",
+        "note": "❌ Sai. 32 bit là IPv4."
+      },
+      "IPv6のアドレス表記は英文字だけで構成されている": {
+        "reading": "IPv6の アドレス ひょうきは えいもじ だけで こうせいされている",
+        "meaning": "Ký hiệu địa chỉ IPv6 chỉ bao gồm chữ cái tiếng Anh.",
+        "note": "❌ Sai. Nó dùng hệ thập lục phân (Hexadecimal) gồm số (0-9) và chữ (a-f)."
+      },
+      "IPv6はIPv4よりもアドレス数が少ない": {
+        "reading": "IPv6は IPv4よりも アドレスすうが すくない",
+        "meaning": "IPv6 có số lượng địa chỉ ít hơn IPv4.",
+        "note": "❌ Sai. IPv6 ra đời để giải quyết vấn đề thiếu hụt địa chỉ của IPv4."
+      },
+      "IPv6は128ビットで構成されており、アドレス数が大幅に増える": {
+        "reading": "IPv6は 128ビットで こうせいされており、アドレスすうが おおはばに ふえる",
+        "meaning": "IPv6 được cấu thành bởi 128 bit, số lượng địa chỉ tăng lên đáng kể.",
+        "note": "✅ Đúng. IPv6 cung cấp không gian địa chỉ gần như vô tận (2 mũ 128)."
+      }
+    }
+  },
+  {
+    "question": "IPアドレスに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPアドレスに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về địa chỉ IP?"
+    },
+    "options": [
+      "IPアドレスは通信内容を暗号化するための番号である",
+      "IPアドレスはネットワーク機器の位置を物理的に示す記号である",
+      "IPアドレスは電子メール送信時に自動的に割り振られるコードである",
+      "IPアドレスはネットワーク上で通信相手を識別するための番号である"
+    ],
+    "answer": "IPアドレスはネットワーク上で通信相手を識別するための番号である",
+    "explanations": {
+      "IPアドレスは通信内容を暗号化するための番号である": {
+        "reading": "IPアドレスは つうしん ないようを あんごうか するための ばんごうである",
+        "meaning": "Địa chỉ IP là số dùng để mã hóa nội dung truyền thông.",
+        "note": "❌ Sai. Mã hóa (暗号化) là chức năng của Tầng 6 (Presentation) hoặc các giao thức như SSL/TLS."
+      },
+      "IPアドレスはネットワーク機器の位置を物理的に示す記号である": {
+        "reading": "IPアドレスは ネットワーク ききの いちを ぶつりてきに しめす きごうである",
+        "meaning": "Địa chỉ IP là ký hiệu chỉ vị trí vật lý của thiết bị mạng.",
+        "note": "❌ Sai. Đây là mô tả của địa chỉ MAC (địa chỉ vật lý). IP là địa chỉ logic (論理アドレス) ở Tầng 3."
+      },
+      "IPアドレスは電子メール送信時に自動的に割り振られるコードである": {
+        "reading": "IPアドレスは でんしメール そうしんじに じどうてきに わりふられる コードである",
+        "meaning": "Địa chỉ IP là mã được gán tự động khi gửi e-mail.",
+        "note": "❌ Sai. Địa chỉ IP được gán cho thiết bị (card mạng), không phải cho email."
+      },
+      "IPアドレスはネットワーク上で通信相手を識別するための番号である": {
+        "reading": "IPアドレスは ネットワークじょうで つうしん あいてを しきべつ するための ばんごうである",
+        "meaning": "Địa chỉ IP là số để xác định (nhận diện) đối tác truyền thông trên mạng.",
+        "note": "✅ Đúng. Địa chỉ IP (Tầng 3) hoạt động như 'địa chỉ nhà' trên Internet, dùng để xác định máy tính gửi và nhận."
+      }
+    }
+  },
+  {
+    "question": "IPv4アドレスの表記方法として正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPv4アドレスの ひょうき ほうほうとして ただしい ものは どれですか。",
+      "meaning": "Phương pháp biểu diễn (cách viết) địa chỉ IPv4 nào sau đây là đúng?"
+    },
+    "options": [
+      "8ビットを1単位とし、4つの10進数を「.」で区切って表す",
+      "16ビットごとに区切り、16進数で表記する",
+      "32ビットの2進数をそのまま並べて表記する",
+      "4つの英数字を「:」でつなげて表す"
+    ],
+    "answer": "8ビットを1単位とし、4つの10進数を「.」で区切って表す",
+    "explanations": {
+      "8ビットを1単位とし、4つの10進数を「.」で区切って表す": {
+        "reading": "8ビットを 1たんいとし、4つの 10しんすうを「.」で くぎって あらわす",
+        "meaning": "Lấy 8 bit làm 1 đơn vị, biểu diễn bằng 4 số thập phân ngăn cách bởi dấu '.'",
+        "note": "✅ Đúng. IPv4 là 32 bit (8 bit x 4). Ví dụ: 192.168.1.1."
+      },
+      "16ビットごとに区切り、16進数で表記する": {
+        "reading": "16ビットごとに くぎり、16しんすうで ひょうきする",
+        "meaning": "Ngăn cách mỗi 16 bit, biểu diễn bằng số thập lục phân.",
+        "note": "❌ Sai. Đây là mô tả của địa chỉ IPv6."
+      },
+      "32ビットの2進数をそのまま並べて表記する": {
+        "reading": "32ビットの 2しんすうを そのまま ならべて ひょうきする",
+        "meaning": "Viết 32 bit nhị phân liền nhau.",
+        "note": "❌ Sai. Mặc dù máy tính hiểu theo cách này, nhưng đây không phải là cách 'biểu diễn' (表記方法) cho con người."
+      },
+      "4つの英数字を「:」でつなげて表す": {
+        "reading": "4つの えいすうじを「:」で つなげて あらわす",
+        "meaning": "Biểu diễn bằng 4 chữ/số nối với nhau bằng dấu ':'.",
+        "note": "❌ Sai. Không phải 4. IPv6 dùng 8 nhóm và dấu ':'."
+      }
+    }
+  },
+  {
+    "question": "pingコマンドの目的として正しいものはどれですか。",
+    "analysis": {
+      "reading": "pingコマンドの もくてきとして ただしい ものは どれですか。",
+      "meaning": "Mục đích của lệnh (command) 'ping' là gì?"
+    },
+    "options": [
+      "電子メールを送信するためのテストを行う",
+      "ネットワーク上の他のコンピュータにウイルスを送る",
+      "相手のMACアドレスを取得するために使用する",
+      "通信相手との接続確認や到達状況の確認を行う"
+    ],
+    "answer": "通信相手との接続確認や到達状況の確認を行う",
+    "explanations": {
+      "電子メールを送信するためのテストを行う": {
+        "reading": "でんしメールを そうしんするための テストを おこなう",
+        "meaning": "Thực hiện kiểm tra để gửi email.",
+        "note": "❌ Sai. Lệnh ping sử dụng giao thức ICMP, không liên quan đến SMTP/POP3."
+      },
+      "ネットワーク上の他のコンピュータにウイルスを送る": {
+        "reading": "ネットワークじょうの ほかの コンピュータに ウイルスを おくる",
+        "meaning": "Gửi virus đến máy tính khác trên mạng.",
+        "note": "❌ Sai. Lệnh ping là một công cụ chẩn đoán mạng cơ bản, không phải phần mềm độc hại."
+      },
+      "相手のMACアドレスを取得するために使用する": {
+        "reading": "あいての MACアドレスを しゅとく するために しようする",
+        "meaning": "Sử dụng để thu thập (lấy) địa chỉ MAC của đối tác.",
+        "note": "❌ Sai. Lệnh `arp -a` (hoặc `ip neigh`) dùng để xem bảng ARP, không phải ping."
+      },
+      "通信相手との接続確認や到達状況の確認を行う": {
+        "reading": "つうしん あいてとの せつぞく かくにんや とうたつ じょうきょうの かくにんを おこなう",
+        "meaning": "Thực hiện xác nhận kết nối và xác nhận tình trạng 'đến nơi' (reachability) với đối tác.",
+        "note": "✅ Đúng. Ping (ICMP Echo Request) được dùng để kiểm tra xem máy chủ có 'sống' (alive) và phản hồi hay không."
+      }
+    }
+  },
+  {
+    "question": "ポート番号に関する説明として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "ポート ばんごうに かんする せつめいとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Giải thích nào phù hợp nhất về 'Số hiệu cổng' (Port Number)?"
+    },
+    "options": [
+      "IPアドレスと同じくネットワーク機器ごとに1つだけ割り当てられる番号である",
+      "通信速度を決定するための設定値である",
+      "パスワードの暗号化方式を決めるための番号である",
+      "アプリケーションやサービスを識別するための番号である"
+    ],
+    "answer": "アプリケーションやサービスを識別するための番号である",
+    "explanations": {
+      "IPアドレスと同じくネットワーク機器ごとに1つだけ割り当てられる番号である": {
+        "reading": "IPアドレスと おなじく ネットワーク きき ごとに ひとつだけ わりあてられる ばんごうである",
+        "meaning": "Là số được gán 1 lần duy nhất cho mỗi thiết bị mạng, giống như địa chỉ IP.",
+        "note": "❌ Sai. Một thiết bị (1 IP) có thể mở rất nhiều cổng (65535 cổng). Ví dụ: cổng 80 (Web), cổng 22 (SSH)."
+      },
+      "通信速度を決定するための設定値である": {
+        "reading": "つうしん そくどを けってい するための せっていちである",
+        "meaning": "Là giá trị cài đặt để quyết định tốc độ truyền thông.",
+        "note": "❌ Sai. Tốc độ do phần cứng mạng (card LAN, switch) quyết định."
+      },
+      "パスワードの暗号化方式を決めるための番号である": {
+        "reading": "パスワードの あんごうか ほうしきを きめる ための ばんごうである",
+        "meaning": "Là số để quyết định phương thức mã hóa mật khẩu.",
+        "note": "❌ Sai. Không liên quan."
+      },
+      "アプリケーションやサービスを識別するための番号である": {
+        "reading": "アプリケーションや サービスを しきべつ するための ばんごうである",
+        "meaning": "Là số để xác định (nhận diện) ứng dụng hoặc dịch vụ.",
+        "note": "✅ Đúng. IP xác định 'máy tính' (nhà), Port xác định 'dịch vụ' (cửa). Ví dụ: Cổng 80 là dịch vụ Web (HTTP), Cổng 25 là dịch vụ Mail (SMTP)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、ウェルノウンポートに分類されるポート番号はどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、ウェルノウンポートに ぶんるいされる ポート ばんごうは どれですか。",
+      "meaning": "Trong số sau, số hiệu cổng nào được phân loại là 'Well-Known Port'?"
+    },
+    "options": [
+      "80",
+      "2000",
+      "8080",
+      "10000"
+    ],
+    "answer": "80",
+    "explanations": {
+      "80": {
+        "reading": "80 (はちじゅう)",
+        "meaning": "Cổng 80",
+        "note": "✅ Đúng. Well-Known Ports (Cổng thông dụng) là dải từ 0-1023. Cổng 80 (dùng cho HTTP) nằm trong dải này."
+      },
+      "2000": {
+        "reading": "2000 (にせん)",
+        "meaning": "Cổng 2000",
+        "note": "❌ Sai. Đây là Registered Port (Cổng đã đăng ký, 1024-49151)."
+      },
+      "8080": {
+        "reading": "8080 (はっせん はちじゅう)",
+        "meaning": "Cổng 8080",
+        "note": "❌ Sai. Đây là Registered Port (thường dùng làm cổng proxy hoặc web thay thế)."
+      },
+      "10000": {
+        "reading": "10000 (いちまん)",
+        "meaning": "Cổng 10000",
+        "note": "❌ Sai. Đây là Registered Port."
+      }
+    }
+  },
+  {
+    "question": "ポートスキャンの目的として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "ポートスキャンの もくてきとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Mục đích nào sau đây là phù hợp nhất của 'Port Scan' (Quét cổng)?"
+    },
+    "options": [
+      "メールサーバの設定を変更するための操作である",
+      "ファイルを暗号化してセキュリティを高めるツールである",
+      "DNSサーバを自動的に書き換えるための仕組みである",
+      "開いているポート番号を調べてセキュリティ設定を確認するためである"
+    ],
+    "answer": "開いているポート番号を調べてセキュリティ設定を確認するためである",
+    "explanations": {
+      "メールサーバの設定を変更するための操作である": {
+        "reading": "メールサーバの せっていを へんこう するための そうさである",
+        "meaning": "Là thao tác để thay đổi cài đặt của máy chủ mail.",
+        "note": "❌ Sai. Port scan là hành động 'kiểm tra', không phải 'thay đổi'."
+      },
+      "ファイルを暗号化してセキュリティを高めるツールである": {
+        "reading": "ファイルを あんごうか して セキュリティを たかめる ツールである",
+        "meaning": "Là công cụ nâng cao bảo mật bằng cách mã hóa file.",
+        "note": "❌ Sai. Đây là công cụ mã hóa (Encryption Tool), không phải port scan."
+      },
+      "DNSサーバを自動的に書き換えるための仕組みである": {
+        "reading": "DNSサーバを じどうてきに かきかえる ための しくみである",
+        "meaning": "Là cơ chế để tự động ghi đè (thay đổi) máy chủ DNS.",
+        "note": "❌ Sai. Đây là hành vi tấn công (ví dụ: DNS poisoning)."
+      },
+      "開いているポート番号を調べてセキュリティ設定を確認するためである": {
+        "reading": "あいている ポート ばんごうを しらべて セキュリティ せっていを かくにん するためである",
+        "meaning": "Để kiểm tra các số hiệu cổng đang mở và xác nhận cài đặt bảo mật.",
+        "note": "✅ Đúng. Quản trị viên (và cả hacker) dùng port scan để kiểm tra xem máy chủ đang 'mở' những dịch vụ nào (cổng nào) cho bên ngoài."
+      }
+    }
+  },
+  {
+    "question": "DNSの役割として正しいものはどれですか。",
+    "analysis": {
+      "reading": "DNSの やくわりとして ただしい ものは どれですか。",
+      "meaning": "Vai trò của DNS là gì?"
+    },
+    "options": [
+      "IPアドレスの送受信履歴を保存するサービスである",
+      "ドメイン名とMACアドレスを変換する仕組みである",
+      "電子メールの暗号化に使われる認証機構である",
+      "ドメイン名とIPアドレスの対応付けを管理する仕組みである"
+    ],
+    "answer": "ドメイン名とIPアドレスの対応付けを管理する仕組みである",
+    "explanations": {
+      "IPアドレスの送受信履歴を保存するサービスである": {
+        "reading": "IPアドレスの そうじゅしん りれきを ほぞんする サービスである",
+        "meaning": "Là dịch vụ lưu trữ lịch sử gửi/nhận của địa chỉ IP.",
+        "note": "❌ Sai. Đây là chức năng của Log Server (Máy chủ ghi log)."
+      },
+      "ドメイン名とMACアドレスを変換する仕組みである": {
+        "reading": "ドメインめいと MACアドレスを へんかんする しくみである",
+        "meaning": "Là cơ chế chuyển đổi Tên miền (Domain) và địa chỉ MAC.",
+        "note": "❌ Sai. DNS chuyển đổi Domain <-> IP. ARP chuyển đổi IP <-> MAC."
+      },
+      "電子メールの暗号化に使われる認証機構である": {
+        "reading": "でんしメールの あんごうかに つかわれる にんしょう きこうである",
+        "meaning": "Là cơ chế xác thực được dùng để mã hóa email.",
+        "note": "❌ Sai. Đây là S/MIME hoặc PGP."
+      },
+      "ドメイン名とIPアドレスの対応付けを管理する仕組みである": {
+        "reading": "ドメインめいと IPアドレスの たいおうづけを かんりする しくみである",
+        "meaning": "Là cơ chế quản lý sự tương ứng (ánh xạ) giữa Tên miền và Địa chỉ IP.",
+        "note": "✅ Đúng. DNS (Domain Name System) giống như 'danh bạ điện thoại' của Internet, nó dịch tên (www.google.com) thành số (8.8.8.8)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、DNSを使って対応付けられる組み合わせとして正しいものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、DNSを つかって たいおうづけられる くみあわせとして ただしい ものは どれですか。",
+      "meaning": "Trong số sau, đâu là cặp đôi (tổ hợp) được ánh xạ (tương ứng) bằng DNS?"
+    },
+    "options": [
+      "www.impress.co.jp → 202.218.13.138",
+      "www.impress.co.jp → 80",
+      "smtp.impress.co.jp → ping",
+      "202.218.13.138 → POP3"
+    ],
+    "answer": "www.impress.co.jp → 202.218.13.138",
+    "explanations": {
+      "www.impress.co.jp → 202.218.13.138": {
+        "reading": "www.impress.co.jp (ドメイン名) → 202.218.13.138 (IPアドレス)",
+        "meaning": "Tên miền (Domain Name) → Địa chỉ IP (IP Address)",
+        "note": "✅ Đúng. Đây là chức năng cơ bản nhất của DNS (ánh xạ A record)."
+      },
+      "www.impress.co.jp → 80": {
+        "reading": "ドメイン名 → ポート番号",
+        "meaning": "Tên miền → Số hiệu cổng",
+        "note": "❌ Sai. DNS không xử lý số hiệu cổng."
+      },
+      "smtp.impress.co.jp → ping": {
+        "reading": "ドメイン名 → コマンド",
+        "meaning": "Tên miền → Lệnh (Command)",
+        "note": "❌ Sai. DNS không ánh xạ tới một lệnh."
+      },
+      "202.218.13.138 → POP3": {
+        "reading": "IPアドレス → プロトコル",
+        "meaning": "Địa chỉ IP → Giao thức (Protocol)",
+        "note": "❌ Sai. DNS không ánh xạ IP tới một giao thức."
+      }
+    }
+  },
+  {
+    "question": "WANに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "WANに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về WAN?"
+    },
+    "options": [
+      "WANは同じ建物内で使われるネットワークである",
+      "WANは物理的に離れたLAN同士を接続する広域ネットワークである",
+      "WANではLANよりも範囲が狭くなる",
+      "WANは必ず自社で回線を用意して構築する必要がある"
+    ],
+    "answer": "WANは物理的に離れたLAN同士を接続する広域ネットワークである",
+    "explanations": {
+      "WANは同じ建物内で使われるネットワークである": {
+        "reading": "WANは おなじ たてものないで つかわれる ネットワークである",
+        "meaning": "WAN là mạng được sử dụng trong cùng một tòa nhà.",
+        "note": "❌ Sai. Đây là định nghĩa của LAN (Local Area Network)."
+      },
+      "WANは物理的に離れたLAN同士を接続する広域ネットワークである": {
+        "reading": "WANは ぶつりてきに はなれた LANどうしを せつぞくする こういき ネットワークである",
+        "meaning": "WAN là mạng diện rộng kết nối các mạng LAN ở xa nhau về mặt vật lý.",
+        "note": "✅ Đúng. Đây là định nghĩa của WAN (Wide Area Network)."
+      },
+      "WANではLANよりも範囲が狭くなる": {
+        "reading": "WANでは LANよりも はんいが せまくなる",
+        "meaning": "Ở WAN, phạm vi hẹp hơn LAN.",
+        "note": "❌ Sai. Ngược lại, WAN (Wide) có phạm vi rộng hơn nhiều so với LAN (Local)."
+      },
+      "WANは必ず自社で回線を用意して構築する必要がある": {
+        "reading": "WANは かならず じしゃで かいせんを よういして こうちくする ひつようがある",
+        "meaning": "WAN bắt buộc phải tự công ty chuẩn bị đường truyền và xây dựng.",
+        "note": "❌ Sai. Các công ty thường thuê đường truyền (ví dụ: leased lines, VPN) từ các nhà cung cấp dịch vụ viễn thông (通信事業者)."
+      }
+    }
+  },
+  {
+    "question": "専用線方式に関する説明として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "せんようせん ほうしきに かんする せつめいとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Giải thích nào phù hợp nhất về phương thức \"Đường truyền chuyên dụng\" (Dedicated Line)?"
+    },
+    "options": [
+      "回線を複数人で共有することでコストを削減できる",
+      "通信相手を決めず、自由に通信できる方式である",
+      "セキュリティや通信の安定性が高く、大量のデータ通信に向いている",
+      "回線の使用状況に応じて料金が変動する"
+    ],
+    "answer": "セキュリティや通信の安定性が高く、大量のデータ通信に向いている",
+    "explanations": {
+      "回線を複数人で共有することでコストを削減できる": {
+        "reading": "かいせんを ふくすうにんで きょうゆう することで コストを さくげんできる",
+        "meaning": "Có thể giảm chi phí bằng cách chia sẻ đường truyền với nhiều người.",
+        "note": "❌ Sai. Đây là đặc điểm của Chuyển mạch gói (パケット交換方式). Đường truyền chuyên dụng là *không* chia sẻ."
+      },
+      "通信相手を決めず、自由に通信できる方式である": {
+        "reading": "つうしん あいてを きめず、じゆうに つうしんできる ほうしきである",
+        "meaning": "Là phương thức có thể giao tiếp tự do mà không quyết định trước đối tác.",
+        "note": "❌ Sai. Đường truyền chuyên dụng là kết nối 1-1 cố định giữa hai điểm đã định trước."
+      },
+      "セキュリティや通信の安定性が高く、大量のデータ通信に向いている": {
+        "reading": "セキュリティや つうしんの あんていせいが たかく、たいりょうの データ つうしんに むいている",
+        "meaning": "Tính bảo mật và ổn định truyền thông cao, phù hợp cho việc truyền lượng lớn dữ liệu.",
+        "note": "✅ Đúng. Vì là đường truyền 1-1, không chia sẻ nên rất bảo mật, băng thông được đảm bảo (ổn định)."
+      },
+      "回線の使用状況に応じて料金が変動する": {
+        "reading": "かいせんの しよう じょうきょうに おうじて りょうきんが へんどうする",
+        "meaning": "Phí dịch vụ biến động tùy theo tình hình sử dụng đường truyền.",
+        "note": "❌ Sai. Đường truyền chuyên dụng thường có chi phí cố định (固定料金) hàng tháng, bất kể bạn dùng nhiều hay ít."
+      }
+    }
+  },
+  {
+    "question": "パケット交換方式の特徴として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "パケット こうかん ほうしきの とくちょうとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Đặc trưng nào sau đây là phù hợp nhất của phương thức \"Chuyển mạch gói\" (Packet Switching)?"
+    },
+    "options": [
+      "1対1専用の回線を常に確保する必要がある",
+      "回線は使用中でも他の人が使うことはできない",
+      "パケットという単位でデータを分割し、共有回線で効率よく送信する",
+      "通信は常に一定の速度と順序で行われる"
+    ],
+    "answer": "パケットという単位でデータを分割し、共有回線で効率よく送信する",
+    "explanations": {
+      "1対1専用の回線を常に確保する必要がある": {
+        "reading": "1たい1 せんようの かいせんを つねに かくほする ひつようがある",
+        "meaning": "Luôn cần phải đảm bảo một đường truyền 1-1 chuyên dụng.",
+        "note": "❌ Sai. Đây là mô tả của Chuyển mạch kênh (回線交換方式) hoặc Đường truyền chuyên dụng."
+      },
+      "回線は使用中でも他の人が使うことはできない": {
+        "reading": "かいんばんは しようちゅうでも ほかの ひとが つかう ことは できない",
+        "meaning": "Đường truyền đang được sử dụng thì người khác không thể dùng.",
+        "note": "❌ Sai. Đây là Chuyển mạch kênh. Chuyển mạch gói cho phép *chia sẻ* (共有) đường truyền."
+      },
+      "パケットという単位でデータを分割し、共有回線で効率よく送信する": {
+        "reading": "パケットという たんいで データを ぶんかつし、きょうゆう かいせんで こうりつよく そうしんする",
+        "meaning": "Phân chia dữ liệu theo đơn vị gọi là 'packet', và gửi một cách hiệu quả trên đường truyền chia sẻ.",
+        "note": "✅ Đúng. Đây là định nghĩa chính xác của Chuyển mạch gói, phương thức cốt lõi của Internet."
+      },
+      "通信は常に一定の速度と順序で行われる": {
+        "reading": "つうしんは つねに いっていの そくどと じゅんじょで おこなわれる",
+        "meaning": "Truyền thông luôn được thực hiện với tốc độ và thứ tự không đổi.",
+        "note": "❌ Sai. Tốc độ có thể thay đổi (ví dụ: nghẽn mạng) và các gói tin (packet) có thể đến sai thứ tự (cần TCP để sắp xếp lại)."
+      }
+    }
+  },
+  {
+    "question": "FTTHに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "FTTHに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về FTTH?"
+    },
+    "options": [
+      "FTTHは電話やテレビ、インターネットなどのサービスを光ファイバーでまとめて提供する",
+      "FTTHは同軸ケーブルを用いて、音声通話のみを提供するサービスである",
+      "FTTHは会社専用で、個人の家庭では使えない",
+      "FTTHはパケット通信を利用せず、常時接続を行わない"
+    ],
+    "answer": "FTTHは電話やテレビ、インターネットなどのサービスを光ファイバーでまとめて提供する",
+    "explanations": {
+      "FTTHは電話やテレビ、インターネットなどのサービスを光ファイバーでまとめて提供する": {
+        "reading": "FTTHは でんわや テレビ、インターネットなどの サービスを ひかりファイバーで まとめて ていきょうする",
+        "meaning": "FTTH cung cấp các dịch vụ như điện thoại, TV, Internet... một cách tổng hợp bằng cáp quang.",
+        "note": "✅ Đúng. FTTH (Fiber To The Home) là dịch vụ cáp quang tốc độ cao đến tận nhà."
+      },
+      "FTTHは同軸ケーブルを用いて、音声通話のみを提供するサービスである": {
+        "reading": "FTTHは どうじくケーブルを もちいて、おんせい つうわのみを ていきょうする サービスである",
+        "meaning": "FTTH là dịch vụ chỉ cung cấp thoại, sử dụng cáp đồng trục.",
+        "note": "❌ Sai. FTTH dùng cáp quang (光ファイバー), không phải cáp đồng trục (同軸ケーブル)."
+      },
+      "FTTHは会社専用で、個人の家庭では使えない": {
+        "reading": "FTTHは かいしゃ せんようで、こじんの かていでは つかえない",
+        "meaning": "FTTH là đường truyền chuyên dụng cho công ty, không thể dùng ở nhà riêng cá nhân.",
+        "note": "❌ Sai. Chữ 'H' trong FTTH chính là 'Home' (gia đình)."
+      },
+      "FTTHはパケット通信を利用せず、常時接続を行わない": {
+        "reading": "FTTHは パケット つうしんを りようせず、じょうじ せつぞくを おこなわない",
+        "meaning": "FTTH không sử dụng truyền thông gói (packet) và không thực hiện kết nối thường trực.",
+        "note": "❌ Sai. Internet qua FTTH sử dụng Chuyển mạch gói và là kết nối thường trực (常時接続 - always-on)."
+      }
+    }
+  },
+  {
+    "question": "通信プロトコルについて正しく説明しているものはどれですか。",
+    "analysis": {
+      "reading": "つうしん プロトコルについて ただしく せつめい している ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về \"Giao thức truyền thông\" (Communication Protocol)?"
+    },
+    "options": [
+      "通信プロトコルはコンピュータの電源を入れる順番を定めたルールである",
+      "通信プロトコルは同じメーカーのコンピュータ間のみで使われるルールである",
+      "通信プロトコルは物理的に接続された機器間でしか必要ない",
+      "通信プロトコルはネットワークで通信するために必要な約束事のことである"
+    ],
+    "answer": "通信プロトコルはネットワークで通信するために必要な約束事のことである",
+    "explanations": {
+      "通信プロトコルはコンピュータの電源を入れる順番を定めたルールである": {
+        "reading": "つうしん プロトコルは コンピュータの でんげんを いれる じゅんばんを さだめた ルールである",
+        "meaning": "Giao thức truyền thông là quy tắc quy định thứ tự bật nguồn máy tính.",
+        "note": "❌ Sai. Hoàn toàn không liên quan."
+      },
+      "通信プロトコルは同じメーカーのコンピュータ間のみで使われるルールである": {
+        "reading": "つうしん プロトコルは おなじ メーカーの コンピュータかんのみで つかわれる ルールである",
+        "meaning": "Giao thức truyền thông là quy tắc chỉ được dùng giữa các máy tính cùng một nhà sản xuất.",
+        "note": "❌ Sai. Giao thức (protocol) được tạo ra để chuẩn hóa, giúp các máy tính *khác* nhà sản xuất có thể giao tiếp được với nhau."
+      },
+      "通信プロトコルは物理的に接続された機器間でしか必要ない": {
+        "reading": "つうしん プロトコルは ぶつりてきに せつぞくされた ききかんでしか ひつようない",
+        "meaning": "Giao thức truyền thông chỉ cần thiết giữa các thiết bị được kết nối vật lý.",
+        "note": "❌ Sai. Giao thức cần thiết ở mọi tầng (ví dụ: Tầng 7 - Ứng dụng, Tầng 4 - Vận chuyển)."
+      },
+      "通信プロトコルはネットワークで通信するために必要な約束事のことである": {
+        "reading": "つうしん プロトコルは ネットワークで つうしん するために ひつような やくそくごとのことである",
+        "meaning": "Giao thức truyền thông là những quy ước (luật lệ) cần thiết để giao tiếp trên mạng.",
+        "note": "✅ Đúng. Đây là định nghĩa chính xác. Nó giống như 'ngôn ngữ' chung (ví dụ: Tiếng Anh) mà các máy tính dùng để nói chuyện."
+      }
+    }
+  },
+  {
+    "question": "OSI基本参照モデルの目的として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "OSI きほん さんしょう モデルの もくてきとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Mục đích nào sau đây là phù hợp nhất của \"Mô hình tham chiếu cơ bản OSI\"?"
+    },
+    "options": [
+      "コンピュータ間で共通の通信機能を持たせて異なる機器でも通信できるようにする仕組みである",
+      "通信の速度を高めるためにコンピュータを分解する仕組みである",
+      "ネットワークを利用するユーザーの認証情報を記録する仕組みである",
+      "ネットワークをすべて無線化するための手順である"
+    ],
+    "answer": "コンピュータ間で共通の通信機能を持たせて異なる機器でも通信できるようにする仕組みである",
+    "explanations": {
+      "コンピュータ間で共通の通信機能を持たせて異なる機器でも通信できるようにする仕組みである": {
+        "reading": "コンピュータかんで きょうつうの つうしん きのうを もたせて ことなる ききでも つうしんできるようにする しくみである",
+        "meaning": "Là cơ chế cung cấp các chức năng truyền thông chung giữa các máy tính, để các thiết bị khác nhau vẫn có thể giao tiếp được.",
+        "note": "✅ Đúng. OSI chia nhỏ truyền thông thành 7 tầng (lớp), giúp các nhà sản xuất khác nhau có thể tạo ra các sản phẩm tương thích (interoperable)."
+      },
+      "通信の速度を高めるためにコンピュータを分解する仕組みである": {
+        "reading": "つうしんの そくどを たかめるために コンピュータを ぶんかいする しくみである",
+        "meaning": "Là cơ chế tháo rời máy tính để tăng tốc độ truyền thông.",
+        "note": "❌ Sai. Hoàn toàn vô nghĩa."
+      },
+      "ネットワークを利用するユーザーの認証情報を記録する仕組みである": {
+        "reading": "ネットワークを りようする ユーザーの にんしょう じょうほうを きろくする しくみである",
+        "meaning": "Là cơ chế ghi lại thông tin xác thực của người dùng sử dụng mạng.",
+        "note": "❌ Sai. Đây là chức năng của máy chủ xác thực (Authentication Server) hoặc Directory Service."
+      },
+      "ネットワークをすべて無線化するための手順である": {
+        "reading": "ネットワークを すべて むせんか するための てじゅんである",
+        "meaning": "Là quy trình để biến tất cả mạng thành không dây.",
+        "note": "❌ Sai. OSI áp dụng cho cả mạng có dây (wired) và không dây (wireless)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、OSI基本参照モデルの「プレゼンテーション層」の役割として正しいものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、OSI きほん さんしょう モデルの 「プレゼンテーションそう」の やくわりとして ただしい ものは どれですか。",
+      "meaning": "Trong số sau, vai trò của \"Tầng Trình bày\" (Presentation Layer) trong mô hình OSI là gì?"
+    },
+    "options": [
+      "通信経路の選択を行う",
+      "データの表現形式や文字コードを統一する",
+      "通信の開始や終了などの手順を調整する",
+      "電気信号などの物理的な伝送手段を定める"
+    ],
+    "answer": "データの表現形式や文字コードを統一する",
+    "explanations": {
+      "通信経路の選択を行う": {
+        "reading": "つうしん けいろの せんたくを おこなう",
+        "meaning": "Thực hiện việc lựa chọn đường truyền.",
+        "note": "❌ Sai. Đây là vai trò của Tầng 3 (Network Layer) - Chức năng định tuyến (Routing)."
+      },
+      "データの表現形式や文字コードを統一する": {
+        "reading": "データの ひょうげん けいしきや もじコードを とういつする",
+        "meaning": "Thống nhất định dạng biểu diễn dữ liệu và mã ký tự.",
+        "note": "✅ Đúng. Tầng 6 (Presentation) đảm bảo dữ liệu được trình bày ở định dạng mà máy nhận có thể hiểu (ví dụ: mã hóa (Encryption), nén (Compression), và chuyển đổi định dạng như ASCII/EBCDIC, JPEG, v.v.)."
+      },
+      "通信の開始や終了などの手順を調整する": {
+        "reading": "つうしんの かいしや しゅうりょうなどの てじゅんを ちょうせいする",
+        "meaning": "Điều chỉnh các quy trình như bắt đầu hay kết thúc truyền thông.",
+        "note": "❌ Sai. Đây là vai trò của Tầng 5 (Session Layer)."
+      },
+      "電気信号などの物理的な伝送手段を定める": {
+        "reading": "でんきしんごうなどの ぶつりてきな でんそう しゅだんを さだめる",
+        "meaning": "Quy định các phương tiện truyền tải vật lý như tín hiệu điện.",
+        "note": "❌ Sai. Đây là vai trò của Tầng 1 (Physical Layer)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、OSI基本参照モデルの階層を上位層から順に並べたものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、OSI きほん さんしょう モデルの かいそうを じょういそうから じゅんに ならべた ものは どれですか。",
+      "meaning": "Trong số sau, đâu là thứ tự đúng của các tầng OSI (từ tầng trên xuống tầng dưới)?"
+    },
+    "options": [
+      "アプリケーション層 → セッション層 → データリンク層 → 物理層",
+      "物理層 → データリンク層 → ネットワーク層 → アプリケーション層",
+      "アプリケーション層 → プレゼンテーション層 → セッション層 → トランスポート層 → ネットワーク層 → データリンク層 → 物理層",
+      "トランスポート層 → プレゼンテーション層 → ネットワーク層 → 物理層"
+    ],
+    "answer": "アプリケーション層 → プレゼンテーション層 → セッション層 → トランスポート層 → ネットワーク層 → データリンク層 → 物理層",
+    "explanations": {
+      "アプリケーション層 → セッション層 → データリンク層 → 物理層": {
+        "reading": "アプリケーションそう → セッションそう → データリンクそう → ぶつりそう",
+        "meaning": "Tầng Ứng dụng -> Tầng Phiên -> Tầng Liên kết dữ liệu -> Tầng Vật lý",
+        "note": "❌ Sai. Thiếu Tầng 6 (Presentation) và Tầng 4 (Transport)."
+      },
+      "物理層 → データリンク層 → ネットワーク層 → アプリケーション層": {
+        "reading": "ぶつりそう → データリンクそう → ネットワークそう → アプリケーションそう",
+        "meaning": "Tầng Vật lý -> Tầng Liên kết dữ liệu -> Tầng Mạng -> Tầng Ứng dụng",
+        "note": "❌ Sai. Đây là thứ tự từ dưới lên (bottom-up) và còn thiếu tầng."
+      },
+      "アプリケーション層 → プレゼンテーション層 → セッション層 → トランスポート層 → ネットワーク層 → データリンク層 → 物理層": {
+        "reading": "アプリケーションそう → プレゼンテーションそう → セッションそう → トランスポートそう → ネットワークそう → データリンクそう → ぶつりそう",
+        "meaning": "Application -> Presentation -> Session -> Transport -> Network -> Data Link -> Physical",
+        "note": "✅ Đúng. Đây là thứ tự 7 tầng (Tầng 7 đến Tầng 1) từ trên xuống."
+      },
+      "トランスポート層 → プレゼンテーション層 → ネットワーク層 → 物理層": {
+        "reading": "トランスポートそう → プレゼンテーションそう → ネットワークそう → ぶつりそう",
+        "meaning": "Transport -> Presentation -> Network -> Physical",
+        "note": "❌ Sai. Sai thứ tự. Tầng Transport (T4) nằm dưới Tầng Presentation (T6)."
+      }
+    }
+  }
+]

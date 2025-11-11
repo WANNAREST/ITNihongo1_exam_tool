@@ -1,0 +1,146 @@
+[
+  {
+    "question": "LANはどのようなネットワークを指す言葉ですか。",
+    "analysis": {
+      "reading": "LANは どのような ネットワークを さす ことばですか。",
+      "meaning": "LAN là từ dùng để chỉ loại mạng nào?"
+    },
+    "options": [
+      "国全体をつなぐ大規模ネットワーク",
+      "複数の国をまたいで接続されたネットワーク",
+      "同じ建物内などの狭い範囲で構成される小規模ネットワーク",
+      "衛星通信を使ったネットワーク"
+    ],
+    "answer": "同じ建物内などの狭い範囲で構成される小規模ネットワーク",
+    "explanations": {
+      "国全体をつなぐ大規模ネットワーク": {
+        "reading": "くに ぜんたいを つなぐ だいきぼ ネットワーク",
+        "meaning": "Mạng quy mô lớn kết nối toàn bộ đất nước.",
+        "note": "❌ Sai. Đây là mô tả của WAN (Wide Area Network)."
+      },
+      "複数の国をまたいで接続されたネットワーク": {
+        "reading": "ふくすうの くにを またいで せつぞくされた ネットワーク",
+        "meaning": "Mạng được kết nối xuyên qua nhiều quốc gia.",
+        "note": "❌ Sai. Đây là mô tả của WAN hoặc Internet."
+      },
+      "同じ建物内などの狭い範囲で構成される小規模ネットワーク": {
+        "reading": "おなじ たてものないなどの せまい はんいで こうせいされる しょうきぼ ネットワーク",
+        "meaning": "Mạng quy mô nhỏ được cấu thành trong phạm vi hẹp như trong cùng một tòa nhà.",
+        "note": "✅ Đúng. LAN (Local Area Network) là mạng cục bộ, trong phạm vi hẹp."
+      },
+      "衛星通信を使ったネットワーク": {
+        "reading": "えいせい つうしんを つかった ネットワーク",
+        "meaning": "Mạng sử dụng truyền thông vệ tinh.",
+        "note": "❌ Sai. Mạng vệ tinh là một loại hình của WAN, không phải LAN."
+      }
+    }
+  },
+  {
+    "question": "LANに接続されたコンピュータができることとして最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "LANに せつぞくされた コンピュータが できる こととして もっとも てきせつな ものは どれですか。",
+      "meaning": "Điều nào sau đây là phù hợp nhất về việc mà máy tính kết nối LAN có thể làm?"
+    },
+    "options": [
+      "遠くの国のサーバと直接通信を行うことができる",
+      "ネットワーク経由でデータのやり取りや機器の共有を行う",
+      "すべての通信をインターネットを使って処理することができる",
+      "他の機器を使わず自分だけで処理をすべて完結させることができる"
+    ],
+    "answer": "ネットワーク経由でデータのやり取りや機器の共有を行う",
+    "explanations": {
+      "遠くの国のサーバと直接通信を行うことができる": {
+        "reading": "とおくの くにの サーバと ちょくせつ つうしんを おこなう ことが できる",
+        "meaning": "Có thể giao tiếp trực tiếp với máy chủ ở quốc gia xa xôi.",
+        "note": "❌ Sai. Việc này cần có Internet và Router, không phải là chức năng cơ bản của *chỉ* LAN."
+      },
+      "ネットワーク経由でデータのやり取りや機器の共有を行う": {
+        "reading": "ネットワーク けいゆで データの やりとりや ききの きょうゆうを おこなう",
+        "meaning": "Thực hiện trao đổi dữ liệu và chia sẻ thiết bị qua mạng.",
+        "note": "✅ Đúng. Đây là mục đích chính của LAN: chia sẻ tài nguyên (như file, máy in) trong một khu vực cục bộ."
+      },
+      "すべての通信をインターネットを使って処理することができる": {
+        "reading": "すべての つうしんを インターネットを つかって しょり する ことが できる",
+        "meaning": "Có thể xử lý tất cả truyền thông bằng cách sử dụng Internet.",
+        "note": "❌ Sai. LAN có thể hoạt động mà không cần Internet (ví dụ: chia sẻ file nội bộ)."
+      },
+      "他の機器を使わず自分だけで処理をすべて完結させることができる": {
+        "reading": "ほかの ききを つかわず じぶんだけで しょりを すべて かんけつ させる ことが できる",
+        "meaning": "Có thể tự mình hoàn thành tất cả xử lý mà không cần dùng thiết bị khác.",
+        "note": "❌ Sai. Đây là mô tả của một máy tính độc lập (standalone), không phải máy tính kết nối mạng."
+      }
+    }
+  },
+  {
+    "question": "アクセス制御方式の目的として正しいものはどれですか。",
+    "analysis": {
+      "reading": "アクセス せいぎょ ほうしきの もくてきとして ただしい ものは どれですか。",
+      "meaning": "Mục đích của phương thức kiểm soát truy cập (access control) là gì?"
+    },
+    "options": [
+      "通信速度を最大限に上げるため",
+      "ネットワークの接続台数を制限するため",
+      "外部からの攻撃を防止するため",
+      "データ送信の衝突を防ぎ、正しく通信を行うため"
+    ],
+    "answer": "データ送信の衝突を防ぎ、正しく通信を行うため",
+    "explanations": {
+      "通信速度を最大限に上げるため": {
+        "reading": "つうしん そくどを さいだいげんに あげる ため",
+        "meaning": "Để tăng tốc độ truyền thông lên tối đa.",
+        "note": "❌ Sai. Kiểm soát truy cập (như CSMA/CD) thực tế có thể làm *giảm* tốc độ hiệu dụng (throughput) do phải xử lý xung đột."
+      },
+      "ネットワークの接続台数を制限するため": {
+        "reading": "ネットワークの せつぞくだいすうを せいげん する ため",
+        "meaning": "Để giới hạn số lượng thiết bị kết nối mạng.",
+        "note": "❌ Sai. Đây là chức năng của quản lý mạng (network administration), không phải của giao thức kiểm soát truy cập."
+      },
+      "外部からの攻撃を防止するため": {
+        "reading": "がいぶからの こうげきを ぼうし する ため",
+        "meaning": "Để phòng chống tấn công từ bên ngoài.",
+        "note": "❌ Sai. Đây là mục đích của tường lửa (Firewall) hoặc IDS/IPS."
+      },
+      "データ送信の衝突を防ぎ、正しく通信を行うため": {
+        "reading": "データ そうしんの しょうとつを ふせぎ、ただしく つうしんを おこなう ため",
+        "meaning": "Để ngăn chặn xung đột (collision) khi gửi dữ liệu và thực hiện truyền thông một cách chính xác.",
+        "note": "✅ Đúng. Phương thức kiểm soát truy cập (Access Control) như CSMA/CD hay Token Ring được thiết kế để quyết định 'ai được phép gửi dữ liệu' và 'khi nào', nhằm tránh xung đột trên đường truyền."
+      }
+    }
+  },
+  {
+    "question": "CSMA/CD方式では、データの衝突が起きた場合にどうしますか。",
+    "analysis": {
+      "reading": "CSMA/CD ほうしきでは、データの しょうとつが おきた ばあいに どうしますか。",
+      "meaning": "Trong phương thức CSMA/CD, khi xảy ra xung đột dữ liệu, nó sẽ làm gì?"
+    },
+    "options": [
+      "即座に送信を再試行する",
+      "通信を中止する",
+      "しばらく待ってから再送する",
+      "他の端末の送信を妨害する"
+    ],
+    "answer": "しばらく待ってから再送する",
+    "explanations": {
+      "即座に送信を再試行する": {
+        "reading": "そくざに そうしんを さいしこう する",
+        "meaning": "Thử gửi lại (re-try) ngay lập tức.",
+        "note": "❌ Sai. Nếu gửi lại ngay lập tức, xung đột sẽ lại xảy ra. Cần phải chờ."
+      },
+      "通信を中止する": {
+        "reading": "つうしんを ちゅうし する",
+        "meaning": "Hủy bỏ việc truyền thông.",
+        "note": "❌ Sai. Dữ liệu vẫn cần được gửi đi, không thể hủy bỏ."
+      },
+      "しばらく待ってから再送する": {
+        "reading": "しばらく まってから さいそう する",
+        "meaning": "Chờ một lát rồi gửi lại (re-send).",
+        "note": "✅ Đúng. CSMA/CD sẽ phát tín hiệu jam, sau đó mỗi thiết bị sẽ chờ một khoảng thời gian *ngẫu nhiên* (backoff) trước khi thử gửi lại."
+      },
+      "他の端末の送信を妨害する": {
+        "reading": "ほかの たんまつの そうしんを ぼうがい する",
+        "meaning": "Cản trở việc gửi của thiết bị khác.",
+        "note": "❌ Sai. Đây không phải là một hành vi được thiết kế trong giao thức."
+      }
+    }
+  }
+]

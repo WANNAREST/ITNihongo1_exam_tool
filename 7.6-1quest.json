@@ -1,0 +1,290 @@
+[
+  {
+    "question": "IPアドレスに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPアドレスに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về địa chỉ IP?"
+    },
+    "options": [
+      "IPアドレスは通信内容を暗号化するための番号である",
+      "IPアドレスはネットワーク機器の位置を物理的に示す記号である",
+      "IPアドレスは電子メール送信時に自動的に割り振られるコードである",
+      "IPアドレスはネットワーク上で通信相手を識別するための番号である"
+    ],
+    "answer": "IPアドレスはネットワーク上で通信相手を識別するための番号である",
+    "explanations": {
+      "IPアドレスは通信内容を暗号化するための番号である": {
+        "reading": "IPアドレスは つうしん ないようを あんごうか するための ばんごうである",
+        "meaning": "Địa chỉ IP là số dùng để mã hóa nội dung truyền thông.",
+        "note": "❌ Sai. Mã hóa (暗号化) là chức năng của Tầng 6 (Presentation) hoặc các giao thức như SSL/TLS."
+      },
+      "IPアドレスはネットワーク機器の位置を物理的に示す記号である": {
+        "reading": "IPアドレスは ネットワーク ききの いちを ぶつりてきに しめす きごうである",
+        "meaning": "Địa chỉ IP là ký hiệu chỉ vị trí vật lý của thiết bị mạng.",
+        "note": "❌ Sai. Đây là mô tả của địa chỉ MAC (địa chỉ vật lý). IP là địa chỉ logic (論理アドレス) ở Tầng 3."
+      },
+      "IPアドレスは電子メール送信時に自動的に割り振られるコードである": {
+        "reading": "IPアドレスは でんしメール そうしんじに じどうてきに わりふられる コードである",
+        "meaning": "Địa chỉ IP là mã được gán tự động khi gửi e-mail.",
+        "note": "❌ Sai. Địa chỉ IP được gán cho thiết bị (card mạng), không phải cho email."
+      },
+      "IPアドレスはネットワーク上で通信相手を識別するための番号である": {
+        "reading": "IPアドレスは ネットワークじょうで つうしん あいてを しきべつ するための ばんごうである",
+        "meaning": "Địa chỉ IP là số để xác định (nhận diện) đối tác truyền thông trên mạng.",
+        "note": "✅ Đúng. Địa chỉ IP (Tầng 3) hoạt động như 'địa chỉ nhà' trên Internet, dùng để xác định máy tính gửi và nhận."
+      }
+    }
+  },
+  {
+    "question": "IPv4アドレスの表記方法として正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPv4アドレスの ひょうき ほうほうとして ただしい ものは どれですか。",
+      "meaning": "Phương pháp biểu diễn (cách viết) địa chỉ IPv4 nào sau đây là đúng?"
+    },
+    "options": [
+      "8ビットを1単位とし、4つの10進数を「.」で区切って表す",
+      "16ビットごとに区切り、16進数で表記する",
+      "32ビットの2進数をそのまま並べて表記する",
+      "4つの英数字を「:」でつなげて表す"
+    ],
+    "answer": "8ビットを1単位とし、4つの10進数を「.」で区切って表す",
+    "explanations": {
+      "8ビットを1単位とし、4つの10進数を「.」で区切って表す": {
+        "reading": "8ビットを 1たんいとし、4つの 10しんすうを「.」で くぎって あらわす",
+        "meaning": "Lấy 8 bit làm 1 đơn vị, biểu diễn bằng 4 số thập phân ngăn cách bởi dấu '.'",
+        "note": "✅ Đúng. IPv4 là 32 bit (8 bit x 4). Ví dụ: 192.168.1.1."
+      },
+      "16ビットごとに区切り、16進数で表記する": {
+        "reading": "16ビットごとに くぎり、16しんすうで ひょうきする",
+        "meaning": "Ngăn cách mỗi 16 bit, biểu diễn bằng số thập lục phân.",
+        "note": "❌ Sai. Đây là mô tả của địa chỉ IPv6."
+      },
+      "32ビットの2進数をそのまま並べて表記する": {
+        "reading": "32ビットの 2しんすうを そのまま ならべて ひょうきする",
+        "meaning": "Viết 32 bit nhị phân liền nhau.",
+        "note": "❌ Sai. Mặc dù máy tính hiểu theo cách này, nhưng đây không phải là cách 'biểu diễn' (表記方法) cho con người."
+      },
+      "4つの英数字を「:」でつなげて表す": {
+        "reading": "4つの えいすうじを「:」で つなげて あらわす",
+        "meaning": "Biểu diễn bằng 4 chữ/số nối với nhau bằng dấu ':'.",
+        "note": "❌ Sai. Không phải 4. IPv6 dùng 8 nhóm và dấu ':'."
+      }
+    }
+  },
+  {
+    "question": "pingコマンドの目的として正しいものはどれですか。",
+    "analysis": {
+      "reading": "pingコマンドの もくてきとして ただしい ものは どれですか。",
+      "meaning": "Mục đích của lệnh (command) 'ping' là gì?"
+    },
+    "options": [
+      "電子メールを送信するためのテストを行う",
+      "ネットワーク上の他のコンピュータにウイルスを送る",
+      "相手のMACアドレスを取得するために使用する",
+      "通信相手との接続確認や到達状況の確認を行う"
+    ],
+    "answer": "通信相手との接続確認や到達状況の確認を行う",
+    "explanations": {
+      "電子メールを送信するためのテストを行う": {
+        "reading": "でんしメールを そうしんするための テストを おこなう",
+        "meaning": "Thực hiện kiểm tra để gửi email.",
+        "note": "❌ Sai. Lệnh ping sử dụng giao thức ICMP, không liên quan đến SMTP/POP3."
+      },
+      "ネットワーク上の他のコンピュータにウイルスを送る": {
+        "reading": "ネットワークじょうの ほかの コンピュータに ウイルスを おくる",
+        "meaning": "Gửi virus đến máy tính khác trên mạng.",
+        "note": "❌ Sai. Lệnh ping là một công cụ chẩn đoán mạng cơ bản, không phải phần mềm độc hại."
+      },
+      "相手のMACアドレスを取得するために使用する": {
+        "reading": "あいての MACアドレスを しゅとく するために しようする",
+        "meaning": "Sử dụng để thu thập (lấy) địa chỉ MAC của đối tác.",
+        "note": "❌ Sai. Lệnh `arp -a` (hoặc `ip neigh`) dùng để xem bảng ARP, không phải ping."
+      },
+      "通信相手との接続確認や到達状況の確認を行う": {
+        "reading": "つうしん あいてとの せつぞく かくにんや とうたつ じょうきょうの かくにんを おこなう",
+        "meaning": "Thực hiện xác nhận kết nối và xác nhận tình trạng 'đến nơi' (reachability) với đối tác.",
+        "note": "✅ Đúng. Ping (ICMP Echo Request) được dùng để kiểm tra xem máy chủ có 'sống' (alive) và phản hồi hay không."
+      }
+    }
+  },
+  {
+    "question": "ポート番号に関する説明として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "ポート ばんごうに かんする せつめいとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Giải thích nào phù hợp nhất về 'Số hiệu cổng' (Port Number)?"
+    },
+    "options": [
+      "IPアドレスと同じくネットワーク機器ごとに1つだけ割り当てられる番号である",
+      "通信速度を決定するための設定値である",
+      "パスワードの暗号化方式を決めるための番号である",
+      "アプリケーションやサービスを識別するための番号である"
+    ],
+    "answer": "アプリケーションやサービスを識別するための番号である",
+    "explanations": {
+      "IPアドレスと同じくネットワーク機器ごとに1つだけ割り当てられる番号である": {
+        "reading": "IPアドレスと おなじく ネットワーク きき ごとに ひとつだけ わりあてられる ばんごうである",
+        "meaning": "Là số được gán 1 lần duy nhất cho mỗi thiết bị mạng, giống như địa chỉ IP.",
+        "note": "❌ Sai. Một thiết bị (1 IP) có thể mở rất nhiều cổng (65535 cổng). Ví dụ: cổng 80 (Web), cổng 22 (SSH)."
+      },
+      "通信速度を決定するための設定値である": {
+        "reading": "つうしん そくどを けってい するための せっていちである",
+        "meaning": "Là giá trị cài đặt để quyết định tốc độ truyền thông.",
+        "note": "❌ Sai. Tốc độ do phần cứng mạng (card LAN, switch) quyết định."
+      },
+      "パスワードの暗号化方式を決めるための番号である": {
+        "reading": "パスワードの あんごうか ほうしきを きめる ための ばんごうである",
+        "meaning": "Là số để quyết định phương thức mã hóa mật khẩu.",
+        "note": "❌ Sai. Không liên quan."
+      },
+      "アプリケーションやサービスを識別するための番号である": {
+        "reading": "アプリケーションや サービスを しきべつ するための ばんごうである",
+        "meaning": "Là số để xác định (nhận diện) ứng dụng hoặc dịch vụ.",
+        "note": "✅ Đúng. IP xác định 'máy tính' (nhà), Port xác định 'dịch vụ' (cửa). Ví dụ: Cổng 80 là dịch vụ Web (HTTP), Cổng 25 là dịch vụ Mail (SMTP)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、ウェルノウンポートに分類されるポート番号はどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、ウェルノウンポートに ぶんるいされる ポート ばんごうは どれですか。",
+      "meaning": "Trong số sau, số hiệu cổng nào được phân loại là 'Well-Known Port'?"
+    },
+    "options": [
+      "80",
+      "2000",
+      "8080",
+      "10000"
+    ],
+    "answer": "80",
+    "explanations": {
+      "80": {
+        "reading": "80 (はちじゅう)",
+        "meaning": "Cổng 80",
+        "note": "✅ Đúng. Well-Known Ports (Cổng thông dụng) là dải từ 0-1023. Cổng 80 (dùng cho HTTP) nằm trong dải này."
+      },
+      "2000": {
+        "reading": "2000 (にせん)",
+        "meaning": "Cổng 2000",
+        "note": "❌ Sai. Đây là Registered Port (Cổng đã đăng ký, 1024-49151)."
+      },
+      "8080": {
+        "reading": "8080 (はっせん はちじゅう)",
+        "meaning": "Cổng 8080",
+        "note": "❌ Sai. Đây là Registered Port (thường dùng làm cổng proxy hoặc web thay thế)."
+      },
+      "10000": {
+        "reading": "10000 (いちまん)",
+        "meaning": "Cổng 10000",
+        "note": "❌ Sai. Đây là Registered Port."
+      }
+    }
+  },
+  {
+    "question": "ポートスキャンの目的として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "ポートスキャンの もくてきとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Mục đích nào sau đây là phù hợp nhất của 'Port Scan' (Quét cổng)?"
+    },
+    "options": [
+      "メールサーバの設定を変更するための操作である",
+      "ファイルを暗号化してセキュリティを高めるツールである",
+      "DNSサーバを自動的に書き換えるための仕組みである",
+      "開いているポート番号を調べてセキュリティ設定を確認するためである"
+    ],
+    "answer": "開いているポート番号を調べてセキュリティ設定を確認するためである",
+    "explanations": {
+      "メールサーバの設定を変更するための操作である": {
+        "reading": "メールサーバの せっていを へんこう するための そうさである",
+        "meaning": "Là thao tác để thay đổi cài đặt của máy chủ mail.",
+        "note": "❌ Sai. Port scan là hành động 'kiểm tra', không phải 'thay đổi'."
+      },
+      "ファイルを暗号化してセキュリティを高めるツールである": {
+        "reading": "ファイルを あんごうか して セキュリティを たかめる ツールである",
+        "meaning": "Là công cụ nâng cao bảo mật bằng cách mã hóa file.",
+        "note": "❌ Sai. Đây là công cụ mã hóa (Encryption Tool), không phải port scan."
+      },
+      "DNSサーバを自動的に書き換えるための仕組みである": {
+        "reading": "DNSサーバを じどうてきに かきかえる ための しくみである",
+        "meaning": "Là cơ chế để tự động ghi đè (thay đổi) máy chủ DNS.",
+        "note": "❌ Sai. Đây là hành vi tấn công (ví dụ: DNS poisoning)."
+      },
+      "開いているポート番号を調べてセキュリティ設定を確認するためである": {
+        "reading": "あいている ポート ばんごうを しらべて セキュリティ せっていを かくにん するためである",
+        "meaning": "Để kiểm tra các số hiệu cổng đang mở và xác nhận cài đặt bảo mật.",
+        "note": "✅ Đúng. Quản trị viên (và cả hacker) dùng port scan để kiểm tra xem máy chủ đang 'mở' những dịch vụ nào (cổng nào) cho bên ngoài."
+      }
+    }
+  },
+  {
+    "question": "DNSの役割として正しいものはどれですか。",
+    "analysis": {
+      "reading": "DNSの やくわりとして ただしい ものは どれですか。",
+      "meaning": "Vai trò của DNS là gì?"
+    },
+    "options": [
+      "IPアドレスの送受信履歴を保存するサービスである",
+      "ドメイン名とMACアドレスを変換する仕組みである",
+      "電子メールの暗号化に使われる認証機構である",
+      "ドメイン名とIPアドレスの対応付けを管理する仕組みである"
+    ],
+    "answer": "ドメイン名とIPアドレスの対応付けを管理する仕組みである",
+    "explanations": {
+      "IPアドレスの送受信履歴を保存するサービスである": {
+        "reading": "IPアドレスの そうじゅしん りれきを ほぞんする サービスである",
+        "meaning": "Là dịch vụ lưu trữ lịch sử gửi/nhận của địa chỉ IP.",
+        "note": "❌ Sai. Đây là chức năng của Log Server (Máy chủ ghi log)."
+      },
+      "ドメイン名とMACアドレスを変換する仕組みである": {
+        "reading": "ドメインめいと MACアドレスを へんかんする しくみである",
+        "meaning": "Là cơ chế chuyển đổi Tên miền (Domain) và địa chỉ MAC.",
+        "note": "❌ Sai. DNS chuyển đổi Domain <-> IP. ARP chuyển đổi IP <-> MAC."
+      },
+      "電子メールの暗号化に使われる認証機構である": {
+        "reading": "でんしメールの あんごうかに つかわれる にんしょう きこうである",
+        "meaning": "Là cơ chế xác thực được dùng để mã hóa email.",
+        "note": "❌ Sai. Đây là S/MIME hoặc PGP."
+      },
+      "ドメイン名とIPアドレスの対応付けを管理する仕組みである": {
+        "reading": "ドメインめいと IPアドレスの たいおうづけを かんりする しくみである",
+        "meaning": "Là cơ chế quản lý sự tương ứng (ánh xạ) giữa Tên miền và Địa chỉ IP.",
+        "note": "✅ Đúng. DNS (Domain Name System) giống như 'danh bạ điện thoại' của Internet, nó dịch tên (www.google.com) thành số (8.8.8.8)."
+      }
+    }
+  },
+  {
+    "question": "次のうち、DNSを使って対応付けられる組み合わせとして正しいものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、DNSを つかって たいおうづけられる くみあわせとして ただしい ものは どれですか。",
+      "meaning": "Trong số sau, đâu là cặp đôi (tổ hợp) được ánh xạ (tương ứng) bằng DNS?"
+    },
+    "options": [
+      "www.impress.co.jp → 202.218.13.138",
+      "www.impress.co.jp → 80",
+      "smtp.impress.co.jp → ping",
+      "202.218.13.138 → POP3"
+    ],
+    "answer": "www.impress.co.jp → 202.218.13.138",
+    "explanations": {
+      "www.impress.co.jp → 202.218.13.138": {
+        "reading": "www.impress.co.jp (ドメイン名) → 202.218.13.138 (IPアドレス)",
+        "meaning": "Tên miền (Domain Name) → Địa chỉ IP (IP Address)",
+        "note": "✅ Đúng. Đây là chức năng cơ bản nhất của DNS (ánh xạ A record)."
+      },
+      "www.impress.co.jp → 80": {
+        "reading": "ドメイン名 → ポート番号",
+        "meaning": "Tên miền → Số hiệu cổng",
+        "note": "❌ Sai. DNS không xử lý số hiệu cổng."
+      },
+      "smtp.impress.co.jp → ping": {
+        "reading": "ドメイン名 → コマンド",
+        "meaning": "Tên miền → Lệnh (Command)",
+        "note": "❌ Sai. DNS không ánh xạ tới một lệnh."
+      },
+      "202.218.13.138 → POP3": {
+        "reading": "IPアドレス → プロトコル",
+        "meaning": "Địa chỉ IP → Giao thức (Protocol)",
+        "note": "❌ Sai. DNS không ánh xạ IP tới một giao thức."
+      }
+    }
+  }
+]

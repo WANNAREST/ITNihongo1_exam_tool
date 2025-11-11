@@ -1,0 +1,290 @@
+[
+  {
+    "question": "グローバルIPアドレスに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "グローバルIPアドレスに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về địa chỉ Global IP?"
+    },
+    "options": [
+      "社内ネットワーク内だけで使用されるIPアドレスである",
+      "インターネットに直接接続される機器に割り振られるIPアドレスである",
+      "各家庭で自由に設定できるIPアドレスである",
+      "LAN内の機器にのみ割り振られるアドレスである"
+    ],
+    "answer": "インターネットに直接接続される機器に割り振られるIPアドレスである",
+    "explanations": {
+      "社内ネットワーク内だけで使用されるIPアドレスである": {
+        "reading": "しゃない ネットワークない だけで しようされる IPアドレスである",
+        "meaning": "Là địa chỉ IP chỉ được sử dụng trong mạng nội bộ công ty.",
+        "note": "❌ Sai. Đây là định nghĩa của địa chỉ Private IP."
+      },
+      "インターネットに直接接続される機器に割り振られるIPアドレスである": {
+        "reading": "インターネットに ちょくせつ せつぞくされる ききに わりふられる IPアドレスである",
+        "meaning": "Là địa chỉ IP được gán cho các thiết bị kết nối trực tiếp với Internet.",
+        "note": "✅ Đúng. Global IP là địa chỉ duy nhất trên toàn thế giới, cần thiết để truy cập Internet."
+      },
+      "各家庭で自由に設定できるIPアドレスである": {
+        "reading": "かくかていで じゆうに せっていできる IPアドレスである",
+        "meaning": "Là địa chỉ IP có thể tự do cài đặt tại mỗi gia đình.",
+        "note": "❌ Sai. Global IP được cấp phát bởi nhà cung cấp dịch vụ (ISP), người dùng không thể tự chọn bừa bãi."
+      },
+      "LAN内の機器にのみ割り振られるアドレスである": {
+        "reading": "LANないの ききにのみ わりふられる アドレスである",
+        "meaning": "Là địa chỉ chỉ được gán cho các thiết bị trong mạng LAN.",
+        "note": "❌ Sai. Đây là địa chỉ Private IP."
+      }
+    }
+  },
+  {
+    "question": "次のうち、プライベートIPアドレスの範囲に該当するものはどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、プライベートIPアドレスの はんいに がいとうする ものは どれですか。",
+      "meaning": "Trong số sau, cái nào thuộc phạm vi của địa chỉ Private IP?"
+    },
+    "options": [
+      "8.8.8.8",
+      "172.31.255.255",
+      "202.216.0.1",
+      "127.0.0.1"
+    ],
+    "answer": "172.31.255.255",
+    "explanations": {
+      "8.8.8.8": {
+        "reading": "ハチ ハチ ハチ ハチ",
+        "meaning": "8.8.8.8",
+        "note": "❌ Sai. Đây là địa chỉ Global IP (DNS công cộng của Google)."
+      },
+      "172.31.255.255": {
+        "reading": "172.31.255.255",
+        "meaning": "172.31.255.255",
+        "note": "✅ Đúng. Dải Private IP lớp B là từ 172.16.0.0 đến 172.31.255.255."
+      },
+      "202.216.0.1": {
+        "reading": "202.216.0.1",
+        "meaning": "202.216.0.1",
+        "note": "❌ Sai. Đây là địa chỉ Global IP (Lớp C)."
+      },
+      "127.0.0.1": {
+        "reading": "127.0.0.1",
+        "meaning": "127.0.0.1",
+        "note": "❌ Sai. Đây là địa chỉ Loopback (localhost), không phải Private IP dùng cho LAN."
+      }
+    }
+  },
+  {
+    "question": "ループバックアドレスに関する説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "ループバックアドレスに かんする せつめいとして ただしい ものは どれですか。",
+      "meaning": "Giải thích nào sau đây là đúng về địa chỉ Loopback?"
+    },
+    "options": [
+      "自宅用のインターネット契約で割り当てられるアドレスである",
+      "自分自身を指す特殊なIPアドレスであり通信テストなどに使われる",
+      "通常のグローバルIPアドレスとして利用されている",
+      "DHCPによって割り当てられる自動アドレスである"
+    ],
+    "answer": "自分自身を指す特殊なIPアドレスであり通信テストなどに使われる",
+    "explanations": {
+      "自宅用のインターネット契約で割り当てられるアドレスである": {
+        "reading": "じたくようの インターネット けいやくで わりあてられる アドレスである",
+        "meaning": "Là địa chỉ được cấp khi ký hợp đồng Internet gia đình.",
+        "note": "❌ Sai. Đó là Global IP."
+      },
+      "自分自身を指す特殊なIPアドレスであり通信テストなどに使われる": {
+        "reading": "じぶんじしんを さす とくしゅな IPアドレスであり つうしん テストなどに つかわれる",
+        "meaning": "Là địa chỉ IP đặc biệt chỉ chính bản thân máy tính đó, dùng để kiểm tra truyền thông.",
+        "note": "✅ Đúng. 127.0.0.1 (localhost) dùng để máy tính tự giao tiếp với chính nó."
+      },
+      "通常のグローバルIPアドレスとして利用されている": {
+        "reading": "つうじょうの グローバルIPアドレスとして りようされている",
+        "meaning": "Được sử dụng như một địa chỉ Global IP thông thường.",
+        "note": "❌ Sai. Địa chỉ này không thể đi ra Internet."
+      },
+      "DHCPによって割り当てられる自動アドレスである": {
+        "reading": "DHCPによって わりあてられる じどう アドレスである",
+        "meaning": "Là địa chỉ tự động được cấp bởi DHCP.",
+        "note": "❌ Sai. Loopback được quy định cứng trong hệ điều hành."
+      }
+    }
+  },
+  {
+    "question": "NATの役割として正しいものはどれですか。",
+    "analysis": {
+      "reading": "NATの やくわりとして ただしい ものは どれですか。",
+      "meaning": "Vai trò nào sau đây là đúng của NAT?"
+    },
+    "options": [
+      "複数のグローバルIPアドレスを1つのプライベートIPアドレスに変換する",
+      "プライベートIPアドレスとグローバルIPアドレスを1対1で変換する",
+      "通信機器のMACアドレスをIPアドレスに対応させて変換処理を行う",
+      "数値であるIPアドレスを人間が読みやすいホスト名に変換する処理を行う"
+    ],
+    "answer": "プライベートIPアドレスとグローバルIPアドレスを1対1で変換する",
+    "explanations": {
+      "複数のグローバルIPアドレスを1つのプライベートIPアドレスに変換する": {
+        "reading": "ふくすうの グローバルIPアドレスを 1つの プライベートIPアドレスに へんかんする",
+        "meaning": "Chuyển đổi nhiều Global IP thành 1 Private IP.",
+        "note": "❌ Sai. Ngược đời."
+      },
+      "プライベートIPアドレスとグローバルIPアドレスを1対1で変換する": {
+        "reading": "プライベートIPアドレスと グローバルIPアドレスを 1たい1で へんかんする",
+        "meaning": "Chuyển đổi địa chỉ Private IP và Global IP theo tỷ lệ 1:1.",
+        "note": "✅ Đúng. NAT (Network Address Translation) cơ bản là chuyển đổi 1-1."
+      },
+      "通信機器のMACアドレスをIPアドレスに対応させて変換処理を行う": {
+        "reading": "つうしん ききの MACアドレスを IPアドレスに たいおうさせて へんかん しょりを おこなう",
+        "meaning": "Xử lý chuyển đổi tương ứng giữa MAC và IP.",
+        "note": "❌ Sai. Đây là RARP."
+      },
+      "数値であるIPアドレスを人間が読みやすいホスト名に変換する処理を行う": {
+        "reading": "すうちである IPアドレスを にんげんが よみやすい ホストめいに へんかんする しょりを おこなう",
+        "meaning": "Xử lý chuyển đổi IP dạng số thành tên host dễ đọc cho con người.",
+        "note": "❌ Sai. Đây là DNS."
+      }
+    }
+  },
+  {
+    "question": "NAPT（IPマスカレード）の特徴として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "NAPT（IPマスカレード）の とくちょうとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Đặc trưng nào phù hợp nhất của NAPT (IP Masquerade)?"
+    },
+    "options": [
+      "IPアドレスを使用せず、名前だけで通信を行う技術である",
+      "1つのプライベートIPアドレスを複数のグローバルIPアドレスに変換する",
+      "複数のプライベートIPアドレスを1つのグローバルIPアドレスにまとめて変換する",
+      "通信内容を暗号化するための仕組みである"
+    ],
+    "answer": "複数のプライベートIPアドレスを1つのグローバルIPアドレスにまとめて変換する",
+    "explanations": {
+      "IPアドレスを使用せず、名前だけで通信を行う技術である": {
+        "reading": "IPアドレスを しようせず、なまえだけで つうしんを おこなう ぎじゅつである",
+        "meaning": "Kỹ thuật giao tiếp chỉ bằng tên mà không dùng IP.",
+        "note": "❌ Sai."
+      },
+      "1つのプライベートIPアドレスを複数のグローバルIPアドレスに変換する": {
+        "reading": "1つの プライベートIPアドレスを ふくすうの グローバルIPアドレスに へんかんする",
+        "meaning": "Chuyển 1 Private IP thành nhiều Global IP.",
+        "note": "❌ Sai. Lãng phí Global IP."
+      },
+      "複数のプライベートIPアドレスを1つのグローバルIPアドレスにまとめて変換する": {
+        "reading": "ふくすうの プライベートIPアドレスを 1つの グローバルIPアドレスに まとめて へんかんする",
+        "meaning": "Gộp và chuyển đổi nhiều Private IP thành 1 Global IP duy nhất.",
+        "note": "✅ Đúng. NAPT (Network Address Port Translation) dùng thêm số cổng (Port) để cho phép nhiều máy trong LAN cùng ra mạng bằng 1 IP công cộng."
+      },
+      "通信内容を暗号化するための仕組みである": {
+        "reading": "つうしん ないようを あんごうか するための しくみである",
+        "meaning": "Cơ chế để mã hóa nội dung truyền thông.",
+        "note": "❌ Sai. Đây là VPN hoặc SSL."
+      }
+    }
+  },
+  {
+    "question": "DHCPの役割として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "DHCPの やくわりとして もっとも てきせつな ものは どれですか。",
+      "meaning": "Vai trò nào phù hợp nhất của DHCP?"
+    },
+    "options": [
+      "コンピュータに自動的にIPアドレスを割り当てる",
+      "グローバルIPアドレスをプライベートIPに変換する",
+      "ホスト名をMACアドレスに変換する",
+      "通信の暗号化と復号を行う"
+    ],
+    "answer": "コンピュータに自動的にIPアドレスを割り当てる",
+    "explanations": {
+      "コンピュータに自動的にIPアドレスを割り当てる": {
+        "reading": "コンピュータに じどうてきに IPアドレスを わりあてる",
+        "meaning": "Tự động gán địa chỉ IP cho máy tính.",
+        "note": "✅ Đúng. DHCP (Dynamic Host Configuration Protocol) giúp người dùng không cần cài đặt IP thủ công."
+      },
+      "グローバルIPアドレスをプライベートIPに変換する": {
+        "reading": "グローバルIPアドレスを プライベートIPに へんかんする",
+        "meaning": "Chuyển đổi Global IP sang Private IP.",
+        "note": "❌ Sai. Đây là NAT/NAPT."
+      },
+      "ホスト名をMACアドレスに変換する": {
+        "reading": "ホストめいを MACアドレスに へんかんする",
+        "meaning": "Chuyển đổi tên host sang địa chỉ MAC.",
+        "note": "❌ Sai. Không có giao thức nào làm việc này trực tiếp."
+      },
+      "通信の暗号化と復号を行う": {
+        "reading": "つうしんの あんごうかと ふくごうを おこなう",
+        "meaning": "Thực hiện mã hóa và giải mã truyền thông.",
+        "note": "❌ Sai."
+      }
+    }
+  },
+  {
+    "question": "DHCPの利用による利点として正しいものはどれですか。",
+    "analysis": {
+      "reading": "DHCPの りように よる りてんとして ただしい ものは どれですか。",
+      "meaning": "Lợi ích của việc sử dụng DHCP là gì?"
+    },
+    "options": [
+      "ネットワーク上の通信をすべてログに記録できる",
+      "インターネット接続が不要になる",
+      "IPアドレスを自動的に管理できるため設定が簡単になる",
+      "IPアドレスを固定することでネットワークが高速化する"
+    ],
+    "answer": "IPアドレスを自動的に管理できるため設定が簡単になる",
+    "explanations": {
+      "ネットワーク上の通信をすべてログに記録できる": {
+        "reading": "ネットワークじょうの つうしんを すべて ログに きろくできる",
+        "meaning": "Có thể ghi log tất cả truyền thông trên mạng.",
+        "note": "❌ Sai. Đây là chức năng giám sát mạng."
+      },
+      "インターネット接続が不要になる": {
+        "reading": "インターネット せつぞくが ふように なる",
+        "meaning": "Không cần kết nối Internet nữa.",
+        "note": "❌ Sai."
+      },
+      "IPアドレスを自動的に管理できるため設定が簡単になる": {
+        "reading": "IPアドレスを じどうてきに かんり できるため せっていが かんたんに なる",
+        "meaning": "Có thể quản lý IP tự động nên việc cài đặt trở nên đơn giản.",
+        "note": "✅ Đúng. Tránh trùng lặp IP và người dùng không cần kiến thức mạng vẫn kết nối được."
+      },
+      "IPアドレスを固定することでネットワークが高速化する": {
+        "reading": "IPアドレスを こてい することで ネットワークが こうそくか する",
+        "meaning": "Làm mạng nhanh hơn bằng cách cố định IP.",
+        "note": "❌ Sai. DHCP thường cấp IP động, và IP cố định hay động không ảnh hưởng đáng kể đến tốc độ."
+      }
+    }
+  },
+  {
+    "question": "IPv6の特徴として正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPv6の とくちょうとして ただしい ものは どれですか。",
+      "meaning": "Đặc trưng nào sau đây là đúng về IPv6?"
+    },
+    "options": [
+      "IPv6ではIPアドレスは32ビットで構成されている",
+      "IPv6のアドレス表記は英文字だけで構成されている",
+      "IPv6はIPv4よりもアドレス数が少ない",
+      "IPv6は128ビットで構成されており、アドレス数が大幅に増える"
+    ],
+    "answer": "IPv6は128ビットで構成されており、アドレス数が大幅に増える",
+    "explanations": {
+      "IPv6ではIPアドレスは32ビットで構成されている": {
+        "reading": "IPv6では IPアドレスは 32ビットで こうせいされている",
+        "meaning": "Trong IPv6, địa chỉ IP được cấu thành bởi 32 bit.",
+        "note": "❌ Sai. 32 bit là IPv4."
+      },
+      "IPv6のアドレス表記は英文字だけで構成されている": {
+        "reading": "IPv6の アドレス ひょうきは えいもじ だけで こうせいされている",
+        "meaning": "Ký hiệu địa chỉ IPv6 chỉ bao gồm chữ cái tiếng Anh.",
+        "note": "❌ Sai. Nó dùng hệ thập lục phân (Hexadecimal) gồm số (0-9) và chữ (a-f)."
+      },
+      "IPv6はIPv4よりもアドレス数が少ない": {
+        "reading": "IPv6は IPv4よりも アドレスすうが すくない",
+        "meaning": "IPv6 có số lượng địa chỉ ít hơn IPv4.",
+        "note": "❌ Sai. IPv6 ra đời để giải quyết vấn đề thiếu hụt địa chỉ của IPv4."
+      },
+      "IPv6は128ビットで構成されており、アドレス数が大幅に増える": {
+        "reading": "IPv6は 128ビットで こうせいされており、アドレスすうが おおはばに ふえる",
+        "meaning": "IPv6 được cấu thành bởi 128 bit, số lượng địa chỉ tăng lên đáng kể.",
+        "note": "✅ Đúng. IPv6 cung cấp không gian địa chỉ gần như vô tận (2 mũ 128)."
+      }
+    }
+  }
+]

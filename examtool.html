@@ -3,128 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài thi giữa kỳ - IT Tiếng Nhật (Bản 13.0 - Phân tích Báo cáo)</title>
+    <title>Bài thi giữa kỳ - IT Tiếng Nhật (Bản 14.0 - Fix Lỗi Phần 3)</title>
     
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     
     <style>
-        /* (CSS giữ nguyên, không thay đổi) */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f7f6;
-            color: #333;
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-            padding-bottom: 5px;
-        }
-        h3 {
-            color: #00796b;
-            margin-top: 0;
-            border-bottom: 1px solid #b2dfdb;
-            padding-bottom: 5px;
-        }
-        .exam-section {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+        /* (CSS giữ nguyên từ bản trước) */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; background-color: #f4f7f6; color: #333; max-width: 900px; margin: 20px auto; padding: 20px; }
+        h1, h2 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 5px; }
+        h3 { color: #00796b; margin-top: 0; border-bottom: 1px solid #b2dfdb; padding-bottom: 5px; }
+        .exam-section { background-color: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         
-        #admin-panel {
-            background-color: #e0f2f1;
-            border: 1px solid #4db6ac;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
+        #admin-panel { background-color: #e0f2f1; border: 1px solid #4db6ac; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
         #admin-panel label { font-weight: bold; display: block; margin-bottom: 5px; }
-        input[type="file"] {
-            border: 1px solid #ccc;
-            padding: 8px;
-            border-radius: 4px;
-            background: white;
-            width: 98%;
-        }
+        input[type="file"] { border: 1px solid #ccc; padding: 8px; border-radius: 4px; background: white; width: 98%; }
         #sheet-list-container { max-height: 150px; overflow-y: auto; background: #fff; border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
         #sheet-list-container label { display: block; font-weight: normal; }
         
-        #exam-part-container {
-            margin-top: 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+        #exam-part-container { margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .part-control { background: #f1f8e9; border: 1px solid #c5e1a5; padding: 10px; border-radius: 5px; }
         .part-control input[type="number"] { width: 60px; padding: 5px; }
-        
-        /* Màu cho Phần 5 (FE) */
-        .part-control.fe {
-            background: #fce4ec;
-            border-color: #f06292;
-        }
-        
-        /* Màu cho Phần 6 (Sơ đồ) */
-        .part-control.diagram {
-            background: #e3f2fd;
-            border-color: #90caf9;
-        }
-        
-        /* Màu cho Phần 7 (Báo cáo) */
-        .part-control.report {
-            background: #fff3e0;
-            border-color: #ffb74d;
-            grid-column: 1 / -1; /* Chiếm toàn bộ chiều rộng */
-        }
+        .part-control.fe { background: #fce4ec; border-color: #f06292; }
+        .part-control.diagram { background: #e3f2fd; border-color: #90caf9; }
+        .part-control.report { background: #fff3e0; border-color: #ffb74d; grid-column: 1 / -1; }
 
         #voice-settings { margin-top: 15px; background: #fff8e1; border: 1px solid #ffe082; padding: 10px; border-radius: 5px; }
         #voice-select { width: 100%; padding: 8px; font-size: 0.9em; border-radius: 4px; border: 1px solid #ccc; }
-        #generate-btn {
-            background-color: #00796b;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-top: 20px;
-            width: 100%;
-        }
+        #generate-btn { background-color: #00796b; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 1.1em; font-weight: bold; margin-top: 20px; width: 100%; }
         #status-message { margin-top: 15px; font-weight: bold; }
         
-        /* Panel FE */
-        #fe-data-panel {
-            background-color: #fce4ec;
-            border: 1px solid #f06292;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        
-        /* Panel Sơ đồ */
-        #diagram-data-panel {
-            background-color: #e3f2fd;
-            border: 1px solid #90caf9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        
-        /* Panel Báo cáo */
-        #report-data-panel {
-            background-color: #fff3e0;
-            border: 1px solid #ffb74d;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
+        #fe-data-panel { background-color: #fce4ec; border: 1px solid #f06292; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        #diagram-data-panel { background-color: #e3f2fd; border: 1px solid #90caf9; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        #report-data-panel { background-color: #fff3e0; border: 1px solid #ffb74d; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
         
         .question { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #ddd; }
         .question p { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
@@ -138,17 +48,7 @@
         .correct-answer-text { color: #155724; font-weight: bold; margin-left: 10px; }
         .correct-answer-label { background-color: #d4edda; border: 1px solid #c3e6cb; }
 
-        /* Giải thích FE */
-        .question-analysis-block, .option-analysis-block {
-            font-size: 0.9em;
-            margin-top: 5px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #eee;
-            border-left-width: 4px;
-            border-left-color: #007bff;
-            border-radius: 4px;
-        }
+        .question-analysis-block, .option-analysis-block { font-size: 0.9em; margin-top: 5px; padding: 10px; background-color: #f9f9f9; border: 1px solid #eee; border-left-width: 4px; border-left-color: #007bff; border-radius: 4px; }
         .option-analysis-block { margin-top: 8px; }
         .option-reading { color: #0056b3; font-style: italic; }
         .option-meaning { color: #333; font-weight: bold; }
@@ -157,169 +57,54 @@
         .incorrect .option-analysis-block { border-left-color: #dc3545; background-color: #fff8f8; }
         .correct-answer-label .option-analysis-block { border-left-color: #28a745; background-color: #f7fff9; }
 
-        /* Hiển thị đáp án Sơ đồ (Chi tiết) */
-        .diagram-answer-block {
-            margin-top: 10px;
-            padding: 10px;
-            background: #f7fff9;
-            border: 1px solid #c3e6cb;
-            border-radius: 4px;
-        }
+        .diagram-answer-block { margin-top: 10px; padding: 10px; background: #f7fff9; border: 1px solid #c3e6cb; border-radius: 4px; }
         .diagram-answer-block > div { margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed #c3e6cb; }
         .diagram-answer-block > div:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .diagram-answer-block strong { color: #155724; display: block; }
         .diagram-answer-reading { color: #0056b3; font-style: italic; font-size: 0.9em; }
         .diagram-answer-meaning { color: #333; font-weight: bold; font-size: 0.9em; }
         
-        /* Hình ảnh Sơ đồ */
-        .diagram-image {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
+        .diagram-image { max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
         
-        /* Panel Báo cáo (P7) */
-        .report-textarea {
-            width: 98%;
-            height: 150px;
-            font-size: 1em;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-        .report-answer-block {
-            margin-top: 10px;
-            padding: 10px;
-            background: #fff9e6;
-            border: 1px solid #ffe0b2;
-            border-radius: 4px;
-        }
-        .report-answer-block strong {
-            color: #e65100;
-        }
-        .report-answer-block pre {
-            background: #fff;
-            padding: 10px;
-            border-radius: 4px;
-            border: 1px dashed #ffe0b2;
-            white-space: pre-wrap; /* Giữ nguyên định dạng xuống dòng */
-            word-wrap: break-word;
-            font-family: monospace;
-            font-size: 1.1em;
-        }
+        .report-textarea { width: 98%; height: 150px; font-size: 1em; padding: 10px; border: 1px solid #ccc; }
+        .report-answer-block { margin-top: 10px; padding: 10px; background: #fff9e6; border: 1px solid #ffe0b2; border-radius: 4px; }
+        .report-answer-block strong { color: #e65100; }
+        .report-answer-block pre { background: #fff; padding: 10px; border-radius: 4px; border: 1px dashed #ffe0b2; white-space: pre-wrap; word-wrap: break-word; font-family: monospace; font-size: 1.1em; }
 
-        #submit-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            font-size: 1.25em;
-            font-weight: bold;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #results {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-align: center;
-        }
-        #retry-btn {
-            display: none; /* Ẩn ban đầu */
-            width: 100%;
-            padding: 12px;
-            font-size: 1.1em;
-            font-weight: bold;
-            background-color: #ffc107; /* Màu vàng */
-            color: #212529;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+        #submit-btn { display: block; width: 100%; padding: 15px; font-size: 1.25em; font-weight: bold; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        #results { margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 1.2em; font-weight: bold; text-align: center; }
+        #retry-btn { display: none; width: 100%; padding: 12px; font-size: 1.1em; font-weight: bold; background-color: #ffc107; color: #212529; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
     
     <div id="admin-panel">
-        <h3>Bảng điều khiển (Bản 13.0 - Phân tích Báo cáo)</h3>
+        <h3>Bảng điều khiển (Bản 14.0 - Fix Lỗi P3)</h3>
         
         <label for="file-input">1. Tải file Excel Từ vựng (.xlsx):</label>
         <input type="file" id="file-input" accept=".xlsx, .xls">
-        
         <label for="sheet-list-container" style="margin-top: 15px;">2. Chọn bài học (Sheet) để gộp:</label>
         <div id="sheet-list-container"><p>Vui lòng tải file Excel lên.</p></div>
         
         <label style="margin-top: 15px;">3. Chọn dạng bài và số câu:</label>
         <div id="exam-part-container">
-            <div class="part-control">
-                <label><input type="checkbox" id="check-part1" checked> **P1:** Nghe -> Chọn (Việt)</label>
-                <label>Số câu: <input type="number" id="count-part1" value="5" min="0"></label>
-            </div>
-            <div class="part-control">
-                <label><input type="checkbox" id="check-part2" checked> **P2:** Đọc (Kanji) -> Viết</label>
-                <label>Số câu: <input type="number" id="count-part2" value="5" min="0"></label>
-            </div>
-            <div class="part-control">
-                <label><input type="checkbox" id="check-part3" checked> **P3:** Đọc (Eng/Alphabet) -> Viết</label>
-                <label>Số câu: <input type="number" id="count-part3" value="5" min="0"></label>
-            </div>
-            <div class="part-control">
-                <label><input type="checkbox" id="check-part4" checked> **P4:** Đọc (Việt) -> Chọn (Nhật)</label>
-                <label>Số câu: <input type="number" id="count-part4" value="5" min="0"></label>
-            </div>
-            
-            <div class="part-control fe">
-                <label><input type="checkbox" id="check-part5" checked> **P5 (Bài 2):** FE (Trắc nghiệm)</label>
-                <label>Số câu: <input type="number" id="count-part5" value="5" min="0"></label>
-            </div>
-            
-            <div class="part-control diagram">
-                <label><input type="checkbox" id="check-part6" checked> **P6 (Bài 3):** Sơ đồ (Tự luận)</label>
-                <label>Số câu: <input type="number" id="count-part6" value="2" min="0"></label>
-            </div>
-            
-            <div class="part-control report">
-                <label><input type="checkbox" id="check-part7" checked> **P7 (Bài 4):** Báo cáo (Tự luận)</label>
-                <label>Số câu: <input type="number" id="count-part7" value="1" min="0"></label>
-            </div>
+            <div class="part-control"><label><input type="checkbox" id="check-part1" checked> **P1:** Nghe -> Chọn (Việt)</label><label>Số câu: <input type="number" id="count-part1" value="5" min="0"></label></div>
+            <div class="part-control"><label><input type="checkbox" id="check-part2" checked> **P2:** Đọc (Kanji) -> Viết</label><label>Số câu: <input type="number" id="count-part2" value="5" min="0"></label></div>
+            <div class="part-control"><label><input type="checkbox" id="check-part3" checked> **P3:** Đọc (Eng/Alphabet) -> Viết</label><label>Số câu: <input type="number" id="count-part3" value="5" min="0"></label></div>
+            <div class="part-control"><label><input type="checkbox" id="check-part4" checked> **P4:** Đọc (Việt) -> Chọn (Nhật)</label><label>Số câu: <input type="number" id="count-part4" value="5" min="0"></label></div>
+            <div class="part-control fe"><label><input type="checkbox" id="check-part5" checked> **P5 (Bài 2):** FE (Trắc nghiệm)</label><label>Số câu: <input type="number" id="count-part5" value="5" min="0"></label></div>
+            <div class="part-control diagram"><label><input type="checkbox" id="check-part6" checked> **P6 (Bài 3):** Sơ đồ (Tự luận)</label><label>Số câu: <input type="number" id="count-part6" value="2" min="0"></label></div>
+            <div class="part-control report"><label><input type="checkbox" id="check-part7" checked> **P7 (Bài 4):** Báo cáo (Tự luận)</label><label>Số câu: <input type="number" id="count-part7" value="1" min="0"></label></div>
         </div>
         
-        <div id="voice-settings">
-            <label for="voice-select">4. Cài đặt Giọng đọc (Tùy chọn)</label>
-            <select id="voice-select" disabled><option value="">-- Đang tải...</option></select>
-        </div>
-        
+        <div id="voice-settings"><label for="voice-select">4. Cài đặt Giọng đọc (Tùy chọn)</label><select id="voice-select" disabled><option value="">-- Đang tải...</option></select></div>
         <button id="generate-btn" disabled>Tạo Đề thi Ngẫu nhiên Mới</button>
         <div id="status-message"></div>
     </div>
     
-    <div id="fe-data-panel">
-        <h3>Khu vực Dữ liệu FE (Bài 2/P5)</h3>
-        <p>Tải file .json chứa các câu hỏi FE của bạn (dữ liệu sẽ được lưu tự động).</p>
-        <label for="fe-file-input">Tải file Câu hỏi FE (.json):</label>
-        <input type="file" id="fe-file-input" accept=".json">
-    </div>
-
-    <div id="diagram-data-panel">
-        <h3>Khu vực Dữ liệu Sơ đồ FE (Bài 3/P6)</h3>
-        <p>Tải file .json chứa dữ liệu (image, name, layer, role) của bạn.</p>
-        <label for="diagram-file-input">Tải file Sơ đồ FE (.json):</label>
-        <input type="file" id="diagram-file-input" accept=".json">
-    </div>
-    
-    <div id="report-data-panel">
-        <h3>Khu vực Dữ liệu Báo cáo (Bài 4/P7)</h3>
-        <p>Tải file .json chứa các tình huống (scenario) và đáp án mẫu (model_answer).</p>
-        <label for="report-file-input">Tải file Báo cáo (.json):</label>
-        <input type="file" id="report-file-input" accept=".json">
-    </div>
-
+    <div id="fe-data-panel"><h3>Khu vực Dữ liệu FE (Bài 2/P5)</h3><p>Tải file .json chứa các câu hỏi FE.</p><label for="fe-file-input">Tải file Câu hỏi FE (.json):</label><input type="file" id="fe-file-input" accept=".json"></div>
+    <div id="diagram-data-panel"><h3>Khu vực Dữ liệu Sơ đồ FE (Bài 3/P6)</h3><p>Tải file .json chứa dữ liệu sơ đồ.</p><label for="diagram-file-input">Tải file Sơ đồ FE (.json):</label><input type="file" id="diagram-file-input" accept=".json"></div>
+    <div id="report-data-panel"><h3>Khu vực Dữ liệu Báo cáo (Bài 4/P7)</h3><p>Tải file .json chứa các tình huống báo cáo.</p><label for="report-file-input">Tải file Báo cáo (.json):</label><input type="file" id="report-file-input" accept=".json"></div>
 
     <h1>Bài thi giữa kỳ: IT Tiếng Nhật & FE</h1>
     <p id="vocab-coverage">Nội dung: (Chưa có dữ liệu)</p>
@@ -329,21 +114,9 @@
         <div id="part2-container" class="exam-section" style="display:none;"><h2>Phần 2: Đọc và hiểu ý nghĩa (Kanji/Hiragana)</h2><div id="part2-questions"></div></div>
         <div id="part3-container" class="exam-section" style="display:none;"><h2>Phần 3: Đọc và hiểu ý nghĩa (Alphabet/English)</h2><div id="part3-questions"></div></div>
         <div id="part4-container" class="exam-section" style="display:none;"><h2>Phần 4: Hiểu ý nghĩa và viết</h2><div id="part4-questions"></div></div>
-        
-        <div id="part5-container" class="exam-section" style="display:none;">
-            <h2>Phần 5 (Bài 2): Câu hỏi FE (Trắc nghiệm)</h2>
-            <div id="part5-questions"></div>
-        </div>
-        
-        <div id="part6-container" class="exam-section" style="display:none;">
-            <h2>Phần 6 (Bài 3): Giải thích Sơ đồ FE (Tự luận)</h2>
-            <div id="part6-questions"></div>
-        </div>
-        
-        <div id="part7-container" class="exam-section" style="display:none;">
-            <h2>Phần 7 (Bài 4): Báo cáo (Tự luận)</h2>
-            <div id="part7-questions"></div>
-        </div>
+        <div id="part5-container" class="exam-section" style="display:none;"><h2>Phần 5 (Bài 2): Câu hỏi FE (Trắc nghiệm)</h2><div id="part5-questions"></div></div>
+        <div id="part6-container" class="exam-section" style="display:none;"><h2>Phần 6 (Bài 3): Giải thích Sơ đồ FE (Tự luận)</h2><div id="part6-questions"></div></div>
+        <div id="part7-container" class="exam-section" style="display:none;"><h2>Phần 7 (Bài 4): Báo cáo (Tự luận)</h2><div id="part7-questions"></div></div>
     </div>
 
     <button id="submit-btn">Nộp bài và Xem Đáp Án</button>
@@ -351,84 +124,42 @@
     <button id="retry-btn">Làm lại Đề này (Tắt đáp án)</button>
 
     <script>
-        // =================================================================
-        // --- KHU VỰC CẤU HÌNH VÀ DỮ LIỆU ĐỘNG ---
-        // =================================================================
-
-        let vocabKanjiHiragana = [];
-        let vocabAlphabet = [];
-        let vocabPureKatakana = [];
-        let feQuestions = []; // Kho P5
-        let feDiagrams = []; // Kho P6
-        let feReports = []; // Kho P7
-        
-        // "Bản lưu" đề thi (thêm q7Data)
-        let currentExamSnapshot = {
-            q1Data: [], q2Data: [], q3Data: [], q4Data: [], q5Data: [], q6Data: [], q7Data: []
-        };
-        
-        let workbookData; // Biến toàn cục để giữ dữ liệu Excel
-
-        const TARGET_HEADERS = {
-            KOTOBA: "言葉",
-            YOMIKATA: "読み方",
-            IMI: "意味",
-            KATAKANA: "カタカナ語",
-            JUYOUGOI: "重要語彙"
-        };
-        
-        // =================================================================
-        // --- LOGIC XỬ LÝ VÀ KHỞI TẠO MỚI ---
-        // =================================================================
+        let vocabKanjiHiragana = [], vocabAlphabet = [], vocabPureKatakana = [];
+        let feQuestions = [], feDiagrams = [], feReports = [];
+        let currentExamSnapshot = { q1Data: [], q2Data: [], q3Data: [], q4Data: [], q5Data: [], q6Data: [], q7Data: [] };
+        let workbookData;
+        const TARGET_HEADERS = { KOTOBA: "言葉", YOMIKATA: "読み方", IMI: "意味", KATAKANA: "カタカナ語", JUYOUGOI: "重要語彙" };
 
         document.addEventListener('DOMContentLoaded', initializeApp);
 
         function initializeApp() {
-            // (Giữ nguyên)
             document.getElementById('file-input').addEventListener('change', handleFileUpload);
             document.getElementById('generate-btn').addEventListener('click', generateExamFromSelection);
             document.getElementById('submit-btn').addEventListener('click', calculateScore);
             document.getElementById('retry-btn').addEventListener('click', retryCurrentExam);
             document.getElementById('fe-file-input').addEventListener('change', handleFeFileUpload);
             document.getElementById('diagram-file-input').addEventListener('change', handleFeDiagramUpload); 
-            document.getElementById('report-file-input').addEventListener('change', handleFeReportUpload); // Gắn sự kiện
+            document.getElementById('report-file-input').addEventListener('change', handleFeReportUpload);
             
             populateVoiceList();
-            if (speechSynthesis.onvoiceschanged !== undefined) {
-                speechSynthesis.onvoiceschanged = populateVoiceList;
-            }
-
+            if (speechSynthesis.onvoiceschanged !== undefined) { speechSynthesis.onvoiceschanged = populateVoiceList; }
             loadDataFromStorage();
             renderExamFromSnapshot();
         }
 
-        function retryCurrentExam() { /* (Giữ nguyên) */
-            renderExamFromSnapshot();
-            window.scrollTo({ top: document.getElementById('exam-container').offsetTop, behavior: 'smooth' });
-        }
-
-
-        function populateVoiceList() { /* (Giữ nguyên) */
+        function retryCurrentExam() { renderExamFromSnapshot(); window.scrollTo({ top: document.getElementById('exam-container').offsetTop, behavior: 'smooth' }); }
+        function populateVoiceList() {
             const voiceSelect = document.getElementById('voice-select');
             const voices = speechSynthesis.getVoices();
             if (voices.length === 0 && voiceSelect.options.length <= 1) { return; }
             voiceSelect.innerHTML = '<option value="">-- Dùng giọng mặc định (Trình duyệt) --</option>';
             const japaneseVoices = voices.filter(v => v.lang === 'ja-JP');
-            if (japaneseVoices.length === 0) {
-                 voiceSelect.innerHTML = '<option value="">-- Không tìm thấy giọng Tiếng Nhật --</option>';
-                 voiceSelect.disabled = true;
-                 return;
-            }
-            japaneseVoices.forEach(voice => {
-                const option = document.createElement('option');
-                option.textContent = `${voice.name} (${voice.lang})`;
-                option.setAttribute('value', voice.name);
-                voiceSelect.appendChild(option);
-            });
+            if (japaneseVoices.length === 0) { voiceSelect.innerHTML = '<option value="">-- Không tìm thấy giọng Tiếng Nhật --</option>'; voiceSelect.disabled = true; return; }
+            japaneseVoices.forEach(voice => { const option = document.createElement('option'); option.textContent = `${voice.name} (${voice.lang})`; option.setAttribute('value', voice.name); voiceSelect.appendChild(option); });
             voiceSelect.disabled = false;
         }
 
-        function handleFileUpload(event) { /* (Giữ nguyên) */
+        function handleFileUpload(event) {
             const file = event.target.files[0];
             const statusMsg = document.getElementById('status-message');
             const reader = new FileReader();
@@ -440,15 +171,11 @@
                     document.getElementById('generate-btn').disabled = false;
                     statusMsg.textContent = `Tải file Từ vựng thành công! Tìm thấy ${workbookData.SheetNames.length} bài học.`;
                     statusMsg.style.color = "#155724";
-                } catch (error) {
-                    statusMsg.textContent = "Lỗi: Không thể đọc file Từ vựng.";
-                    statusMsg.style.color = "#a94442";
-                }
+                } catch (error) { statusMsg.textContent = "Lỗi: Không thể đọc file Từ vựng."; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsArrayBuffer(file);
         }
-
-        function handleFeFileUpload(event) { /* (Giữ nguyên) */
+        function handleFeFileUpload(event) {
             const file = event.target.files[0];
             const statusMsg = document.getElementById('status-message');
             if (!file) return;
@@ -457,23 +184,16 @@
                 try {
                     const text = e.target.result;
                     const parsedData = JSON.parse(text); 
-                    if (!Array.isArray(parsedData)) {
-                         throw new Error("File JSON phải là một mảng (array) [ ... ]");
-                    }
+                    if (!Array.isArray(parsedData)) throw new Error("File JSON phải là array");
                     feQuestions = parsedData;
                     localStorage.setItem('feQuestions', JSON.stringify(feQuestions));
-                    statusMsg.textContent = `Tải file FE (P5) thành công! Tìm thấy ${feQuestions.length} câu hỏi.`;
+                    statusMsg.textContent = `Tải file FE (P5) thành công! (${feQuestions.length} câu)`;
                     statusMsg.style.color = "#155724";
-                } catch (error) {
-                    console.error("Lỗi khi đọc file FE JSON:", error);
-                    statusMsg.textContent = `Lỗi file FE (P5): ${error.message}.`;
-                    statusMsg.style.color = "#a94442";
-                }
+                } catch (error) { statusMsg.textContent = `Lỗi file FE (P5): ${error.message}.`; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsText(file);
         }
-
-        function handleFeDiagramUpload(event) { /* (Giữ nguyên) */
+        function handleFeDiagramUpload(event) {
             const file = event.target.files[0];
             const statusMsg = document.getElementById('status-message');
             if (!file) return;
@@ -482,57 +202,35 @@
                 try {
                     const text = e.target.result;
                     const parsedData = JSON.parse(text); 
-                    if (!Array.isArray(parsedData)) {
-                         throw new Error("File JSON phải là một mảng (array) [ ... ]");
-                    }
+                    if (!Array.isArray(parsedData)) throw new Error("File JSON phải là array");
                     feDiagrams = parsedData;
                     localStorage.setItem('feDiagrams', JSON.stringify(feDiagrams)); 
-                    statusMsg.textContent = `Tải file Sơ đồ (P6) thành công! Tìm thấy ${feDiagrams.length} thiết bị.`;
+                    statusMsg.textContent = `Tải file Sơ đồ (P6) thành công! (${feDiagrams.length} thiết bị)`;
                     statusMsg.style.color = "#155724";
-                } catch (error) {
-                    console.error("Lỗi khi đọc file Sơ đồ JSON:", error);
-                    statusMsg.textContent = `Lỗi file Sơ đồ (P6): ${error.message}.`;
-                    statusMsg.style.color = "#a94442";
-                }
+                } catch (error) { statusMsg.textContent = `Lỗi file Sơ đồ (P6): ${error.message}.`; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsText(file);
         }
-        
-        /**
-         * (Hàm xử lý Báo cáo)
-         */
         function handleFeReportUpload(event) {
             const file = event.target.files[0];
             const statusMsg = document.getElementById('status-message');
             if (!file) return;
-
             const reader = new FileReader();
             reader.onload = function(e) {
                 try {
                     const text = e.target.result;
-                    const parsedData = JSON.parse(text); // Parse text
-                    
-                    if (!Array.isArray(parsedData)) {
-                         throw new Error("File JSON phải là một mảng (array) [ ... ]");
-                    }
-
-                    feReports = parsedData; // Cập nhật biến toàn cục
-                    localStorage.setItem('feReports', JSON.stringify(feReports)); // Lưu
-                    
-                    statusMsg.textContent = `Tải file Báo cáo (P7) thành công! Tìm thấy ${feReports.length} tình huống.`;
+                    const parsedData = JSON.parse(text);
+                    if (!Array.isArray(parsedData)) throw new Error("File JSON phải là array");
+                    feReports = parsedData;
+                    localStorage.setItem('feReports', JSON.stringify(feReports));
+                    statusMsg.textContent = `Tải file Báo cáo (P7) thành công! (${feReports.length} tình huống)`;
                     statusMsg.style.color = "#155724";
-
-                } catch (error) {
-                    console.error("Lỗi khi đọc file Báo cáo JSON:", error);
-                    statusMsg.textContent = `Lỗi file Báo cáo (P7): ${error.message}.`;
-                    statusMsg.style.color = "#a94442";
-                }
+                } catch (error) { statusMsg.textContent = `Lỗi file Báo cáo (P7): ${error.message}.`; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsText(file);
         }
 
-
-        function populateSheetCheckboxes(workbook) { /* (Giữ nguyên) */
+        function populateSheetCheckboxes(workbook) {
             const container = document.getElementById('sheet-list-container');
             container.innerHTML = ''; 
             workbook.SheetNames.forEach(sheetName => {
@@ -545,22 +243,12 @@
             });
         }
 
-        function buildVocabularyPool() { /* (Giữ nguyên logic 3 kho) */
+        function buildVocabularyPool() {
             const statusMsg = document.getElementById('status-message');
-            if (!workbookData) {
-                statusMsg.textContent = "Lỗi: Dữ liệu file Excel chưa được tải.";
-                statusMsg.style.color = "#a94442";
-                return false;
-            }
+            if (!workbookData) { statusMsg.textContent = "Lỗi: Dữ liệu file Excel chưa được tải."; statusMsg.style.color = "#a94442"; return false; }
             const checkedSheets = [];
-            document.querySelectorAll('.sheet-checkbox:checked').forEach(cb => {
-                checkedSheets.push(cb.value);
-            });
-            if (checkedSheets.length === 0) {
-                statusMsg.textContent = "Lỗi: Bạn chưa chọn bài học (sheet) nào.";
-                statusMsg.style.color = "#a94442";
-                return false;
-            }
+            document.querySelectorAll('.sheet-checkbox:checked').forEach(cb => { checkedSheets.push(cb.value); });
+            if (checkedSheets.length === 0) { statusMsg.textContent = "Lỗi: Bạn chưa chọn bài học (sheet) nào."; statusMsg.style.color = "#a94442"; return false; }
 
             let combinedVocabKanjiHiragana = [], combinedVocabAlphabet = [], combinedVocabPureKatakana = [];
             let seenKanjiHiragana = new Set(), seenAlphabet = new Set(), seenPureKatakana = new Set();
@@ -569,65 +257,39 @@
                 try {
                     const worksheet = workbookData.Sheets[sheetName];
                     const { newVocabKanjiHiragana, newVocabAlphabet, newVocabPureKatakana } = parseSheetData(worksheet);
-                    newVocabKanjiHiragana.forEach(item => {
-                        if (!seenKanjiHiragana.has(item.言葉)) {
-                            combinedVocabKanjiHiragana.push(item);
-                            seenKanjiHiragana.add(item.言葉);
-                        }
-                    });
-                    newVocabAlphabet.forEach(item => {
-                        if (!seenAlphabet.has(item.言葉)) { 
-                            combinedVocabAlphabet.push(item);
-                            seenAlphabet.add(item.言葉);
-                        }
-                    });
-                    newVocabPureKatakana.forEach(item => {
-                        if (!seenPureKatakana.has(item.言葉)) {
-                            combinedVocabPureKatakana.push(item);
-                            seenPureKatakana.add(item.言葉);
-                        }
-                    });
-                } catch (e) {
-                    statusMsg.textContent = `Lỗi khi đọc sheet "${sheetName}": ${e.message}`;
-                    statusMsg.style.color = "#a94442";
-                    return false;
-                }
+                    newVocabKanjiHiragana.forEach(item => { if (!seenKanjiHiragana.has(item.言葉)) { combinedVocabKanjiHiragana.push(item); seenKanjiHiragana.add(item.言葉); } });
+                    newVocabAlphabet.forEach(item => { if (!seenAlphabet.has(item.言葉)) { combinedVocabAlphabet.push(item); seenAlphabet.add(item.言葉); } });
+                    newVocabPureKatakana.forEach(item => { if (!seenPureKatakana.has(item.言葉)) { combinedVocabPureKatakana.push(item); seenPureKatakana.add(item.言葉); } });
+                } catch (e) { statusMsg.textContent = `Lỗi khi đọc sheet "${sheetName}": ${e.message}`; statusMsg.style.color = "#a94442"; return false; }
             }
 
-            vocabKanjiHiragana = combinedVocabKanjiHiragana;
-            vocabAlphabet = combinedVocabAlphabet;
-            vocabPureKatakana = combinedVocabPureKatakana;
-
+            vocabKanjiHiragana = combinedVocabKanjiHiragana; vocabAlphabet = combinedVocabAlphabet; vocabPureKatakana = combinedVocabPureKatakana;
             localStorage.setItem('vocabKanjiHiragana', JSON.stringify(vocabKanjiHiragana));
             localStorage.setItem('vocabAlphabet', JSON.stringify(vocabAlphabet));
             localStorage.setItem('vocabPureKatakana', JSON.stringify(vocabPureKatakana));
-            
-            const vocabDescription = `Nội dung: ${checkedSheets.join(', ')} (${vocabKanjiHiragana.length} Kanji, ${vocabAlphabet.length} Alphabet/Eng, ${vocabPureKatakana.length} Katakana thuần)`;
+            const vocabDescription = `Nội dung: ${checkedSheets.join(', ')} (${vocabKanjiHiragana.length} Kanji, ${vocabAlphabet.length} Alphabet, ${vocabPureKatakana.length} Katakana)`;
             localStorage.setItem('vocabDescription', vocabDescription);
             document.getElementById('vocab-coverage').textContent = vocabDescription;
-            statusMsg.textContent = `Tạo kho từ vựng thành công!`;
-            statusMsg.style.color = "#155724";
+            statusMsg.textContent = `Tạo kho từ vựng thành công!`; statusMsg.style.color = "#155724";
             return true;
         }
 
         function generateExamFromSelection() {
-            // (Giữ nguyên)
             const success = buildVocabularyPool();
             if (!success) return;
             generateNewExamData(); 
             renderExamFromSnapshot(); 
         }
         
-        function extractEnglishFromMeaning(imi) { /* (Giữ nguyên) */
+        function extractEnglishFromMeaning(imi) {
             if (!imi) return null;
             const match = imi.match(/[a-zA-Z][a-zA-Z0-9\s]*$/);
-            if (match && match[0]) {
-                return match[0].trim();
-            }
+            if (match && match[0]) { return match[0].trim(); }
             return null;
         }
 
-        function parseSheetData(worksheet) { /* (Giữ nguyên logic 3 kho) */
+        // <<< HÀM SỬA LỖI LOGIC PHẦN 3 >>>
+        function parseSheetData(worksheet) {
             const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
             const newVocabKanjiHiragana = [], newVocabAlphabet = [], newVocabPureKatakana = [];
             let headerFound = false, colIndices = {};
@@ -642,9 +304,7 @@
                         colIndices.IMI = headerRow.indexOf(TARGET_HEADERS.IMI);
                         colIndices.JUYOUGOI = headerRow.indexOf(TARGET_HEADERS.JUYOUGOI);
                         colIndices.KATAKANA = headerRow.findIndex(cell => cell.includes(TARGET_HEADERS.KATAKANA));
-                        if (colIndices.KOTOBA === -1 || colIndices.IMI === -1 || colIndices.JUYOUGOI === -1) {
-                            throw new Error("Không tìm thấy các cột header cần thiết.");
-                        }
+                        if (colIndices.KOTOBA === -1 || colIndices.IMI === -1 || colIndices.JUYOUGOI === -1) { throw new Error("Không tìm thấy các cột header cần thiết."); }
                         continue; 
                     }
                 }
@@ -660,10 +320,15 @@
                     if (isImportant) {
                         const item = { "言葉": kotoba, "読み方": yomikata, "意味": imi };
                         if (isKatakana) {
-                            if (kotoba !== yomikata) {
-                                newVocabAlphabet.push(item); // Kho B
+                            // <<< LOGIC MỚI: Kiểm tra xem kotoba CÓ PHẢI LÀ Alphabet không >>>
+                            const isAlpha = /^[a-zA-Z0-9\s\.\-\/\(\)]+$/.test(kotoba);
+                            
+                            if (isAlpha) {
+                                // Nếu kotoba là Alphabet (ví dụ: "ARP"), dùng trực tiếp cho Phần 3
+                                newVocabAlphabet.push(item); 
                                 newVocabPureKatakana.push({ "言葉": yomikata, "読み方": yomikata, "意味": imi });
                             } else {
+                                // Nếu kotoba là Tiếng Nhật (ví dụ: "リピータ"), cố gắng lấy từ Tiếng Anh từ cột Nghĩa
                                 const englishWord = extractEnglishFromMeaning(imi);
                                 if (englishWord) {
                                     newVocabAlphabet.push({ "言葉": englishWord, "読み方": yomikata, "意味": imi }); 
@@ -683,63 +348,28 @@
         }
 
         function loadDataFromStorage() {
-            // <<< THAY ĐỔI LOGIC: Tải 3 kho VÀ "bản lưu" VÀ 3 file JSON
             const storedKanjiHiragana = localStorage.getItem('vocabKanjiHiragana');
             const storedAlphabet = localStorage.getItem('vocabAlphabet');
             const storedPureKatakana = localStorage.getItem('vocabPureKatakana');
             const storedSnapshot = localStorage.getItem('currentExamSnapshot');
             const storedDescription = localStorage.getItem('vocabDescription');
-            
-            // Tải dữ liệu FE
             const storedFeQuestions = localStorage.getItem('feQuestions'); 
-            if (storedFeQuestions) {
-                try {
-                    feQuestions = JSON.parse(storedFeQuestions);
-                } catch (e) {
-                    console.error("Lỗi parse FE data (P5) từ localStorage:", e);
-                    feQuestions = [];
-                }
-            }
-            
-            // Tải dữ liệu Sơ đồ
             const storedFeDiagrams = localStorage.getItem('feDiagrams'); 
-            if (storedFeDiagrams) {
-                try {
-                    feDiagrams = JSON.parse(storedFeDiagrams);
-                } catch (e) {
-                    console.error("Lỗi parse Sơ đồ data (P6) từ localStorage:", e);
-                    feDiagrams = [];
-                }
-            }
-            
-            // Tải dữ liệu Báo cáo
             const storedFeReports = localStorage.getItem('feReports'); 
-            if (storedFeReports) {
-                try {
-                    feReports = JSON.parse(storedFeReports);
-                } catch (e) {
-                    console.error("Lỗi parse Báo cáo data (P7) từ localStorage:", e);
-                    feReports = [];
-                }
-            }
+            
+            if (storedFeQuestions) feQuestions = JSON.parse(storedFeQuestions);
+            if (storedFeDiagrams) feDiagrams = JSON.parse(storedFeDiagrams);
+            if (storedFeReports) feReports = JSON.parse(storedFeReports);
             
             if (storedKanjiHiragana) vocabKanjiHiragana = JSON.parse(storedKanjiHiragana);
             if (storedAlphabet) vocabAlphabet = JSON.parse(storedAlphabet);
             if (storedPureKatakana) vocabPureKatakana = JSON.parse(storedPureKatakana);
             if (storedSnapshot) currentExamSnapshot = JSON.parse(storedSnapshot);
             
-            if (storedDescription) {
-                 document.getElementById('vocab-coverage').textContent = storedDescription;
-            } else {
-                document.getElementById('vocab-coverage').textContent = "Nội dung: (Chưa có dữ liệu - Vui lòng tải file Excel)";
-            }
+            if (storedDescription) document.getElementById('vocab-coverage').textContent = storedDescription;
         }
 
-        // =================================================================
-        // --- LOGIC TẠO BÀI THI VÀ CHẤM ĐIỂM ---
-        // =================================================================
-        
-        function shuffle(array) { /* (Giữ nguyên) */
+        function shuffle(array) {
             if (array.length === 0) return [];
             let newArr = [...array];
             for (let i = newArr.length - 1; i > 0; i--) {
@@ -749,7 +379,7 @@
             return newArr;
         }
 
-        function speak(text) { /* (Giữ nguyên) */
+        function speak(text) {
             speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
             const selectedVoiceName = document.getElementById('voice-select').value;
@@ -763,7 +393,7 @@
             speechSynthesis.speak(utterance);
         }
         
-        function createDistractors(correctAnswer, data, field, count = 3) { /* (Giữ nguyên) */
+        function createDistractors(correctAnswer, data, field, count = 3) {
             const distractors = [];
             if (data.length < 2) return []; 
             const shuffledData = shuffle([...data]);
@@ -776,214 +406,109 @@
             return distractors;
         }
         
-        /**
-         * (Tạo snapshot P1-P7)
-         */
         function generateNewExamData() {
-            // (Logic P1, P2, P3, P4 giữ nguyên)
             const combinedPool_P1_P4 = [...vocabKanjiHiragana, ...vocabPureKatakana];
             
-            // --- Phần 1 (Dùng kho tổng hợp A+C) ---
             const p1Count = parseInt(document.getElementById('count-part1').value, 10);
-            if (document.getElementById('check-part1').checked && p1Count > 0) {
-                currentExamSnapshot.q1Data = shuffle(combinedPool_P1_P4).slice(0, Math.min(p1Count, combinedPool_P1_P4.length));
-            } else { currentExamSnapshot.q1Data = []; }
+            if (document.getElementById('check-part1').checked && p1Count > 0) { currentExamSnapshot.q1Data = shuffle(combinedPool_P1_P4).slice(0, Math.min(p1Count, combinedPool_P1_P4.length)); } else { currentExamSnapshot.q1Data = []; }
 
-            // --- Phần 2 (Dùng kho A: Kanji/Hira) ---
             const p2Count = parseInt(document.getElementById('count-part2').value, 10);
-            if (document.getElementById('check-part2').checked && p2Count > 0) {
-                currentExamSnapshot.q2Data = shuffle(vocabKanjiHiragana).slice(0, Math.min(p2Count, vocabKanjiHiragana.length));
-            } else { currentExamSnapshot.q2Data = []; }
+            if (document.getElementById('check-part2').checked && p2Count > 0) { currentExamSnapshot.q2Data = shuffle(vocabKanjiHiragana).slice(0, Math.min(p2Count, vocabKanjiHiragana.length)); } else { currentExamSnapshot.q2Data = []; }
 
-            // --- Phần 3 (Dùng kho B: Alphabet/Eng) ---
             const p3Count = parseInt(document.getElementById('count-part3').value, 10);
-            if (document.getElementById('check-part3').checked && p3Count > 0) {
-                currentExamSnapshot.q3Data = shuffle(vocabAlphabet).slice(0, Math.min(p3Count, vocabAlphabet.length));
-            } else { currentExamSnapshot.q3Data = []; }
+            if (document.getElementById('check-part3').checked && p3Count > 0) { currentExamSnapshot.q3Data = shuffle(vocabAlphabet).slice(0, Math.min(p3Count, vocabAlphabet.length)); } else { currentExamSnapshot.q3Data = []; }
             
-            // --- Phần 4 (Dùng kho tổng hợp A+C) ---
             const p4Count = parseInt(document.getElementById('count-part4').value, 10);
-            if (document.getElementById('check-part4').checked && p4Count > 0) {
-                currentExamSnapshot.q4Data = shuffle(combinedPool_P1_P4).slice(0, Math.min(p4Count, combinedPool_P1_P4.length));
-            } else { currentExamSnapshot.q4Data = []; }
+            if (document.getElementById('check-part4').checked && p4Count > 0) { currentExamSnapshot.q4Data = shuffle(combinedPool_P1_P4).slice(0, Math.min(p4Count, combinedPool_P1_P4.length)); } else { currentExamSnapshot.q4Data = []; }
             
-            // --- Phần 5 (FE) ---
             const p5Count = parseInt(document.getElementById('count-part5').value, 10);
-            if (document.getElementById('check-part5').checked && p5Count > 0) {
-                currentExamSnapshot.q5Data = shuffle(feQuestions).slice(0, Math.min(p5Count, feQuestions.length));
-            } else { currentExamSnapshot.q5Data = []; }
+            if (document.getElementById('check-part5').checked && p5Count > 0) { currentExamSnapshot.q5Data = shuffle(feQuestions).slice(0, Math.min(p5Count, feQuestions.length)); } else { currentExamSnapshot.q5Data = []; }
 
-            // --- Phần 6 (Sơ đồ) ---
             const p6Count = parseInt(document.getElementById('count-part6').value, 10);
-            if (document.getElementById('check-part6').checked && p6Count > 0) {
-                currentExamSnapshot.q6Data = shuffle(feDiagrams).slice(0, Math.min(p6Count, feDiagrams.length));
-            } else { currentExamSnapshot.q6Data = []; }
+            if (document.getElementById('check-part6').checked && p6Count > 0) { currentExamSnapshot.q6Data = shuffle(feDiagrams).slice(0, Math.min(p6Count, feDiagrams.length)); } else { currentExamSnapshot.q6Data = []; }
             
-            // --- Phần 7 (Báo cáo) ---
             const p7Count = parseInt(document.getElementById('count-part7').value, 10);
-            if (document.getElementById('check-part7').checked && p7Count > 0) {
-                currentExamSnapshot.q7Data = shuffle(feReports).slice(0, Math.min(p7Count, feReports.length));
-            } else { currentExamSnapshot.q7Data = []; }
+            if (document.getElementById('check-part7').checked && p7Count > 0) { currentExamSnapshot.q7Data = shuffle(feReports).slice(0, Math.min(p7Count, feReports.length)); } else { currentExamSnapshot.q7Data = []; }
 
             localStorage.setItem('currentExamSnapshot', JSON.stringify(currentExamSnapshot));
         }
 
-        /**
-         * (Render P1-P7)
-         */
         function renderExamFromSnapshot() {
             resetExamStyles(); 
-            
             const { q1Data, q2Data, q3Data, q4Data, q5Data, q6Data, q7Data } = currentExamSnapshot;
-            
-            // (Render P1, P2, P3, P4 giữ nguyên)
             const combinedPool_P1_P4 = [...vocabKanjiHiragana, ...vocabPureKatakana];
             
-            // (Render P1)
-            const p1Container = document.getElementById('part1-container');
+            // (P1)
             const p1Questions = document.getElementById('part1-questions');
             if (q1Data && q1Data.length > 0) {
-                p1Questions.innerHTML = '';
+                p1Questions.innerHTML = ''; document.getElementById('part1-container').style.display = 'block';
                 q1Data.forEach((item, index) => {
-                    const distractors = createDistractors(item, combinedPool_P1_P4, '意味');
-                    const options = shuffle([item.意味, ...distractors]);
-                    let optionsHtml = '<div class="options-group">';
-                    options.forEach(opt => {
-                        optionsHtml += `<label><input type="radio" name="part1-q${index}" value="${opt}" data-answer="${item.意味}"> ${opt}</label>`;
-                    });
-                    optionsHtml += '</div>';
+                    const distractors = createDistractors(item, combinedPool_P1_P4, '意味'); const options = shuffle([item.意味, ...distractors]);
+                    let optionsHtml = '<div class="options-group">'; options.forEach(opt => { optionsHtml += `<label><input type="radio" name="part1-q${index}" value="${opt}" data-answer="${item.意味}"> ${opt}</label>`; }); optionsHtml += '</div>';
                     p1Questions.innerHTML += `<div class="question" data-answer-word="${item.言葉}"><p>Câu 1.${index + 1}: <button class="listen-btn" onclick="speak('${item.言葉}')">Nghe 🔊</button></p>${optionsHtml}</div>`;
                 });
-                p1Container.style.display = 'block';
-            } else { p1Container.style.display = 'none'; }
+            } else { document.getElementById('part1-container').style.display = 'none'; }
 
-            // (Render P2)
-            const p2Container = document.getElementById('part2-container');
+            // (P2)
             const p2Questions = document.getElementById('part2-questions');
             if (q2Data && q2Data.length > 0) {
-                p2Questions.innerHTML = '';
+                p2Questions.innerHTML = ''; document.getElementById('part2-container').style.display = 'block';
                 q2Data.forEach((item, index) => {
-                    p2Questions.innerHTML += `
-                        <div class="question" data-answer-reading="${item.読み方}" data-answer-meaning="${item.意味}">
-                            <p>Câu 2.${index + 1}: ${item.言葉}</p>
-                            <div class="question-inputs">
-                                <label>Cách đọc: <input type="text" id="part2-q${index}-reading" placeholder="Viết cách đọc (kana)"></label><br>
-                                <label>Ý nghĩa: <input type="text" id="part2-q${index}-meaning" placeholder="Viết ý nghĩa (Tiếng Việt)"></label>
-                            </div>
-                        </div>`;
+                    p2Questions.innerHTML += `<div class="question" data-answer-reading="${item.読み方}" data-answer-meaning="${item.意味}"><p>Câu 2.${index + 1}: ${item.言葉}</p><div class="question-inputs"><label>Cách đọc: <input type="text" id="part2-q${index}-reading" placeholder="Viết cách đọc (kana)"></label><br><label>Ý nghĩa: <input type="text" id="part2-q${index}-meaning" placeholder="Viết ý nghĩa (Tiếng Việt)"></label></div></div>`;
                 });
-                p2Container.style.display = 'block';
-            } else { p2Container.style.display = 'none'; }
+            } else { document.getElementById('part2-container').style.display = 'none'; }
 
-            // (Render P3)
-            const p3Container = document.getElementById('part3-container');
+            // (P3)
             const p3Questions = document.getElementById('part3-questions');
             if (q3Data && q3Data.length > 0) {
-                p3Questions.innerHTML = '';
+                p3Questions.innerHTML = ''; document.getElementById('part3-container').style.display = 'block';
                 q3Data.forEach((item, index) => {
-                    p3Questions.innerHTML += `
-                        <div class="question" data-answer-reading="${item.読み方}">
-                            <p>Câu 3.${index + 1}: ${item.言葉}</p>
-                            <div class="question-inputs">
-                                <label>Cách đọc: <input type="text" id="part3-q${index}-reading" placeholder="Viết Katakana"></label>
-                            </div>
-                        </div>`;
+                    p3Questions.innerHTML += `<div class="question" data-answer-reading="${item.読み方}"><p>Câu 3.${index + 1}: ${item.言葉}</p><div class="question-inputs"><label>Cách đọc: <input type="text" id="part3-q${index}-reading" placeholder="Viết Katakana"></label></div></div>`;
                 });
-                p3Container.style.display = 'block';
-            } else { p3Container.style.display = 'none'; }
+            } else { document.getElementById('part3-container').style.display = 'none'; }
 
-            // (Render P4)
-            const p4Container = document.getElementById('part4-container');
+            // (P4)
             const p4Questions = document.getElementById('part4-questions');
             if (q4Data && q4Data.length > 0) {
-                p4Questions.innerHTML = '';
+                p4Questions.innerHTML = ''; document.getElementById('part4-container').style.display = 'block';
                 q4Data.forEach((item, index) => {
-                    const distractors = createDistractors(item, combinedPool_P1_P4, '言葉');
-                    const options = shuffle([item.言葉, ...distractors]);
-                    let optionsHtml = '<div class="options-group">';
-                    options.forEach(opt => {
-                        optionsHtml += `<label><input type="radio" name="part4-q${index}" value="${opt}" data-answer="${item.言葉}"> ${opt}</label>`;
-                    });
-                    optionsHtml += '</div>';
+                    const distractors = createDistractors(item, combinedPool_P1_P4, '言葉'); const options = shuffle([item.言葉, ...distractors]);
+                    let optionsHtml = '<div class="options-group">'; options.forEach(opt => { optionsHtml += `<label><input type="radio" name="part4-q${index}" value="${opt}" data-answer="${item.言葉}"> ${opt}</label>`; }); optionsHtml += '</div>';
                     p4Questions.innerHTML += `<div class="question"><p>Câu 4.${index + 1}: ${item.意味}</p>${optionsHtml}</div>`;
                 });
-                p4Container.style.display = 'block';
-            } else { p4Container.style.display = 'none'; }
+            } else { document.getElementById('part4-container').style.display = 'none'; }
             
-            // (Render P5)
-            const p5Container = document.getElementById('part5-container');
+            // (P5)
             const p5Questions = document.getElementById('part5-questions');
             if (q5Data && q5Data.length > 0) {
-                p5Questions.innerHTML = '';
+                p5Questions.innerHTML = ''; document.getElementById('part5-container').style.display = 'block';
                 q5Data.forEach((item, index) => {
                     const options = shuffle([...item.options]);
-                    let optionsHtml = '<div class="options-group">';
-                    options.forEach(opt => {
-                        optionsHtml += `<label><input type="radio" name="part5-q${index}" value="${opt}" data-answer="${item.answer}"> ${opt}</label>`;
-                    });
-                    optionsHtml += '</div>';
-                    // <<< SỬA LỖI BUG (ĐÃ SỬA): Thêm ${optionsHtml} vào
+                    let optionsHtml = '<div class="options-group">'; options.forEach(opt => { optionsHtml += `<label><input type="radio" name="part5-q${index}" value="${opt}" data-answer="${item.answer}"> ${opt}</label>`; }); optionsHtml += '</div>';
                     p5Questions.innerHTML += `<div class="question"><p>Câu 5.${index + 1}: ${item.question}</p>${optionsHtml}</div>`;
                 });
-                p5Container.style.display = 'block';
-            } else { p5Container.style.display = 'none'; }
+            } else { document.getElementById('part5-container').style.display = 'none'; }
             
-            // (Render P6)
-            const p6Container = document.getElementById('part6-container');
+            // (P6)
             const p6Questions = document.getElementById('part6-questions');
             if (q6Data && q6Data.length > 0) {
-                p6Questions.innerHTML = '';
+                p6Questions.innerHTML = ''; document.getElementById('part6-container').style.display = 'block';
                 q6Data.forEach((item, index) => {
-                    // <<< SỬA LỖI BUG (ĐÃ SỬA): Chuyển data-answer thành chuỗi JSON
-                    p6Questions.innerHTML += `
-                        <div class="question" 
-                             data-answer-name="${item.name}" 
-                             data-answer-layer='${JSON.stringify(item.layer)}' 
-                             data-answer-role='${JSON.stringify(item.role)}'>
-                            
-                            <p>Câu 6.${index + 1}: Hãy giải thích về thiết bị trong hình ảnh sau:</p>
-                            <img src="images/${item.image}" alt="Sơ đồ FE" class="diagram-image">
-                            
-                            <div class="question-inputs">
-                                <label>Tên thiết bị: <input type="text" id="part6-q${index}-name" placeholder="Viết tên thiết bị..."></label><br>
-                                <label>Vị trí OSI: <input type="text" id="part6-q${index}-layer" placeholder="Viết Tầng OSI..."></label><br>
-                                <label>Vai trò: <input type="text" id="part6-q${index}-role" placeholder="Viết vai trò..."></label>
-                            </div>
-                        </div>`;
+                    p6Questions.innerHTML += `<div class="question" data-answer-name="${item.name}" data-answer-layer='${JSON.stringify(item.layer)}' data-answer-role='${JSON.stringify(item.role)}'><p>Câu 6.${index + 1}: Hãy giải thích về thiết bị trong hình ảnh sau:</p><img src="images/${item.image}" alt="Sơ đồ FE" class="diagram-image"><div class="question-inputs"><label>Tên thiết bị: <input type="text" id="part6-q${index}-name" placeholder="Viết tên thiết bị..."></label><br><label>Vị trí OSI: <input type="text" id="part6-q${index}-layer" placeholder="Viết Tầng OSI..."></label><br><label>Vai trò: <input type="text" id="part6-q${index}-role" placeholder="Viết vai trò..."></label></div></div>`;
                 });
-                p6Container.style.display = 'block';
-            } else { p6Container.style.display = 'none'; }
+            } else { document.getElementById('part6-container').style.display = 'none'; }
             
-            // (Render P7)
-            const p7Container = document.getElementById('part7-container');
+            // (P7)
             const p7Questions = document.getElementById('part7-questions');
             if (q7Data && q7Data.length > 0) {
-                p7Questions.innerHTML = '';
+                p7Questions.innerHTML = ''; document.getElementById('part7-container').style.display = 'block';
                 q7Data.forEach((item, index) => {
-                    // <<< SỬA LỖI BUG (ĐÃ SỬA): Hiển thị Tình huống với Phân tích
-                    const analysisHtml = `
-                        <div class="question-analysis-block">
-                            <div class="option-reading"><strong>(Cách đọc):</strong> ${item.scenario.reading}</div>
-                            <div class="option-meaning"><strong>(Nghĩa):</strong> ${item.scenario.meaning}</div>
-                        </div>
-                    `;
-                    p7Questions.innerHTML += `
-                        <div class="question" data-model-answer='${JSON.stringify(item.model_answer)}'>
-                            <p>Câu 7.${index + 1}: ${item.scenario.title}</p>
-                            <p style="font-weight:normal;">${item.scenario.japanese}</p>
-                            ${analysisHtml}
-                            <div class="question-inputs">
-                                <textarea id="part7-q${index}-answer" class="report-textarea" placeholder="Viết báo cáo Slack của bạn vào đây..."></textarea>
-                            </div>
-                        </div>`;
+                    const analysisHtml = `<div class="question-analysis-block"><div class="option-reading"><strong>(Cách đọc):</strong> ${item.scenario.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${item.scenario.meaning}</div></div>`;
+                    p7Questions.innerHTML += `<div class="question" data-model-answer='${JSON.stringify(item.model_answer)}'><p>Câu 7.${index + 1}: ${item.scenario.title}</p><p style="font-weight:normal;">${item.scenario.japanese}</p>${analysisHtml}<div class="question-inputs"><textarea id="part7-q${index}-answer" class="report-textarea" placeholder="Viết báo cáo Slack của bạn vào đây..."></textarea></div></div>`;
                 });
-                p7Container.style.display = 'block';
-            } else { p7Container.style.display = 'none'; }
+            } else { document.getElementById('part7-container').style.display = 'none'; }
         }
         
-        /**
-         * (Xóa giải thích P5, P6, P7)
-         */
         function resetExamStyles() {
             document.getElementById('results').innerHTML = '';
             document.getElementById('retry-btn').style.display = 'none';
@@ -991,258 +516,109 @@
             document.querySelectorAll('.incorrect').forEach(el => el.classList.remove('incorrect'));
             document.querySelectorAll('.correct-answer-text').forEach(el => el.remove());
             document.querySelectorAll('.correct-answer-label').forEach(el => el.classList.remove('correct-answer-label'));
-            // Xóa giải thích P5, P7
             document.querySelectorAll('.question-analysis-block').forEach(el => el.remove());
             document.querySelectorAll('.option-analysis-block').forEach(el => el.remove());
-            // Xóa giải thích P6
             document.querySelectorAll('.diagram-answer-block').forEach(el => el.remove());
-            // Xóa giải thích P7
             document.querySelectorAll('.report-answer-block').forEach(el => el.remove());
         }
 
-        /**
-         * (Chấm điểm P1-P7)
-         */
         function calculateScore() {
             resetExamStyles();
             let totalScore = 0, maxScore = 0;
 
-            // (Chấm P1)
+            // P1
             if (document.getElementById('check-part1').checked) {
                 const part1Questions = document.querySelectorAll('#part1-questions .question');
                 part1Questions.forEach((q, index) => {
-                    maxScore += 1; // 1 điểm/câu
+                    maxScore += 1; 
                     const selected = q.querySelector(`input[name="part1-q${index}"]:checked`);
                     const correctAnswer = q.querySelector(`input[data-answer]`).dataset.answer;
                     const correctLabel = q.querySelector(`input[value="${CSS.escape(correctAnswer)}"]`).parentElement;
-                    if (selected) {
-                        if (selected.value === correctAnswer) {
-                            totalScore += 1;
-                            selected.parentElement.classList.add('correct');
-                        } else {
-                            selected.parentElement.classList.add('incorrect');
-                            correctLabel.classList.add('correct-answer-label');
-                        }
-                    } else { correctLabel.classList.add('correct-answer-label'); }
+                    if (selected) { if (selected.value === correctAnswer) { totalScore += 1; selected.parentElement.classList.add('correct'); } else { selected.parentElement.classList.add('incorrect'); correctLabel.classList.add('correct-answer-label'); } } else { correctLabel.classList.add('correct-answer-label'); }
                 });
             }
-
-            // (Chấm P2)
+            // P2
             if (document.getElementById('check-part2').checked) {
                 const part2Questions = document.querySelectorAll('#part2-questions .question');
                 part2Questions.forEach((q, index) => {
-                    maxScore += 3; // 3 điểm/câu
-                    const readingAnswer = q.dataset.answerReading;
-                    const meaningAnswer = q.dataset.answerMeaning;
-                    const readingInput = q.querySelector(`#part2-q${index}-reading`);
-                    const meaningInput = q.querySelector(`#part2-q${index}-meaning`);
-                    if (readingInput.value.trim() === readingAnswer) {
-                        totalScore += 1;
-                        readingInput.classList.add('correct');
-                    } else {
-                        readingInput.classList.add('incorrect');
-                        readingInput.parentElement.insertAdjacentHTML('beforeend', `<span class="correct-answer-text">Đúng: ${readingAnswer}</span>`);
-                    }
+                    maxScore += 3;
+                    const readingAnswer = q.dataset.answerReading; const meaningAnswer = q.dataset.answerMeaning;
+                    const readingInput = q.querySelector(`#part2-q${index}-reading`); const meaningInput = q.querySelector(`#part2-q${index}-meaning`);
+                    if (readingInput.value.trim() === readingAnswer) { totalScore += 1; readingInput.classList.add('correct'); } else { readingInput.classList.add('incorrect'); readingInput.parentElement.insertAdjacentHTML('beforeend', `<span class="correct-answer-text">Đúng: ${readingAnswer}</span>`); }
                     const correctMeanings = meaningAnswer.split(/[,、]/).map(s => s.trim());
-                    if (correctMeanings.some(m => meaningInput.value.trim().includes(m) && meaningInput.value.trim().length > 0)) {
-                        totalScore += 2;
-                        meaningInput.classList.add('correct');
-                    } else {
-                        meaningInput.classList.add('incorrect');
-                        meaningInput.parentElement.insertAdjacentHTML('beforeend', `<span class="correct-answer-text">Đúng: ${meaningAnswer}</span>`);
-                    }
+                    if (correctMeanings.some(m => meaningInput.value.trim().includes(m) && meaningInput.value.trim().length > 0)) { totalScore += 2; meaningInput.classList.add('correct'); } else { meaningInput.classList.add('incorrect'); meaningInput.parentElement.insertAdjacentHTML('beforeend', `<span class="correct-answer-text">Đúng: ${meaningAnswer}</span>`); }
                 });
             }
-            
-            // (Chấm P3)
+            // P3
             if (document.getElementById('check-part3').checked) {
                 const part3Questions = document.querySelectorAll('#part3-questions .question');
                 part3Questions.forEach((q, index) => {
-                    maxScore += 1; // 1 điểm/câu
-                    const readingAnswer = q.dataset.answerReading;
-                    const readingInput = q.querySelector(`#part3-q${index}-reading`);
-                    if (readingInput.value.trim() === readingAnswer) {
-                        totalScore += 1;
-                        readingInput.classList.add('correct');
-                    } else {
-                        readingInput.classList.add('incorrect');
-                        readingInput.parentElement.insertAdjacentHTML('beforeend', `<span class="correct-answer-text">Đúng: ${readingAnswer}</span>`);
-                    }
+                    maxScore += 1;
+                    const readingAnswer = q.dataset.answerReading; const readingInput = q.querySelector(`#part3-q${index}-reading`);
+                    if (readingInput.value.trim() === readingAnswer) { totalScore += 1; readingInput.classList.add('correct'); } else { readingInput.classList.add('incorrect'); readingInput.parentElement.insertAdjacentHTML('beforeend', `<span class="correct-answer-text">Đúng: ${readingAnswer}</span>`); }
                 });
             }
-
-            // (Chấm P4)
+            // P4
             if (document.getElementById('check-part4').checked) {
                 const part4Questions = document.querySelectorAll('#part4-questions .question');
                 part4Questions.forEach((q, index) => {
-                    maxScore += 1; // 1 điểm/câu
+                    maxScore += 1;
                     const selected = q.querySelector(`input[name="part4-q${index}"]:checked`);
                     const correctAnswer = q.querySelector(`input[data-answer]`).dataset.answer;
                     const correctLabel = q.querySelector(`input[value="${CSS.escape(correctAnswer)}"]`).parentElement;
-                    if (selected) {
-                        if (selected.value === correctAnswer) {
-                            totalScore += 1;
-                            selected.parentElement.classList.add('correct');
-                        } else {
-                            selected.parentElement.classList.add('incorrect');
-                            correctLabel.classList.add('correct-answer-label');
-                        }
-                    } else { correctLabel.classList.add('correct-answer-label'); }
+                    if (selected) { if (selected.value === correctAnswer) { totalScore += 1; selected.parentElement.classList.add('correct'); } else { selected.parentElement.classList.add('incorrect'); correctLabel.classList.add('correct-answer-label'); } } else { correctLabel.classList.add('correct-answer-label'); }
                 });
             }
-            
-            // (Chấm P5)
+            // P5
             if (document.getElementById('check-part5').checked) {
                 const part5Questions = document.querySelectorAll('#part5-questions .question');
                 part5Questions.forEach((q, index) => {
-                    maxScore += 3; // 3 điểm/câu
-                    const item = currentExamSnapshot.q5Data[index];
-                    const explanations = item.explanations;
-                    const analysis = item.analysis;
-                    const selected = q.querySelector(`input[name="part5-q${index}"]:checked`);
-                    const correctAnswer = item.answer;
+                    maxScore += 3;
+                    const item = currentExamSnapshot.q5Data[index]; const explanations = item.explanations; const analysis = item.analysis;
+                    const selected = q.querySelector(`input[name="part5-q${index}"]:checked`); const correctAnswer = item.answer;
                     const correctLabel = q.querySelector(`input[value="${CSS.escape(correctAnswer)}"]`).parentElement;
-
-                    if (selected) {
-                        if (selected.value === correctAnswer) {
-                            totalScore += 3; // 3 điểm
-                            selected.parentElement.classList.add('correct');
-                        } else {
-                            selected.parentElement.classList.add('incorrect');
-                            correctLabel.classList.add('correct-answer-label');
-                        }
-                    } else { 
-                        correctLabel.classList.add('correct-answer-label'); 
-                    }
-                    
-                    if (analysis) {
-                        const analysisHtml = `
-                            <div class="question-analysis-block">
-                                <div class="option-reading"><strong>(Cách đọc):</strong> ${analysis.reading}</div>
-                                <div class="option-meaning"><strong>(Nghĩa):</strong> ${analysis.meaning}</div>
-                            </div>
-                        `;
-                        q.querySelector('p').insertAdjacentHTML('afterend', analysisHtml);
-                    }
-                    
+                    if (selected) { if (selected.value === correctAnswer) { totalScore += 3; selected.parentElement.classList.add('correct'); } else { selected.parentElement.classList.add('incorrect'); correctLabel.classList.add('correct-answer-label'); } } else { correctLabel.classList.add('correct-answer-label'); }
+                    if (analysis) { q.querySelector('p').insertAdjacentHTML('afterend', `<div class="question-analysis-block"><div class="option-reading"><strong>(Cách đọc):</strong> ${analysis.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${analysis.meaning}</div></div>`); }
                     if (explanations) {
                         const allLabels = q.querySelectorAll('.options-group label');
                         allLabels.forEach(label => {
-                            const optionValue = label.querySelector('input').value;
-                            const expData = explanations[optionValue]; 
-                            if (expData) {
-                                const expHtml = `
-                                    <div class="option-analysis-block">
-                                        <div class="option-reading">(${expData.reading})</div>
-                                        <div class="option-meaning">${expData.meaning}</div>
-                                        <div class="option-note">${expData.note}</div>
-                                    </div>
-                                `;
-                                label.insertAdjacentHTML('beforeend', expHtml);
-                            }
+                            const optionValue = label.querySelector('input').value; const expData = explanations[optionValue];
+                            if (expData) { label.insertAdjacentHTML('beforeend', `<div class="option-analysis-block"><div class="option-reading">(${expData.reading})</div><div class="option-meaning">${expData.meaning}</div><div class="option-note">${expData.note}</div></div>`); }
                         });
                     }
                 });
             }
-
-            // (Chấm P6)
+            // P6
             if (document.getElementById('check-part6').checked) {
                 const part6Questions = document.querySelectorAll('#part6-questions .question');
                 part6Questions.forEach((q, index) => {
-                    maxScore += 10; // 10 điểm/câu
-                    
-                    // <<< SỬA LỖI BUG (ĐÃ SỬA): Parse lại JSON từ data-attribute
-                    const answerName = q.dataset.answerName;
-                    const answerLayer = JSON.parse(q.dataset.answerLayer); // Parse object
-                    const answerRole = JSON.parse(q.dataset.answerRole);   // Parse object
-                    
-                    const inputName = q.querySelector(`#part6-q${index}-name`);
-                    const inputLayer = q.querySelector(`#part6-q${index}-layer`);
-                    const inputRole = q.querySelector(`#part6-q${index}-role`);
-
-                    // Chấm Tên (3 điểm)
-                    if (inputName.value.trim() === answerName) {
-                        totalScore += 3;
-                        inputName.classList.add('correct');
-                    } else {
-                        inputName.classList.add('incorrect');
-                    }
-                    // Chấm Tầng (3 điểm)
-                    if (inputLayer.value.trim() === answerLayer.answer) {
-                        totalScore += 3;
-                        inputLayer.classList.add('correct');
-                    } else {
-                        inputLayer.classList.add('incorrect');
-                    }
-                    // Chấm Vai trò (4 điểm)
-                    if (inputRole.value.trim() === answerRole.answer) {
-                        totalScore += 4;
-                        inputRole.classList.add('correct');
-                    } else {
-                        inputRole.classList.add('incorrect');
-                    }
-                    
-                    // Hiển thị đáp án đúng (với Hira và Nghĩa)
-                    const answerHtml = `
-                        <div class="diagram-answer-block">
-                            <div>
-                                <strong>✅ Tên:</strong> ${answerName}
-                            </div>
-                            <div>
-                                <strong>✅ Tầng OSI:</strong> ${answerLayer.answer}
-                                <div class="diagram-answer-reading">(${answerLayer.reading})</div>
-                                <div class="diagram-answer-meaning">${answerLayer.meaning}</div>
-                            </div>
-                            <div>
-                                <strong>✅ Vai trò:</strong> ${answerRole.answer}
-                                <div class="diagram-answer-reading">(${answerRole.reading})</div>
-                                <div class="diagram-answer-meaning">${answerRole.meaning}</div>
-                            </div>
-                        </div>
-                    `;
+                    maxScore += 10;
+                    const answerName = q.dataset.answerName; const answerLayer = JSON.parse(q.dataset.answerLayer); const answerRole = JSON.parse(q.dataset.answerRole);
+                    const inputName = q.querySelector(`#part6-q${index}-name`); const inputLayer = q.querySelector(`#part6-q${index}-layer`); const inputRole = q.querySelector(`#part6-q${index}-role`);
+                    if (inputName.value.trim() === answerName) { totalScore += 3; inputName.classList.add('correct'); } else { inputName.classList.add('incorrect'); }
+                    if (inputLayer.value.trim() === answerLayer.answer) { totalScore += 3; inputLayer.classList.add('correct'); } else { inputLayer.classList.add('incorrect'); }
+                    if (inputRole.value.trim() === answerRole.answer) { totalScore += 4; inputRole.classList.add('correct'); } else { inputRole.classList.add('incorrect'); }
+                    const answerHtml = `<div class="diagram-answer-block"><div><strong>✅ Tên:</strong> ${answerName}</div><div><strong>✅ Tầng OSI:</strong> ${answerLayer.answer}<div class="diagram-answer-reading">(${answerLayer.reading})</div><div class="diagram-answer-meaning">${answerLayer.meaning}</div></div><div><strong>✅ Vai trò:</strong> ${answerRole.answer}<div class="diagram-answer-reading">(${answerRole.reading})</div><div class="diagram-answer-meaning">${answerRole.meaning}</div></div></div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
                 });
             }
-            
-            // (Chấm P7)
+            // P7
             if (document.getElementById('check-part7').checked) {
                 const part7Questions = document.querySelectorAll('#part7-questions .question');
                 part7Questions.forEach((q, index) => {
-                    maxScore += 20; // 20 điểm/câu
-                    
-                    // <<< SỬA LỖI BUG (ĐÃ SỬA): Parse lại JSON từ data-attribute
-                    const modelAnswer = JSON.parse(q.dataset.modelAnswer); // Parse object
-                    
-                    // Hiển thị đáp án mẫu (không chấm điểm)
-                    const answerHtml = `
-                        <div class="report-answer-block">
-                            <strong>✅ Đáp án mẫu (Tham khảo):</strong>
-                            <pre>${modelAnswer.japanese}</pre>
-                            <div class="option-analysis-block" style="border-left-color: #ffb74d;">
-                                <div class="option-reading"><strong>(Cách đọc):</strong> ${modelAnswer.reading}</div>
-                                <div class="option-meaning"><strong>(Nghĩa):</strong> ${modelAnswer.meaning}</div>
-                            </div>
-                        </div>
-                    `;
+                    maxScore += 20;
+                    const modelAnswer = JSON.parse(q.dataset.modelAnswer);
+                    const answerHtml = `<div class="report-answer-block"><strong>✅ Đáp án mẫu (Tham khảo):</strong><pre>${modelAnswer.japanese}</pre><div class="option-analysis-block" style="border-left-color: #ffb74d;"><div class="option-reading"><strong>(Cách đọc):</strong> ${modelAnswer.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${modelAnswer.meaning}</div></div></div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
                 });
             }
 
-            // Hiển thị kết quả
             const resultsDiv = document.getElementById('results');
-            if (maxScore === 0) {
-                 resultsDiv.innerHTML = `Bạn chưa tạo bài thi. Vui lòng tải file Excel và nhấn "Tạo Bài thi".`;
-                 resultsDiv.className = 'results-fail';
-            } else {
-                resultsDiv.innerHTML = `Tổng điểm (Tự động): ${totalScore} / ${maxScore} <br><small>(Bài 3 (Sơ đồ) và Bài 4 (Báo cáo) cần bạn tự chấm điểm.)</small>`;
-                resultsDiv.className = (totalScore >= maxScore * 0.7) ? 'results-pass' : 'results-fail';
-            }
-            
+            if (maxScore === 0) { resultsDiv.innerHTML = `Bạn chưa tạo bài thi.`; resultsDiv.className = 'results-fail'; } 
+            else { resultsDiv.innerHTML = `Tổng điểm (Tự động): ${totalScore} / ${maxScore} <br><small>(Bài 3 và Bài 4 cần bạn tự chấm)</small>`; resultsDiv.className = (totalScore >= maxScore * 0.7) ? 'results-pass' : 'results-fail'; }
             document.getElementById('retry-btn').style.display = 'block';
             window.scrollTo({ top: document.getElementById('results').offsetTop, behavior: 'smooth' });
         }
-
     </script>
-
 </body>
 </html>

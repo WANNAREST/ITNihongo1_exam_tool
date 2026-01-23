@@ -1582,5 +1582,869 @@
         "note": "❌ Sai. Sai thứ tự. Tầng Transport (T4) nằm dưới Tầng Presentation (T6)."
       }
     }
+  },
+  {
+    "question": "IPアドレスにおけるネットワーク部とホスト部の説明として正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPアドレスにおける ネットワークぶと ホストぶの せつめいとして ただしいものは どれですか。",
+      "meaning": "Giải thích nào đúng về phần mạng (Network part) và phần máy chủ (Host part) trong địa chỉ IP?"
+    },
+    "options": [
+      "ネットワーク部は端末の所属場所を、ホスト部はデバイスの種類を示す情報として利用される",
+      "ネットワーク部は通信プロトコルの種類を、ホスト部は使用するLAN規格を示すために使われる",
+      "ネットワーク部は所属ネットワークを、ホスト部はネットワーク内の機器を識別するために使われる",
+      "ネットワーク部は物理的な接続方式を、ホスト部は通信方式の設定を管理するために使われる"
+    ],
+    "answer": "ネットワーク部は所属ネットワークを、ホスト部はネットワーク内の機器を識別するために使われる",
+    "explanations": {
+      "ネットワーク部は端末の所属場所を、ホスト部はデバイスの種類を示す情報として利用される": {
+        "reading": "ネットワークぶは たんまつの しょぞくばしょを...",
+        "meaning": "Network part chỉ vị trí trực thuộc, Host part chỉ loại thiết bị.",
+        "note": "❌ Sai. Host part không chỉ ra 'loại thiết bị' (PC, Mobile, etc.) mà là 'địa chỉ định danh' thiết bị đó trong mạng."
+      },
+      "ネットワーク部は通信プロトコルの種類を、ホスト部は使用するLAN規格を示すために使われる": {
+        "reading": "ネットワークぶは つうしんプロトコルの しゅるいを...",
+        "meaning": "Network part chỉ loại giao thức, Host part chỉ chuẩn LAN.",
+        "note": "❌ Sai. IP Address là địa chỉ logic, không chứa thông tin về loại giao thức hay chuẩn LAN."
+      },
+      "ネットワーク部は所属ネットワークを、ホスト部はネットワーク内の機器を識別するために使われる": {
+        "reading": "ネットワークぶは しょぞくネットワークを ホストぶは ネットワークないの ききを しきべつするために つかわれる",
+        "meaning": "Network part xác định mạng trực thuộc, Host part xác định thiết bị trong mạng đó.",
+        "note": "✅ Đúng. Network part định danh mạng lưới, còn Host part định danh thiết bị cụ thể trong mạng lưới đó."
+      },
+      "ネットワーク部は物理的な接続方式を、ホスト部は通信方式の設定を管理するために使われる": {
+        "reading": "ネットワークぶは ぶつりてきな せつぞくほうしきを...",
+        "meaning": "Network part chỉ phương thức kết nối vật lý...",
+        "note": "❌ Sai. IP là địa chỉ logic Lớp 3, không liên quan trực tiếp đến phương thức kết nối vật lý (Wifi, Ethernet...)."
+      }
+    }
+  },
+  {
+    "question": "クラスAのIPアドレスの構成として正しいものはどれですか。",
+    "analysis": {
+      "reading": "クラスAの IPアドレスの こうせいとして ただしいものは どれですか。",
+      "meaning": "Thành phần nào đúng cho địa chỉ IP Class A?"
+    },
+    "options": [
+      "ネットワーク部16ビット、ホスト部16ビット",
+      "ネットワーク部24ビット、ホスト部8ビット",
+      "ネットワーク部8ビット、ホスト部24ビット",
+      "ネットワーク部12ビット、ホスト部20ビット"
+    ],
+    "answer": "ネットワーク部8ビット、ホスト部24ビット",
+    "explanations": {
+      "ネットワーク部16ビット、ホスト部16ビット": {
+        "reading": "ネットワークぶ 16ビット ホストぶ 16ビット",
+        "meaning": "Network 16 bit, Host 16 bit.",
+        "note": "❌ Sai. Đây là cấu trúc của Class B (dải IP 128-191)."
+      },
+      "ネットワーク部24ビット、ホスト部8ビット": {
+        "reading": "ネットワークぶ 24ビット ホストぶ 8ビット",
+        "meaning": "Network 24 bit, Host 8 bit.",
+        "note": "❌ Sai. Đây là cấu trúc của Class C (dải IP 192-223)."
+      },
+      "ネットワーク部8ビット、ホスト部24ビット": {
+        "reading": "ネットワークぶ 8ビット ホストぶ 24ビット",
+        "meaning": "Network 8 bit, Host 24 bit.",
+        "note": "✅ Đúng. Class A (dải 1-127) dùng 8 bit đầu cho mạng và 24 bit sau cho host, hỗ trợ số lượng host rất lớn."
+      },
+      "ネットワーク部12ビット、ホスト部20ビット": {
+        "reading": "ネットワークぶ 12ビット ホストぶ 20ビット",
+        "meaning": "Network 12 bit, Host 20 bit.",
+        "note": "❌ Sai. Không có lớp địa chỉ chuẩn (A, B, C) nào chia theo tỷ lệ 12/20."
+      }
+    }
+  },
+  {
+    "question": "クラスCに分類されるIPアドレスの先頭ビットとして正しいものはどれですか。",
+    "analysis": {
+      "reading": "クラスCに ぶんるいされる IPアドレスの せんとうビットとして ただしいものは どれですか。",
+      "meaning": "Các bit đầu tiên đúng cho địa chỉ IP Class C là gì?"
+    },
+    "options": [
+      "0",
+      "10",
+      "110",
+      "1110"
+    ],
+    "answer": "110",
+    "explanations": {
+      "0": {
+        "reading": "ゼロ",
+        "meaning": "0",
+        "note": "❌ Sai. Bit 0 đầu tiên là dấu hiệu của Class A (0xxxxxxx)."
+      },
+      "10": {
+        "reading": "イチ ゼロ",
+        "meaning": "10",
+        "note": "❌ Sai. Bit 10 đầu tiên là dấu hiệu của Class B (10xxxxxx)."
+      },
+      "110": {
+        "reading": "イチ イチ ゼロ",
+        "meaning": "110",
+        "note": "✅ Đúng. Class C luôn bắt đầu bằng chuỗi nhị phân 110 (110xxxxx)."
+      },
+      "1110": {
+        "reading": "イチ イチ イチ ゼロ",
+        "meaning": "1110",
+        "note": "❌ Sai. Bit 1110 là dấu hiệu của Class D (Multicast)."
+      }
+    }
+  },
+  {
+    "question": "サブネットマスクの目的として正しいものはどれですか。",
+    "analysis": {
+      "reading": "サブネットマスクの もくてきとして ただしいものは どれですか。",
+      "meaning": "Mục đích đúng của Subnet Mask là gì?"
+    },
+    "options": [
+      "IPアドレスを任意のタイミングでランダムに書き換えるための手段として使用される",
+      "ホスト名とIPアドレスの対応関係を管理し変換するための技術的な仕組みである",
+      "ホスト部のビットを分割して複数のサブネットに細分化するために使用される",
+      "MACアドレスをネットワーク機器から自動的に取得するために用いられる手段である"
+    ],
+    "answer": "ホスト部のビットを分割して複数のサブネットに細分化するために使用される",
+    "explanations": {
+      "IPアドレスを任意のタイミングでランダムに書き換えるための手段として使用される": {
+        "reading": "...",
+        "meaning": "Dùng để đổi IP ngẫu nhiên...",
+        "note": "❌ Sai. Việc cấp phát IP động là chức năng của DHCP."
+      },
+      "ホスト名とIPアドレスの対応関係を管理し変換するための技術的な仕組みである": {
+        "reading": "...",
+        "meaning": "Quản lý và chuyển đổi Hostname và IP...",
+        "note": "❌ Sai. Chuyển đổi tên miền sang IP là chức năng của DNS."
+      },
+      "ホスト部のビットを分割して複数のサブネットに細分化するために使用される": {
+        "reading": "ホストぶの ビットを ぶんかつして ふくすうの サブネットに さいぶんかするために しようされる",
+        "meaning": "Dùng để chia phần Host thành các subnet nhỏ hơn.",
+        "note": "✅ Đúng. Subnet Mask xác định phần nào là Net ID, phần nào là Host ID, cho phép mượn bit host để tạo subnet."
+      },
+      "MACアドレスをネットワーク機器から自動的に取得するために用いられる手段である": {
+        "reading": "...",
+        "meaning": "Lấy địa chỉ MAC tự động...",
+        "note": "❌ Sai. Giao thức tìm MAC từ IP là ARP."
+      }
+    }
+  },
+  {
+    "question": "「255.255.255.0」というサブネットマスクにおけるネットワーク部の長さは何ビットですか。",
+    "analysis": {
+      "reading": "「255.255.255.0」という サブネットマスクにおける ネットワークぶの ながさは なんビットですか。",
+      "meaning": "Độ dài phần mạng (Network part) của subnet mask 255.255.255.0 là bao nhiêu bit?"
+    },
+    "options": [
+      "16ビット",
+      "24ビット",
+      "8ビット",
+      "32ビット"
+    ],
+    "answer": "24ビット",
+    "explanations": {
+      "16ビット": {
+        "reading": "16ビット",
+        "meaning": "16 bit",
+        "note": "❌ Sai. 16 bit tương ứng với 255.255.0.0 (Class B default)."
+      },
+      "24ビット": {
+        "reading": "24ビット",
+        "meaning": "24 bit",
+        "note": "✅ Đúng. 255.255.255.0 có 3 octet đầu là 1 (8x3=24 bit). Đây là mask mặc định của Class C."
+      },
+      "8ビット": {
+        "reading": "8ビット",
+        "meaning": "8 bit",
+        "note": "❌ Sai. 8 bit tương ứng với 255.0.0.0 (Class A default)."
+      },
+      "32ビット": {
+        "reading": "32ビット",
+        "meaning": "32 bit",
+        "note": "❌ Sai. 32 bit (255.255.255.255) dùng để chỉ định một host duy nhất, không phải một mạng thông thường."
+      }
+    }
+  },
+  {
+    "question": "ホスト部のビット数が8ビットのとき、使用可能なホスト数として正しいものはどれですか。",
+    "analysis": {
+      "reading": "ホストぶの ビットすうが 8ビットのとき、 しようかのうな ホストすうとして ただしいものは どれですか。",
+      "meaning": "Khi phần Host có 8 bit, số lượng host có thể sử dụng là bao nhiêu?"
+    },
+    "options": [
+      "254",
+      "256",
+      "128",
+      "512"
+    ],
+    "answer": "254",
+    "explanations": {
+      "254": {
+        "reading": "254",
+        "meaning": "254",
+        "note": "✅ Đúng. Công thức là 2^n - 2. Với n=8, 2^8 - 2 = 256 - 2 = 254 (trừ địa chỉ mạng và broadcast)."
+      },
+      "256": {
+        "reading": "256",
+        "meaning": "256",
+        "note": "❌ Sai. Đây là tổng số tổ hợp, nhưng 2 địa chỉ đặc biệt không thể gán cho host."
+      },
+      "128": {
+        "reading": "128",
+        "meaning": "128",
+        "note": "❌ Sai. 128 tương ứng với 2^7."
+      },
+      "512": {
+        "reading": "512",
+        "meaning": "512",
+        "note": "❌ Sai. 512 tương ứng với 2^9."
+      }
+    }
+  },
+  {
+    "question": "ネットワークアドレスの説明として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "ネットワークアドレスの せつめいとして もっとも てきせつなものは どれですか。",
+      "meaning": "Giải thích nào thích hợp nhất về địa chỉ mạng (Network Address)?"
+    },
+    "options": [
+      "ホスト部がすべて「1」のアドレス",
+      "ホスト部がすべて「0」のアドレス",
+      "ネットワーク部がすべて「0」のアドレス",
+      "IPアドレスの最上位ビットを反転したもの"
+    ],
+    "answer": "ホスト部がすべて「0」のアドレス",
+    "explanations": {
+      "ホスト部がすべて「1」のアドレス": {
+        "reading": "ホストぶが すべて 「イチ」の アドレス",
+        "meaning": "Địa chỉ có phần Host toàn bit 1.",
+        "note": "❌ Sai. Host toàn bit 1 là địa chỉ Broadcast."
+      },
+      "ホスト部がすべて「0」のアドレス": {
+        "reading": "ホストぶが すべて 「ゼロ」の アドレス",
+        "meaning": "Địa chỉ có phần Host toàn bit 0.",
+        "note": "✅ Đúng. Địa chỉ có phần Host toàn bit 0 được dùng để định danh chính mạng đó (Network Address)."
+      },
+      "ネットワーク部がすべて「0」のアドレス": {
+        "reading": "ネットワークぶが すべて 「ゼロ」の アドレス",
+        "meaning": "Địa chỉ có phần Network toàn bit 0.",
+        "note": "❌ Sai. Phần Network = 0 thường mang ý nghĩa 'mạng hiện tại' (0.0.0.0/8)."
+      },
+      "IPアドレスの最上位ビットを反転したもの": {
+        "reading": "IPアドレスの さいじょういビットを ¯はんてんしたもの",
+        "meaning": "Đảo ngược bit cao nhất của IP.",
+        "note": "❌ Sai. Không có khái niệm này trong việc xác định địa chỉ mạng."
+      }
+    }
+  },
+  {
+    "question": "IPアドレスが「202.218.13.138」でサブネットマスクが「255.255.255.0」のとき、ブロードキャストアドレスとして正しいものはどれですか。",
+    "analysis": {
+      "reading": "IPアドレスが 「202.218.13.138」で サブネットマスクが 「255.255.255.0」のとき、 ブロードキャストアドレスとして ただしいものは どれですか。",
+      "meaning": "Khi IP là 202.218.13.138 và Subnet Mask là 255.255.255.0, địa chỉ Broadcast là gì?"
+    },
+    "options": [
+      "202.218.13.0",
+      "202.218.0.255",
+      "202.218.13.255",
+      "202.218.255.255"
+    ],
+    "answer": "202.218.13.255",
+    "explanations": {
+      "202.218.13.0": {
+        "reading": "202.218.13.0",
+        "meaning": "202.218.13.0",
+        "note": "❌ Sai. Đây là Network Address (vì Host part .0 tương ứng với mask /24)."
+      },
+      "202.218.0.255": {
+        "reading": "202.218.0.255",
+        "meaning": "202.218.0.255",
+        "note": "❌ Sai. Sai địa chỉ mạng (phần 13 bị đổi thành 0)."
+      },
+      "202.218.13.255": {
+        "reading": "202.218.13.255",
+        "meaning": "202.218.13.255",
+        "note": "✅ Đúng. Với mask /24, 3 octet đầu (202.218.13) giữ nguyên, octet cuối (host part) chuyển thành 255 (toàn 1)."
+      },
+      "202.218.255.255": {
+        "reading": "202.218.255.255",
+        "meaning": "202.218.255.255",
+        "note": "❌ Sai. Đây sẽ là broadcast nếu subnet mask là 255.255.0.0 (/16)."
+      }
+    }
+  },
+  {
+    "question": "bps（ビット／秒）」はどのような意味を表す単位ですか。",
+    "analysis": {
+      "reading": "bps（ビット ぱー びょう）は どのような いみを あらわす たんいですか。",
+      "meaning": "Đơn vị 'bps' (bit trên giây) biểu thị ý nghĩa gì?"
+    },
+    "options": [
+      "1秒あたりに処理できるファイルの数",
+      "1秒あたりに送ることができるビット数",
+      "1バイトあたりの処理速度",
+      "同時に通信できる回線数"
+    ],
+    "answer": "1秒あたりに送ることができるビット数",
+    "explanations": {
+      "1秒あたりに処理できるファイルの数": {
+        "reading": "1びょうあたりに しょりできる ファイルのかず",
+        "meaning": "Số lượng file xử lý được trong 1 giây.",
+        "note": "❌ Sai. bps đo lượng dữ liệu (bit), không phải số lượng file."
+      },
+      "1秒あたりに送ることができるビット数": {
+        "reading": "1びょうあたりに おくることができる ビットすう",
+        "meaning": "Số bit có thể gửi được trong 1 giây.",
+        "note": "✅ Đúng. bps là viết tắt của 'bits per second' (bit trên giây)."
+      },
+      "1バイトあたりの処理速度": {
+        "reading": "1バイトあたりの しょりそくど",
+        "meaning": "Tốc độ xử lý trên mỗi byte.",
+        "note": "❌ Sai. Đơn vị này không tồn tại phổ biến."
+      },
+      "同時に通信できる回線数": {
+        "reading": "どうじに つうしんできる かいせんすう",
+        "meaning": "Số lượng đường truyền có thể giao tiếp đồng thời.",
+        "note": "❌ Sai."
+      }
+    }
+  },
+  {
+    "question": "次のうち、より速い伝送速度の回線はどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、 より はやい でんそうそくどの かいせんは どれですか。",
+      "meaning": "Trong các lựa chọn sau, đường truyền nào có tốc độ truyền nhanh hơn?"
+    },
+    "options": [
+      "1Mbps",
+      "512kbps",
+      "100kbps",
+      "10Mbps"
+    ],
+    "answer": "10Mbps",
+    "explanations": {
+      "1Mbps": {
+        "reading": "1 メガ ビーピーエス",
+        "meaning": "1 Megabits per second",
+        "note": "❌ Sai. 1 Mbps = 1,000 kbps."
+      },
+      "512kbps": {
+        "reading": "512 キロ ビーピーエス",
+        "meaning": "512 Kilobits per second",
+        "note": "❌ Sai. 512 kbps = 0.512 Mbps."
+      },
+      "100kbps": {
+        "reading": "100 キロ ビーピーエス",
+        "meaning": "100 Kilobits per second",
+        "note": "❌ Sai. Chậm nhất trong các lựa chọn."
+      },
+      "10Mbps": {
+        "reading": "10 メガ ビーピーエス",
+        "meaning": "10 Megabits per second",
+        "note": "✅ Đúng. 10 Mbps = 10,000 kbps, lớn nhất trong các lựa chọn."
+      }
+    }
+  },
+  {
+    "question": "1バイトが8ビットであることを使って、5MBのファイルをビットに換算したときの値として正しいものはどれですか。",
+    "analysis": {
+      "reading": "1バイトが 8ビットであることを つかって、 5メガバイトの ファイルを ビットに かんさんしたときの あたいとして ただしいものは どれですか。",
+      "meaning": "Sử dụng quy đổi 1 Byte = 8 bit, giá trị đúng khi chuyển đổi file 5MB sang bit là bao nhiêu?"
+    },
+    "options": [
+      "5,000ビット",
+      "40メガビット",
+      "5ビット",
+      "8バイト"
+    ],
+    "answer": "40メガビット",
+    "explanations": {
+      "5,000ビット": {
+        "reading": "5,000ビット",
+        "meaning": "5,000 bit",
+        "note": "❌ Sai."
+      },
+      "40メガビット": {
+        "reading": "40 メガビット",
+        "meaning": "40 Megabit",
+        "note": "✅ Đúng. 5 MB x 8 bit/Byte = 40 Megabit (Mb)."
+      },
+      "5ビット": {
+        "reading": "5ビット",
+        "meaning": "5 bit",
+        "note": "❌ Sai."
+      },
+      "8バイト": {
+        "reading": "8バイト",
+        "meaning": "8 Byte",
+        "note": "❌ Sai."
+      }
+    }
+  },
+  {
+    "question": "10Mbpsの回線を使って、40メガビットのデータを送信する場合、理論的なデータ伝送時間として正しいものはどれですか。",
+    "analysis": {
+      "reading": "10メガ ビーピーエスの かいせんを つかって、 40メガビットの データを そうしんするばあい、 りろんてきな データでんそうじかとして ただしいものは どれですか。",
+      "meaning": "Khi gửi dữ liệu 40 Megabit bằng đường truyền 10 Mbps, thời gian truyền lý thuyết là bao lâu?"
+    },
+    "options": [
+      "2秒",
+      "4秒",
+      "5秒",
+      "8秒"
+    ],
+    "answer": "4秒",
+    "explanations": {
+      "2秒": {
+        "reading": "2びょう",
+        "meaning": "2 giây",
+        "note": "❌ Sai."
+      },
+      "4秒": {
+        "reading": "4びょう",
+        "meaning": "4 giây",
+        "note": "✅ Đúng. Thời gian = Dữ liệu / Tốc độ = 40 Mb / 10 Mbps = 4 giây."
+      },
+      "5秒": {
+        "reading": "5びょう",
+        "meaning": "5 giây",
+        "note": "❌ Sai."
+      },
+      "8秒": {
+        "reading": "8びょう",
+        "meaning": "8 giây",
+        "note": "❌ Sai. (Lưu ý: Đáp án trong đề gốc có thể sai là 8s, nhưng theo tính toán đúng là 4s. Tool sẽ dùng logic đúng)."
+      }
+    }
+  },
+  {
+    "question": "データ伝送時間を求める式として正しいものはどれですか。",
+    "analysis": {
+      "reading": "データでんそうじかんを もとめる しきとして ただしいものは どれですか。",
+      "meaning": "Công thức đúng để tính thời gian truyền dữ liệu là gì?"
+    },
+    "options": [
+      "データ量 × 回線速度",
+      "データ量 / 回線速度",
+      "データ量 + 回線速度",
+      "回線速度 / データ量"
+    ],
+    "answer": "データ量 / 回線速度",
+    "explanations": {
+      "データ量 × 回線速度": {
+        "reading": "データりょう かける かいせんそくど",
+        "meaning": "Lượng dữ liệu * Tốc độ đường truyền",
+        "note": "❌ Sai. Nhân sẽ ra đơn vị bit^2/giây."
+      },
+      "データ量 / 回線速度": {
+        "reading": "データりょう わる かいせんそくど",
+        "meaning": "Lượng dữ liệu / Tốc độ đường truyền",
+        "note": "✅ Đúng. Thời gian = Size (bit) / Speed (bit/s)."
+      },
+      "データ量 + 回線速度": {
+        "reading": "データりょう たす かいせんそくど",
+        "meaning": "Lượng dữ liệu + Tốc độ đường truyền",
+        "note": "❌ Sai. Không thể cộng các đại lượng khác đơn vị."
+      },
+      "回線速度 / データ量": {
+        "reading": "かいせんそくど わる データりょう",
+        "meaning": "Tốc độ đường truyền / Lượng dữ liệu",
+        "note": "❌ Sai. Chia ngược sẽ ra đơn vị tần số (Hz) hoặc 1/giây."
+      }
+    }
+  },
+  {
+    "question": "回線利用率が70%のとき、10Mbpsの回線で実際に伝送に使える速度はどれですか。",
+    "analysis": {
+      "reading": "かいせんりようりつが 70パーセントのとき、 10メガ ビーピーエスの かいせんで じっさいに でんそうに つかえる そくどは どれですか。",
+      "meaning": "Khi hiệu suất sử dụng đường truyền là 70%, tốc độ thực tế có thể dùng của đường truyền 10Mbps là bao nhiêu?"
+    },
+    "options": [
+      "3Mbps",
+      "7Mbps",
+      "10Mbps",
+      "30Mbps"
+    ],
+    "answer": "7Mbps",
+    "explanations": {
+      "3Mbps": {
+        "reading": "3 メガ ビーピーエス",
+        "meaning": "3 Mbps",
+        "note": "❌ Sai."
+      },
+      "7Mbps": {
+        "reading": "7 メガ ビーピーエス",
+        "meaning": "7 Mbps",
+        "note": "✅ Đúng. Tốc độ thực = 10 Mbps x 0.7 = 7 Mbps."
+      },
+      "10Mbps": {
+        "reading": "10 メガ ビーピーエス",
+        "meaning": "10 Mbps",
+        "note": "❌ Sai. Đây là tốc độ lý thuyết tối đa."
+      },
+      "30Mbps": {
+        "reading": "30 メガ ビーピーエス",
+        "meaning": "30 Mbps",
+        "note": "❌ Sai. Không thể nhanh hơn tốc độ vật lý."
+      }
+    }
+  },
+  {
+    "question": "回線速度10Mbps、回線利用率70%、データ量70メガビットの場合の伝送時間として正しいものはどれですか。",
+    "analysis": {
+      "reading": "かいせんそくど 10メガ ビーピーエス、 かいせんりようりつ 70パーセント、 データりょう 70メガビットの ばあいの でんそうじかんとして ただしいものは どれですか。",
+      "meaning": "Thời gian truyền là bao lâu với tốc độ 10Mbps, hiệu suất 70%, và lượng dữ liệu 70 Megabit?"
+    },
+    "options": [
+      "1秒",
+      "5秒",
+      "7秒",
+      "10秒"
+    ],
+    "answer": "10秒",
+    "explanations": {
+      "1秒": {
+        "reading": "1びょう",
+        "meaning": "1 giây",
+        "note": "❌ Sai."
+      },
+      "5秒": {
+        "reading": "5びょう",
+        "meaning": "5 giây",
+        "note": "❌ Sai."
+      },
+      "7秒": {
+        "reading": "7びょう",
+        "meaning": "7 giây",
+        "note": "❌ Sai. "
+      },
+      "10秒": {
+        "reading": "10びょう",
+        "meaning": "10 giây",
+        "note": "✅ Đúng. Tốc độ thực = 10 x 0.7 = 7 Mbps. Thời gian = 70 Mb / 7 Mbps = 10 giây."
+      }
+    }
+  },
+  {
+    "question": "1.5Mbpsの回線で、12MB（メガバイト）のデータを送信するのにかかる時間として最も適切なものはどれですか。ただし回線利用率は50%とします。",
+    "analysis": {
+      "reading": "1.5メガ ビーピーエスの かいせんで、 12メガバイトの データを そうしんするのに かかる じかんとして もっとも てきせつな ものは どれですか。 ただし かいせんりようりつは 50パーセントとします。",
+      "meaning": "Thời gian thích hợp nhất để gửi 12MB dữ liệu qua đường truyền 1.5Mbps với hiệu suất 50% là bao lâu?"
+    },
+    "options": [
+      "32秒",
+      "64秒",
+      "96秒",
+      "128秒"
+    ],
+    "answer": "128秒",
+    "explanations": {
+      "32秒": {
+        "reading": "32びょう",
+        "meaning": "32 giây",
+        "note": "❌ Sai."
+      },
+      "64秒": {
+        "reading": "64びょう",
+        "meaning": "64 giây",
+        "note": "❌ Sai. Đây là kết quả nếu không đổi Byte ra bit (12 / 0.75 = 16? Không đúng)."
+      },
+      "96秒": {
+        "reading": "96びょう",
+        "meaning": "96 giây",
+        "note": "❌ Sai."
+      },
+      "128秒": {
+        "reading": "128びょう",
+        "meaning": "128 giây",
+        "note": "✅ Đúng. \n1. Đổi dữ liệu ra bit: 12 MB = 12 x 8 = 96 Megabit.\n2. Tính tốc độ thực: 1.5 Mbps x 0.5 = 0.75 Mbps.\n3. Thời gian: 96 Mb / 0.75 Mbps = 128 giây."
+      }
+    }
+  },
+  {
+    "question": "データの誤りを検出するために、ビット列に特定のビットを追加する方法を何といいますか。",
+    "analysis": {
+      "reading": "データの あやまりを けんしゅつするために、 ビットれつに とくていの ビットを ついかする ほうほうを なんと いいますか。",
+      "meaning": "Phương pháp thêm bit đặc thù vào chuỗi bit để phát hiện lỗi dữ liệu gọi là gì?"
+    },
+    "options": [
+      "ビット変換",
+      "パリティチェック",
+      "フレーム制御",
+      "データ圧縮"
+    ],
+    "answer": "パリティチェック",
+    "explanations": {
+      "ビット変換": {
+        "reading": "ビットヘんかん",
+        "meaning": "Chuyển đổi bit",
+        "note": "❌ Sai."
+      },
+      "パリティチェック": {
+        "reading": "パリティチェック",
+        "meaning": "Kiểm tra chẵn lẻ (Parity Check)",
+        "note": "✅ Đúng. Đây là phương pháp thêm 1 bit (parity bit) để kiểm tra tính toàn vẹn của dữ liệu."
+      },
+      "フレーム制御": {
+        "reading": "フレームせいぎょ",
+        "meaning": "Điều khiển khung (Frame Control)",
+        "note": "❌ Sai."
+      },
+      "データ圧縮": {
+        "reading": "データあっしゅく",
+        "meaning": "Nén dữ liệu",
+        "note": "❌ Sai. Mục đích là giảm dung lượng, không phải phát hiện lỗi."
+      }
+    }
+  },
+  {
+    "question": "偶数パリティでは、どのようにしてパリティビットを付加しますか。",
+    "analysis": {
+      "reading": "ぐうすうパリティでは、 どのようにして パリティビットを ふかしますか。",
+      "meaning": "Trong phương pháp Parity chẵn (Even Parity), bit parity được thêm vào như thế nào?"
+    },
+    "options": [
+      "「1」の数が奇数になるように「1」を付け加える",
+      "「1」の数が偶数になるように「0」を付け加える",
+      "「1」の数が偶数になるように「1」を付け加える",
+      "「1」の数が奇数になるように「0」を付け加える"
+    ],
+    "answer": "「1」の数が偶数になるように「1」を付け加える",
+    "explanations": {
+      "「1」の数が奇数になるように「1」を付け加える": {
+        "reading": "...",
+        "meaning": "Thêm 1 để tổng số 1 thành lẻ.",
+        "note": "❌ Sai. Đây là cách hoạt động của Parity Lẻ (Odd Parity) khi số bit 1 đang chẵn."
+      },
+      "「1」の数が偶数になるように「0」を付け加える": {
+        "reading": "...",
+        "meaning": "Thêm 0 để tổng số 1 thành chẵn.",
+        "note": "⚠️ Không chính xác hoàn toàn. Nếu số bit 1 đã chẵn rồi thì thêm 0, nhưng nếu đang lẻ thì phải thêm 1. Câu này chỉ đúng trong 1 trường hợp."
+      },
+      "「1」の数が偶数になるように「1」を付け加える": {
+        "reading": "「イチ」の かずが ぐうすうに なるように 「イチ」を つけくわえる",
+        "meaning": "Thêm 1 để tổng số lượng bit 1 trở thành số chẵn.",
+        "note": "✅ Đúng. Nếu số bit 1 trong dữ liệu đang là lẻ, ta thêm bit 1 vào để tổng số bit 1 thành chẵn. (Lưu ý: Nếu số bit 1 đã chẵn thì thêm 0, nhưng bản chất của Parity chẵn là ĐẢM BẢO tổng số bit 1 là chẵn)."
+      },
+      "「1」の数が奇数になるように「0」を付け加える": {
+        "reading": "...",
+        "meaning": "Thêm 0 để tổng số 1 thành lẻ.",
+        "note": "❌ Sai."
+      }
+    }
+  },
+  {
+    "question": "水平垂直パリティを使用することで、どのようなことが可能になりますか。",
+    "analysis": {
+      "reading": "すいへいすいちょくパリティを しようすることで、 どのようなことが かのうに なりますか。",
+      "meaning": "Sử dụng kiểm tra Parity ngang và dọc (Horizontal and Vertical Parity) giúp thực hiện điều gì?"
+    },
+    "options": [
+      "1ビットの誤りの訂正",
+      "通信速度の向上",
+      "データの圧縮",
+      "パケットの分割"
+    ],
+    "answer": "1ビットの誤りの訂正",
+    "explanations": {
+      "1ビットの誤りの訂正": {
+        "reading": "1ビットの あやまりの ていせい",
+        "meaning": "Sửa lỗi 1 bit.",
+        "note": "✅ Đúng. Bằng cách kết hợp kiểm tra cả hàng và cột, ta có thể xác định chính xác tọa độ bit bị lỗi và đảo ngược nó để sửa."
+      },
+      "通信速度の向上": {
+        "reading": "つうしんそくどの こうじょう",
+        "meaning": "Tăng tốc độ truyền tin.",
+        "note": "❌ Sai. Ngược lại, nó làm tăng lượng dữ liệu cần truyền (overhead)."
+      },
+      "データの圧縮": {
+        "reading": "データの あっしゅく",
+        "meaning": "Nén dữ liệu.",
+        "note": "❌ Sai."
+      },
+      "パケットの分割": {
+        "reading": "パケットの ぶんかつ",
+        "meaning": "Chia nhỏ gói tin.",
+        "note": "❌ Sai."
+      }
+    }
+  },
+  {
+    "question": "次のうち、誤り位置の特定と訂正の両方が可能な方式はどれですか。",
+    "analysis": {
+      "reading": "つぎのうち、 あやまりいちの とくていと ていせいの りょうほうが かのうな ほうしきは どれですか。",
+      "meaning": "Phương pháp nào sau đây có khả năng vừa xác định vị trí lỗi vừa sửa lỗi?"
+    },
+    "options": [
+      "偶数パリティ",
+      "CRC方式",
+      "水平垂直パリティ",
+      "ハミング符号方式"
+    ],
+    "answer": "ハミング符号方式",
+    "explanations": {
+      "偶数パリティ": {
+        "reading": "ぐうすうパリティ",
+        "meaning": "Parity chẵn.",
+        "note": "❌ Sai. Chỉ phát hiện lỗi (số bit lỗi lẻ), không biết vị trí để sửa."
+      },
+      "CRC方式": {
+        "reading": "CRCほうしき",
+        "meaning": "Phương pháp CRC (Cyclic Redundancy Check).",
+        "note": "❌ Sai. CRC rất mạnh trong phát hiện lỗi chùm, nhưng thường không dùng để tự sửa lỗi (nó yêu cầu truyền lại)."
+      },
+      "水平垂直パリティ": {
+        "reading": "すいへい すいちょく パリティ",
+        "meaning": "Parity ngang dọc.",
+        "note": "⚠️ Một phần đúng (sửa được 1 bit), nhưng 'Hamming Code' là câu trả lời mang tính đại diện và chuyên sâu hơn cho khả năng tự sửa lỗi (ECC)."
+      },
+      "ハミング符号方式": {
+        "reading": "ハミング ふごう ほうしき",
+        "meaning": "Mã Hamming.",
+        "note": "✅ Đúng. Đây là mã sửa lỗi (ECC - Error Correcting Code) nổi tiếng, cho phép phát hiện 2 lỗi và sửa 1 lỗi."
+      }
+    }
+  },
+  {
+    "question": "CRC方式の特徴として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "CRCほうしきの とくちょうとして もっとも てきせつなものは どれですか。",
+      "meaning": "Đặc điểm đặc trưng nhất của phương thức CRC là gì?"
+    },
+    "options": [
+      "文字単位でビットを付け加える方式",
+      "データを一定の項目で割った余りを付加する方式",
+      "「1」の数を偶数に保つようにする方式",
+      "誤りを訂正することができるが検出はできない"
+    ],
+    "answer": "データを一定の項目で割った余りを付加する方式",
+    "explanations": {
+      "文字単位でビットを付け加える方式": {
+        "reading": "...",
+        "meaning": "Thêm bit theo đơn vị ký tự.",
+        "note": "❌ Sai. Đây giống mô tả của Parity ngang."
+      },
+      "データを一定の項目で割った余りを付加する方式": {
+        "reading": "データを いっていの こうもくで わった あまりを ふかする ほうしき",
+        "meaning": "Thêm phần dư của phép chia dữ liệu cho một đa thức sinh.",
+        "note": "✅ Đúng. CRC dùng đa thức sinh (generator polynomial) để chia chuỗi bit và lấy số dư làm mã kiểm tra."
+      },
+      "「1」の数を偶数に保つようにする方式": {
+        "reading": "...",
+        "meaning": "Giữ số lượng bit 1 là chẵn.",
+        "note": "❌ Sai. Đây là Parity check."
+      },
+      "誤りを訂正することができるが検出はできない": {
+        "reading": "...",
+        "meaning": "Sửa lỗi được nhưng không phát hiện được.",
+        "note": "❌ Sai. Ngược lại, CRC phát hiện lỗi rất tốt nhưng không sửa."
+      }
+    }
+  },
+  {
+    "question": "水平パリティとは、どのようにパリティを付加する方式ですか。",
+    "analysis": {
+      "reading": "すいへいパリティとは、 どのように パリティを ふかする ほうしきですか。",
+      "meaning": "Parity ngang (Horizontal Parity) là phương pháp thêm parity như thế nào?"
+    },
+    "options": [
+      "各文字の列ごとに付け加える方式",
+      "各行のビット列ごとに付け加える方式",
+      "各文字の1文字ごとに付け加える方式",
+      "ビット列全体に対してまとめて付け加える方式"
+    ],
+    "answer": "各文字の1文字ごとに付け加える方式",
+    "explanations": {
+      "各文字の列ごとに付け加える方式": {
+        "reading": "...",
+        "meaning": "Thêm vào từng cột của các ký tự.",
+        "note": "❌ Sai. Đây là Parity dọc (Vertical Parity) - thường dùng cho khối dữ liệu."
+      },
+      "各行のビット列ごとに付け加える方式": {
+        "reading": "...",
+        "meaning": "Thêm vào từng hàng bit.",
+        "note": "⚠️ Dễ gây nhầm lẫn với ý trên."
+      },
+      "各文字の1文字ごとに付け加える方式": {
+        "reading": "かくもじの 1もじごとに つけくわえる ほうしき",
+        "meaning": "Thêm vào từng ký tự một (cụ thể là từng Byte/word).",
+        "note": "✅ Đúng. Horizontal Parity thường được thêm vào cuối mỗi byte (hoặc ký tự) để kiểm tra byte đó."
+      },
+      "ビット列全体に対してまとめて付け加える方式": {
+        "reading": "...",
+        "meaning": "Thêm vào toàn bộ chuỗi bit một lần.",
+        "note": "❌ Sai. Đây giống check sum hoặc CRC hơn."
+      }
+    }
+  },
+  {
+    "question": "チェックディジットの役割として最も適切なものはどれですか。",
+    "analysis": {
+      "reading": "チェックディジットの やくわりとして もっとも てきせつなものは どれですか。",
+      "meaning": "Vai trò thích hợp nhất của Check Digit là gì?"
+    },
+    "options": [
+      "データを暗号化して保護する",
+      "通信相手を認証する",
+      "入力ミスを検出する",
+      "データを圧縮して転送する"
+    ],
+    "answer": "入力ミスを検出する",
+    "explanations": {
+      "データを暗号化して保護する": {
+        "reading": "...",
+        "meaning": "Mã hóa bảo vệ dữ liệu.",
+        "note": "❌ Sai."
+      },
+      "通信相手を認証する": {
+        "reading": "...",
+        "meaning": "Xác thực đối phương.",
+        "note": "❌ Sai. Đây là Digital Signature hoặc Authentication."
+      },
+      "入力ミスを検出する": {
+        "reading": "にゅうりょくミスを けんしゅつする",
+        "meaning": "Phát hiện lỗi nhập liệu.",
+        "note": "✅ Đúng. Check digit (số kiểm tra) thường là số cuối cùng trong mã vạch, mã số thẻ... dùng để kiểm tra xem người dùng có nhập sai số nào không."
+      },
+      "データを圧縮して転送する": {
+        "reading": "...",
+        "meaning": "Nén dữ liệu để truyền.",
+        "note": "❌ Sai."
+      }
+    }
+  },
+  {
+    "question": "水平垂直パリティで2ビット以上の誤りが発生した場合、どうなりますか。",
+    "analysis": {
+      "reading": "すいへいすいちょくパリティで 2ビットいじょうの あやまりが はっせいしたばあい、 どうなりますか。",
+      "meaning": "Điều gì xảy ra nếu có lỗi từ 2 bit trở lên trong phương pháp Horizontal & Vertical Parity?"
+    },
+    "options": [
+      "誤りの検出と訂正が可能になる",
+      "誤りの検出はできるが訂正はできない",
+      "誤りの検出と訂正はできない場合がある",
+      "常に正確に訂正できる"
+    ],
+    "answer": "誤りの検出と訂正はできない場合がある",
+    "explanations": {
+      "誤りの検出と訂正が可能になる": {
+        "reading": "...",
+        "meaning": "Có thể phát hiện và sửa lỗi.",
+        "note": "❌ Sai. Chỉ chắc chắn sửa được 1 bit lỗi."
+      },
+      "誤りの検出はできるが訂正はできない": {
+        "reading": "...",
+        "meaning": "Phát hiện được nhưng không sửa được.",
+        "note": "⚠️ Một phần đúng, nhưng chưa đủ. Nếu lỗi 4 bit tạo thành hình chữ nhật thì thậm chí không phát hiện được."
+      },
+      "誤りの検出と訂正はできない場合がある": {
+        "reading": "あやまりの けんしゅつと ていせいは できないばあいが ある",
+        "meaning": "Có trường hợp không thể phát hiện và sửa lỗi.",
+        "note": "✅ Đúng. Nếu số lỗi là chẵn ở cùng hàng/cột, Parity check có thể bị qua mặt (không phát hiện được), hoặc phát hiện được nhưng không biết vị trí chính xác để sửa."
+      },
+      "常に正確に訂正できる": {
+        "reading": "...",
+        "meaning": "Luôn luôn sửa đúng.",
+        "note": "❌ Sai."
+      }
+    }
   }
 ]

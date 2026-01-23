@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài thi giữa kỳ - IT Tiếng Nhật (Bản 14.0 - Fix Lỗi Phần 3)</title>
+    <title>Bài thi giữa kỳ, cuối kỳ - IT Tiếng Nhật (Bản 14.0 - Fix Lỗi Phần 3)</title>
     
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     
@@ -316,30 +316,28 @@
                     const juyouCell = row[colIndices.JUYOUGOI] ? String(row[colIndices.JUYOUGOI]).trim() : "";
                     if (kotoba === "" || kotoba === TARGET_HEADERS.KOTOBA) continue;
                     const isKatakana = (katakanaCell === '〇');
-                    const isImportant = ['〇', '◎'].includes(juyouCell);
-                    if (isImportant) {
-                        const item = { "言葉": kotoba, "読み方": yomikata, "意味": imi };
-                        if (isKatakana) {
-                            // <<< LOGIC MỚI: Kiểm tra xem kotoba CÓ PHẢI LÀ Alphabet không >>>
-                            const isAlpha = /^[a-zA-Z0-9\s\.\-\/\(\)]+$/.test(kotoba);
-                            
-                            if (isAlpha) {
-                                // Nếu kotoba là Alphabet (ví dụ: "ARP"), dùng trực tiếp cho Phần 3
-                                newVocabAlphabet.push(item); 
-                                newVocabPureKatakana.push({ "言葉": yomikata, "読み方": yomikata, "意味": imi });
-                            } else {
-                                // Nếu kotoba là Tiếng Nhật (ví dụ: "リピータ"), cố gắng lấy từ Tiếng Anh từ cột Nghĩa
-                                const englishWord = extractEnglishFromMeaning(imi);
-                                if (englishWord) {
-                                    newVocabAlphabet.push({ "言葉": englishWord, "読み方": yomikata, "意味": imi }); 
-                                    newVocabPureKatakana.push(item);
-                                } else {
-                                    newVocabPureKatakana.push(item);
-                                }
-                            }
+                    
+                    const item = { "言葉": kotoba, "読み方": yomikata, "意味": imi };
+                    if (isKatakana) {
+                        // <<< LOGIC MỚI: Kiểm tra xem kotoba CÓ PHẢI LÀ Alphabet không >>>
+                        const isAlpha = /^[a-zA-Z0-9\s\.\-\/\(\)]+$/.test(kotoba);
+                        
+                        if (isAlpha) {
+                            // Nếu kotoba là Alphabet (ví dụ: "ARP"), dùng trực tiếp cho Phần 3
+                            newVocabAlphabet.push(item); 
+                            newVocabPureKatakana.push({ "言葉": yomikata, "読み方": yomikata, "意味": imi });
                         } else {
-                            newVocabKanjiHiragana.push(item);
+                            // Nếu kotoba là Tiếng Nhật (ví dụ: "リピータ"), cố gắng lấy từ Tiếng Anh từ cột Nghĩa
+                            const englishWord = extractEnglishFromMeaning(imi);
+                            if (englishWord) {
+                                newVocabAlphabet.push({ "言葉": englishWord, "読み方": yomikata, "意味": imi }); 
+                                newVocabPureKatakana.push(item);
+                            } else {
+                                newVocabPureKatakana.push(item);
+                            }
                         }
+                    } else {
+                        newVocabKanjiHiragana.push(item);
                     }
                 }
             }
@@ -444,7 +442,12 @@
                 p1Questions.innerHTML = ''; document.getElementById('part1-container').style.display = 'block';
                 q1Data.forEach((item, index) => {
                     const distractors = createDistractors(item, combinedPool_P1_P4, '意味'); const options = shuffle([item.意味, ...distractors]);
-                    let optionsHtml = '<div class="options-group">'; options.forEach(opt => { optionsHtml += `<label><input type="radio" name="part1-q${index}" value="${opt}" data-answer="${item.意味}"> ${opt}</label>`; }); optionsHtml += '</div>';
+                    let optionsHtml = '<div class="options-group">'; 
+                    options.forEach(opt => { 
+                        const displayOpt = opt.replace(/\s\(?[a-zA-Z0-9\s\.\-\/\(\)]+\)?$/, "").trim();
+                        optionsHtml += `<label><input type="radio" name="part1-q${index}" value="${opt}" data-answer="${item.意味}"> ${displayOpt}</label>`; 
+                    }); 
+                    optionsHtml += '</div>';
                     p1Questions.innerHTML += `<div class="question" data-answer-word="${item.言葉}"><p>Câu 1.${index + 1}: <button class="listen-btn" onclick="speak('${item.言葉}')">Nghe 🔊</button></p>${optionsHtml}</div>`;
                 });
             } else { document.getElementById('part1-container').style.display = 'none'; }

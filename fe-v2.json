@@ -29,27 +29,23 @@
   },
   {
     "image": "parity.png",
-    "name": "誤り検出 (図3)",
-    "role": {
+    "name": "パリティチェック (検出と訂正)",
+    "role_detection": {
       "answer": "誤りの場所を探すこと",
       "reading": "あやまりの ばしょを さがす こと",
       "meaning": "Tìm kiếm vị trí bị lỗi."
     },
-    "logic": {
+    "logic_detection": {
       "answer": "縦と横で、1の個数が偶数かを調べて、交差点で誤りを見つけること",
       "reading": "たてと よこで、 1の こすうが ぐうすうかを しらべて、 こうさてんで あやまりを みつける こと",
       "meaning": "Kiểm tra số chữ số 1 theo hàng dọc và ngang có phải là số chẵn không, và tìm lỗi tại giao điểm."
-    }
-  },
-  {
-    "image": "parity.png",
-    "name": "誤り訂正 (図4)",
-    "role": {
+    },
+    "role_correction": {
       "answer": "見つけた誤りを直すこと",
       "reading": "みつけた あやまりを なおす こと",
       "meaning": "Sửa lại lỗi đã tìm thấy."
     },
-    "logic": {
+    "logic_correction": {
       "answer": "誤りの位置の1を0に変えること",
       "reading": "あやまりの いちの 1を 0に かえる こと",
       "meaning": "Chuyển đổi số 1 tại vị trí lỗi thành số 0."

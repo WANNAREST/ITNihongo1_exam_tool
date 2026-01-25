@@ -530,6 +530,11 @@
                     if (item.role) { datasets += ` data-answer-role='${JSON.stringify(item.role)}'`; questionsInputsHtml += `<br><label>chức năng/Vai trò: <input type="text" id="part6-q${index}-role" placeholder="Viết vai trò/chức năng..."></label>`; }
                     if (item.merit) { datasets += ` data-answer-merit='${JSON.stringify(item.merit)}'`; questionsInputsHtml += `<br><label>Ưu điểm: <input type="text" id="part6-q${index}-merit" placeholder="Viết ưu điểm..."></label>`; }
                     if (item.logic) { datasets += ` data-answer-logic='${JSON.stringify(item.logic)}'`; questionsInputsHtml += `<br><label>Nguyên lý/Logic: <input type="text" id="part6-q${index}-logic" placeholder="Viết nguyên lý/logic..."></label>`; }
+                    
+                    if (item.role_detection) { datasets += ` data-answer-role_detection='${JSON.stringify(item.role_detection)}'`; questionsInputsHtml += `<br><label>Vai trò (Hình 3 - Phát hiện): <input type="text" id="part6-q${index}-role_detection" placeholder="Viết vai trò phát hiện..."></label>`; }
+                    if (item.logic_detection) { datasets += ` data-answer-logic_detection='${JSON.stringify(item.logic_detection)}'`; questionsInputsHtml += `<br><label>Logic (Hình 3 - Phát hiện): <input type="text" id="part6-q${index}-logic_detection" placeholder="Viết logic phát hiện..."></label>`; }
+                    if (item.role_correction) { datasets += ` data-answer-role_correction='${JSON.stringify(item.role_correction)}'`; questionsInputsHtml += `<br><label>Vai trò (Hình 4 - Sửa lỗi): <input type="text" id="part6-q${index}-role_correction" placeholder="Viết vai trò sửa lỗi..."></label>`; }
+                    if (item.logic_correction) { datasets += ` data-answer-logic_correction='${JSON.stringify(item.logic_correction)}'`; questionsInputsHtml += `<br><label>Logic (Hình 4 - Sửa lỗi): <input type="text" id="part6-q${index}-logic_correction" placeholder="Viết logic sửa lỗi..."></label>`; }
 
                     p6Questions.innerHTML += `<div class="question" ${datasets}><p>Câu 6.${index + 1}: Hãy giải thích về thiết bị/mô hình trong hình ảnh sau:</p><img src="images/${item.image}" alt="Sơ đồ FE" class="diagram-image"><div class="question-inputs"><label>Tên: <input type="text" id="part6-q${index}-name" placeholder="Viết tên..."></label>${questionsInputsHtml}</div></div>`;
                 });
@@ -664,6 +669,11 @@
                     checkField('Role', 'Vai trò', 4);
                     checkField('Merit', 'Ưu điểm', 4);
                     checkField('Logic', 'Nguyên lý/Logic', 4);
+                    
+                    checkField('Role_detection', 'Vai trò (Hình 3)', 4);
+                    checkField('Logic_detection', 'Logic (Hình 3)', 4);
+                    checkField('Role_correction', 'Vai trò (Hình 4)', 4);
+                    checkField('Logic_correction', 'Logic (Hình 4)', 4);
 
                     const answerHtml = `<div class="diagram-answer-block">${answerHtmlInner}</div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);

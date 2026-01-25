@@ -550,8 +550,7 @@
             if (q8Data && q8Data.length > 0) {
                 p8Questions.innerHTML = ''; document.getElementById('part8-container').style.display = 'block';
                 q8Data.forEach((item, index) => {
-                    const analysisHtml = `<div class="question-analysis-block"><div class="option-reading"><strong>(Cách đọc):</strong> ${item.scenario.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${item.scenario.meaning}</div></div>`;
-                    p8Questions.innerHTML += `<div class="question" data-model-answer='${JSON.stringify(item.model_answer)}'><p>Câu 8.${index + 1}: ${item.scenario.title}</p><p style="font-weight:normal;">${item.scenario.japanese}</p>${analysisHtml}<div class="question-inputs"><textarea id="part8-q${index}-answer" class="report-textarea" placeholder="Viết câu trả lời của bạn vào đây..."></textarea></div></div>`;
+                    p8Questions.innerHTML += `<div class="question" data-model-answer='${JSON.stringify(item.model_answer)}'><p>Câu 8.${index + 1}: ${item.scenario.title}</p><p style="font-weight:normal;">${item.scenario.meaning}</p><div class="question-inputs"><textarea id="part8-q${index}-answer" class="report-textarea" placeholder="Viết câu trả lời của bạn bằng tiếng Việt vào đây..."></textarea></div></div>`;
                 });
             } else { document.getElementById('part8-container').style.display = 'none'; }
         }
@@ -687,7 +686,7 @@
                 part8Questions.forEach((q, index) => {
                     maxScore += 20;
                     const modelAnswer = JSON.parse(q.dataset.modelAnswer);
-                    const answerHtml = `<div class="report-answer-block" style="border-color: #3f51b5; background: #e8eaf6;"><strong>✅ Đáp án mẫu (Tham khảo):</strong><pre>${modelAnswer.japanese}</pre><div class="option-analysis-block" style="border-left-color: #3f51b5;"><div class="option-reading"><strong>(Cách đọc):</strong> ${modelAnswer.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${modelAnswer.meaning}</div></div></div>`;
+                    const answerHtml = `<div class="report-answer-block" style="border-color: #3f51b5; background: #e8eaf6;"><strong>✅ Đáp án mẫu (Tham khảo - Tiếng Việt):</strong><pre style="font-size: 1em;">${modelAnswer.meaning}</pre><div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #3f51b5; color: #666;"><em>Đáp án tiếng Nhật tham khảo:</em><div style="margin-top: 5px;">${modelAnswer.japanese}</div><div style="font-size: 0.9em; color: #999; margin-top: 3px;">(${modelAnswer.reading})</div></div></div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
                 });
             }

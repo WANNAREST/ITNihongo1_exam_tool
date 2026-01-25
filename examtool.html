@@ -457,7 +457,7 @@
             if (q2Data && q2Data.length > 0) {
                 p2Questions.innerHTML = ''; document.getElementById('part2-container').style.display = 'block';
                 q2Data.forEach((item, index) => {
-                    p2Questions.innerHTML += `<div class="question" data-answer-reading="${item.読み方}" data-answer-meaning="${item.意味}"><p>Câu 2.${index + 1}: ${item.言葉}</p><div class="question-inputs"><label>Cách đọc: <input type="text" id="part2-q${index}-reading" placeholder="Viết cách đọc (kana)"></label><br><label>Ý nghĩa: <input type="text" id="part2-q${index}-meaning" placeholder="Viết ý nghĩa (Tiếng Việt)"></label></div></div>`;
+                    p2Questions.innerHTML += `<div class="question" data-answer-reading="${item.読み方}" data-answer-meaning="${item.意味}"><p>Câu 2.${index + 1}: ${item.言葉}</p><div class="question-inputs"><label>Cách đọc: <input type="text" id="part2-q${index}-reading" placeholder="Viết cách đọc"></label><br><label>Ý nghĩa: <input type="text" id="part2-q${index}-meaning" placeholder="Viết ý nghĩa (Tiếng Việt)"></label></div></div>`;
                 });
             } else { document.getElementById('part2-container').style.display = 'none'; }
 

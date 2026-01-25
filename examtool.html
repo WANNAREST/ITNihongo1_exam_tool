@@ -536,7 +536,14 @@
                     if (item.role_correction) { datasets += ` data-answer-role_correction='${JSON.stringify(item.role_correction)}'`; questionsInputsHtml += `<br><label>Vai trò (Hình 4 - Sửa lỗi): <input type="text" id="part6-q${index}-role_correction" placeholder="Viết vai trò sửa lỗi..."></label>`; }
                     if (item.logic_correction) { datasets += ` data-answer-logic_correction='${JSON.stringify(item.logic_correction)}'`; questionsInputsHtml += `<br><label>Logic (Hình 4 - Sửa lỗi): <input type="text" id="part6-q${index}-logic_correction" placeholder="Viết logic sửa lỗi..."></label>`; }
 
-                    p6Questions.innerHTML += `<div class="question" ${datasets}><p>Câu 6.${index + 1}: Hãy giải thích về thiết bị/mô hình trong hình ảnh sau:</p><img src="images/${item.image}" alt="Sơ đồ FE" class="diagram-image"><div class="question-inputs"><label>Tên: <input type="text" id="part6-q${index}-name" placeholder="Viết tên..."></label>${questionsInputsHtml}</div></div>`;
+                    let questionText = `Câu 6.${index + 1}: Hãy giải thích về thiết bị/mô hình trong hình ảnh sau:`;
+                    if (item.flow && item.merit) {
+                        questionText = `Câu 6.${index + 1}: Dựa trên sơ đồ tổng quát dưới đây, hãy giải thích bằng tiếng Nhật về các nội dung sau: “Tên gọi hình thái kết nối trong WAN”, “Quy trình xử lý dữ liệu”, “Ưu điểm của hình thái kết nối WAN này”`;
+                    } else if (item.role_detection || item.image === 'parity.png') {
+                        questionText = `Câu 6.${index + 1}: Sơ đồ bên dưới giải thích cơ chế phát hiện và sửa lỗi bằng cách kết hợp kiểm tra parity chẵn và kiểm tra parity ngang dọc. Trong đó hình 1 là trạng thái dữ liệu ban đầu, hình 2 là dữ liệu đã phát hiện lỗi. Hãy giải thích bằng tiếng Nhật các nội dung sau của từng hình 3 và 4: “Vai trò của cơ chế”, “Logic của cơ chế”`;
+                    }
+
+                    p6Questions.innerHTML += `<div class="question" ${datasets}><p>${questionText}</p><img src="images/${item.image}" alt="Sơ đồ FE" class="diagram-image"><div class="question-inputs"><label>Tên: <input type="text" id="part6-q${index}-name" placeholder="Viết tên..."></label>${questionsInputsHtml}</div></div>`;
                 });
             } else { document.getElementById('part6-container').style.display = 'none'; }
             

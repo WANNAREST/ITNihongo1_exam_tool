@@ -1,0 +1,28 @@
+[
+  {
+    "scenario": {
+      "title": "質問1：自信を持って話す (Tự tin khi nói)",
+      "japanese": "「自信を持って話す」ために、プレゼンテーション中にすべき具体的なことを1つ挙げてください。複数書いた場合は、最初の1つだけが評価されます。",
+      "reading": "「じしんを もって はなす」ために、プレゼンテーションちゅうに すべき ぐたいてきな ことを ひとつ あげて ください。ふくすう かいた ばあいは、さいしょの ひとつ だけが ひょうか されます。",
+      "meaning": "Hãy đưa ra một việc cụ thể mà em nên làm trong buổi thuyết trình để “nói một cách tự tin”. Nếu em viết nhiều hơn một, chỉ việc làm đầu tiên sẽ được đánh giá."
+    },
+    "model_answer": {
+      "japanese": "聞き手の目をしっかりと見て、大きな声ではっきりと話すこと（オンラインの場合は、カメラを見てつながりを作る）。",
+      "reading": "ききての めを しっかりと みて、おおきな こえで はっきりと はなす こと（オンラインの ばあいは、カメラを みて つながりを つくる）。",
+      "meaning": "Nhìn trực tiếp vào mắt người nghe và nói rõ ràng, to tiếng (nếu thuyết trình trực tuyến, cần nhìn vào camera để tạo sự kết nối)."
+    }
+  },
+  {
+    "scenario": {
+      "title": "質問2：練習方法 (Cách luyện tập)",
+      "japanese": "もしあなたがプレゼンターなら、問1の内容を達成するためにどのような練習が必要だと思いますか。実行可能な具体的な練習方法を1つ挙げてください。複数書いた場合は、最初の1つだけが評価されます。",
+      "reading": "もし あなたが プレゼンターなら、とい1の ないようを たっせい する ために どのような れんしゅうが ひつようだと おもいますか。じっこう かのうな ぐたいてきな れんしゅう ほうほうを ひとつ あげて ください。ふくすう かいた ばあいは、さいしょの ひとつ だけが ひょうか されます。",
+      "meaning": "Nếu em là người nói trong bài thuyết trình, em nghĩ mình cần luyện tập một cách cụ thể như thế nào để đạt nội dung ở câu ①? Hãy đưa ra 1 cách luyện tập cụ thể mà em có thể thực hiện. Nếu viết nhiều hơn một, chỉ việc làm đầu tiên sẽ được đánh giá."
+    },
+    "model_answer": {
+      "japanese": "鏡の前に立って練習し、鏡の中の自分とアイコンタクトを保ちながら、声の大きさや抑揚を調整する。",
+      "reading": "かがみの まえに たって れんしゅうし、かがみの なかの じぶんと アイコンタクトを たもち ながら、こえの おおきさや よくようを ちょうせい する。",
+      "meaning": "Đứng trước gương để luyện tập, tập trung vào việc duy trì ánh mắt giao tiếp với chính mình trong gương, đồng thời điều chỉnh âm lượng và nhịp điệu giọng nói sao cho phù hợp."
+    }
+  }
+]

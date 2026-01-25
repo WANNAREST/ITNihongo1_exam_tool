@@ -95,6 +95,7 @@
             <div class="part-control fe"><label><input type="checkbox" id="check-part5" checked> **P5 (Bài 2):** FE (Trắc nghiệm)</label><label>Số câu: <input type="number" id="count-part5" value="5" min="0"></label></div>
             <div class="part-control diagram"><label><input type="checkbox" id="check-part6" checked> **P6 (Bài 3):** Sơ đồ (Tự luận)</label><label>Số câu: <input type="number" id="count-part6" value="2" min="0"></label></div>
             <div class="part-control report"><label><input type="checkbox" id="check-part7" checked> **P7 (Bài 4):** Báo cáo (Tự luận)</label><label>Số câu: <input type="number" id="count-part7" value="1" min="0"></label></div>
+            <div class="part-control presentation" style="background: #e8eaf6; border-color: #3f51b5; grid-column: 1 / -1;"><label><input type="checkbox" id="check-part8" checked> **P8 (Bài 5):** Thuyết trình (Tự luận)</label><label>Số câu: <input type="number" id="count-part8" value="1" min="0"></label></div>
         </div>
         
         <div id="voice-settings"><label for="voice-select">4. Cài đặt Giọng đọc (Tùy chọn)</label><select id="voice-select" disabled><option value="">-- Đang tải...</option></select></div>
@@ -105,6 +106,7 @@
     <div id="fe-data-panel"><h3>Khu vực Dữ liệu FE (Bài 2/P5)</h3><p>Tải file .json chứa các câu hỏi FE.</p><label for="fe-file-input">Tải file Câu hỏi FE (.json):</label><input type="file" id="fe-file-input" accept=".json"></div>
     <div id="diagram-data-panel"><h3>Khu vực Dữ liệu Sơ đồ FE (Bài 3/P6)</h3><p>Tải file .json chứa dữ liệu sơ đồ.</p><label for="diagram-file-input">Tải file Sơ đồ FE (.json):</label><input type="file" id="diagram-file-input" accept=".json"></div>
     <div id="report-data-panel"><h3>Khu vực Dữ liệu Báo cáo (Bài 4/P7)</h3><p>Tải file .json chứa các tình huống báo cáo.</p><label for="report-file-input">Tải file Báo cáo (.json):</label><input type="file" id="report-file-input" accept=".json"></div>
+    <div id="presentation-data-panel" style="background-color: #e8eaf6; border: 1px solid #3f51b5; padding: 20px; border-radius: 8px; margin-bottom: 30px;"><h3>Khu vực Dữ liệu Presentation (Bài 5/P8)</h3><p>Tải file .json chứa các câu hỏi Presentation.</p><label for="presentation-file-input">Tải file Presentation (.json):</label><input type="file" id="presentation-file-input" accept=".json"></div>
 
     <h1>Bài thi giữa kỳ: IT Tiếng Nhật & FE</h1>
     <p id="vocab-coverage">Nội dung: (Chưa có dữ liệu)</p>
@@ -117,6 +119,7 @@
         <div id="part5-container" class="exam-section" style="display:none;"><h2>Phần 5 (Bài 2): Câu hỏi FE (Trắc nghiệm)</h2><div id="part5-questions"></div></div>
         <div id="part6-container" class="exam-section" style="display:none;"><h2>Phần 6 (Bài 3): Giải thích Sơ đồ FE (Tự luận)</h2><div id="part6-questions"></div></div>
         <div id="part7-container" class="exam-section" style="display:none;"><h2>Phần 7 (Bài 4): Báo cáo (Tự luận)</h2><div id="part7-questions"></div></div>
+        <div id="part8-container" class="exam-section" style="display:none;"><h2>Phần 8 (Bài 5): Thuyết trình (Tự luận)</h2><div id="part8-questions"></div></div>
     </div>
 
     <button id="submit-btn">Nộp bài và Xem Đáp Án</button>
@@ -125,8 +128,8 @@
 
     <script>
         let vocabKanjiHiragana = [], vocabAlphabet = [], vocabPureKatakana = [];
-        let feQuestions = [], feDiagrams = [], feReports = [];
-        let currentExamSnapshot = { q1Data: [], q2Data: [], q3Data: [], q4Data: [], q5Data: [], q6Data: [], q7Data: [] };
+        let feQuestions = [], feDiagrams = [], feReports = [], fePresentations = [];
+        let currentExamSnapshot = { q1Data: [], q2Data: [], q3Data: [], q4Data: [], q5Data: [], q6Data: [], q7Data: [], q8Data: [] };
         let workbookData;
         const TARGET_HEADERS = { KOTOBA: "言葉", YOMIKATA: "読み方", IMI: "意味", KATAKANA: "カタカナ語", JUYOUGOI: "重要語彙" };
 
@@ -140,6 +143,7 @@
             document.getElementById('fe-file-input').addEventListener('change', handleFeFileUpload);
             document.getElementById('diagram-file-input').addEventListener('change', handleFeDiagramUpload); 
             document.getElementById('report-file-input').addEventListener('change', handleFeReportUpload);
+            document.getElementById('presentation-file-input').addEventListener('change', handleFePresentationUpload);
             
             populateVoiceList();
             if (speechSynthesis.onvoiceschanged !== undefined) { speechSynthesis.onvoiceschanged = populateVoiceList; }
@@ -229,7 +233,25 @@
             };
             reader.readAsText(file);
         }
-
+        function handleFePresentationUpload(event) {
+            const file = event.target.files[0];
+            const statusMsg = document.getElementById('status-message');
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const text = e.target.result;
+                    const parsedData = JSON.parse(text);
+                    if (!Array.isArray(parsedData)) throw new Error("File JSON phải là array");
+                    fePresentations = parsedData;
+                    localStorage.setItem('fePresentations', JSON.stringify(fePresentations));
+                    statusMsg.textContent = `Tải file Presentation (P8) thành công! (${fePresentations.length} câu hỏi)`;
+                    statusMsg.style.color = "#155724";
+                } catch (error) { statusMsg.textContent = `Lỗi file Presentation (P8): ${error.message}.`; statusMsg.style.color = "#a94442"; }
+            };
+            reader.readAsText(file);
+        }
+ 
         function populateSheetCheckboxes(workbook) {
             const container = document.getElementById('sheet-list-container');
             container.innerHTML = ''; 
@@ -428,12 +450,15 @@
             const p7Count = parseInt(document.getElementById('count-part7').value, 10);
             if (document.getElementById('check-part7').checked && p7Count > 0) { currentExamSnapshot.q7Data = shuffle(feReports).slice(0, Math.min(p7Count, feReports.length)); } else { currentExamSnapshot.q7Data = []; }
 
+            const p8Count = parseInt(document.getElementById('count-part8').value, 10);
+            if (document.getElementById('check-part8').checked && p8Count > 0) { currentExamSnapshot.q8Data = shuffle(fePresentations).slice(0, Math.min(p8Count, fePresentations.length)); } else { currentExamSnapshot.q8Data = []; }
+
             localStorage.setItem('currentExamSnapshot', JSON.stringify(currentExamSnapshot));
         }
 
         function renderExamFromSnapshot() {
             resetExamStyles(); 
-            const { q1Data, q2Data, q3Data, q4Data, q5Data, q6Data, q7Data } = currentExamSnapshot;
+            const { q1Data, q2Data, q3Data, q4Data, q5Data, q6Data, q7Data, q8Data } = currentExamSnapshot;
             const combinedPool_P1_P4 = [...vocabKanjiHiragana, ...vocabPureKatakana];
             
             // (P1)
@@ -497,7 +522,16 @@
             if (q6Data && q6Data.length > 0) {
                 p6Questions.innerHTML = ''; document.getElementById('part6-container').style.display = 'block';
                 q6Data.forEach((item, index) => {
-                    p6Questions.innerHTML += `<div class="question" data-answer-name="${item.name}" data-answer-layer='${JSON.stringify(item.layer)}' data-answer-role='${JSON.stringify(item.role)}'><p>Câu 6.${index + 1}: Hãy giải thích về thiết bị trong hình ảnh sau:</p><img src="images/${item.image}" alt="Sơ đồ FE" class="diagram-image"><div class="question-inputs"><label>Tên thiết bị: <input type="text" id="part6-q${index}-name" placeholder="Viết tên thiết bị..."></label><br><label>Vị trí OSI: <input type="text" id="part6-q${index}-layer" placeholder="Viết Tầng OSI..."></label><br><label>Vai trò: <input type="text" id="part6-q${index}-role" placeholder="Viết vai trò..."></label></div></div>`;
+                    let questionsInputsHtml = '';
+                    let datasets = `data-answer-name="${item.name}"`;
+                    
+                    if (item.layer) { datasets += ` data-answer-layer='${JSON.stringify(item.layer)}'`; questionsInputsHtml += `<br><label>Vị trí OSI: <input type="text" id="part6-q${index}-layer" placeholder="Viết Tầng OSI..."></label>`; }
+                    if (item.flow) { datasets += ` data-answer-flow='${JSON.stringify(item.flow)}'`; questionsInputsHtml += `<br><label>Luồng dữ liệu: <input type="text" id="part6-q${index}-flow" placeholder="Viết Luồng dữ liệu..."></label>`; }
+                    if (item.role) { datasets += ` data-answer-role='${JSON.stringify(item.role)}'`; questionsInputsHtml += `<br><label>chức năng/Vai trò: <input type="text" id="part6-q${index}-role" placeholder="Viết vai trò/chức năng..."></label>`; }
+                    if (item.merit) { datasets += ` data-answer-merit='${JSON.stringify(item.merit)}'`; questionsInputsHtml += `<br><label>Ưu điểm: <input type="text" id="part6-q${index}-merit" placeholder="Viết ưu điểm..."></label>`; }
+                    if (item.logic) { datasets += ` data-answer-logic='${JSON.stringify(item.logic)}'`; questionsInputsHtml += `<br><label>Nguyên lý/Logic: <input type="text" id="part6-q${index}-logic" placeholder="Viết nguyên lý/logic..."></label>`; }
+
+                    p6Questions.innerHTML += `<div class="question" ${datasets}><p>Câu 6.${index + 1}: Hãy giải thích về thiết bị/mô hình trong hình ảnh sau:</p><img src="images/${item.image}" alt="Sơ đồ FE" class="diagram-image"><div class="question-inputs"><label>Tên: <input type="text" id="part6-q${index}-name" placeholder="Viết tên..."></label>${questionsInputsHtml}</div></div>`;
                 });
             } else { document.getElementById('part6-container').style.display = 'none'; }
             
@@ -510,6 +544,16 @@
                     p7Questions.innerHTML += `<div class="question" data-model-answer='${JSON.stringify(item.model_answer)}'><p>Câu 7.${index + 1}: ${item.scenario.title}</p><p style="font-weight:normal;">${item.scenario.japanese}</p>${analysisHtml}<div class="question-inputs"><textarea id="part7-q${index}-answer" class="report-textarea" placeholder="Viết báo cáo Slack của bạn vào đây..."></textarea></div></div>`;
                 });
             } else { document.getElementById('part7-container').style.display = 'none'; }
+
+            // (P8)
+            const p8Questions = document.getElementById('part8-questions');
+            if (q8Data && q8Data.length > 0) {
+                p8Questions.innerHTML = ''; document.getElementById('part8-container').style.display = 'block';
+                q8Data.forEach((item, index) => {
+                    const analysisHtml = `<div class="question-analysis-block"><div class="option-reading"><strong>(Cách đọc):</strong> ${item.scenario.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${item.scenario.meaning}</div></div>`;
+                    p8Questions.innerHTML += `<div class="question" data-model-answer='${JSON.stringify(item.model_answer)}'><p>Câu 8.${index + 1}: ${item.scenario.title}</p><p style="font-weight:normal;">${item.scenario.japanese}</p>${analysisHtml}<div class="question-inputs"><textarea id="part8-q${index}-answer" class="report-textarea" placeholder="Viết câu trả lời của bạn vào đây..."></textarea></div></div>`;
+                });
+            } else { document.getElementById('part8-container').style.display = 'none'; }
         }
         
         function resetExamStyles() {
@@ -592,16 +636,37 @@
                 });
             }
             // P6
-            if (document.getElementById('check-part6').checked) {
+            const p6Check = document.getElementById('check-part6');
+            if (p6Check && p6Check.checked) {
                 const part6Questions = document.querySelectorAll('#part6-questions .question');
                 part6Questions.forEach((q, index) => {
                     maxScore += 10;
-                    const answerName = q.dataset.answerName; const answerLayer = JSON.parse(q.dataset.answerLayer); const answerRole = JSON.parse(q.dataset.answerRole);
-                    const inputName = q.querySelector(`#part6-q${index}-name`); const inputLayer = q.querySelector(`#part6-q${index}-layer`); const inputRole = q.querySelector(`#part6-q${index}-role`);
+                    const answerName = q.dataset.answerName; 
+                    const inputName = q.querySelector(`#part6-q${index}-name`);
                     if (inputName.value.trim() === answerName) { totalScore += 3; inputName.classList.add('correct'); } else { inputName.classList.add('incorrect'); }
-                    if (inputLayer.value.trim() === answerLayer.answer) { totalScore += 3; inputLayer.classList.add('correct'); } else { inputLayer.classList.add('incorrect'); }
-                    if (inputRole.value.trim() === answerRole.answer) { totalScore += 4; inputRole.classList.add('correct'); } else { inputRole.classList.add('incorrect'); }
-                    const answerHtml = `<div class="diagram-answer-block"><div><strong>✅ Tên:</strong> ${answerName}</div><div><strong>✅ Tầng OSI:</strong> ${answerLayer.answer}<div class="diagram-answer-reading">(${answerLayer.reading})</div><div class="diagram-answer-meaning">${answerLayer.meaning}</div></div><div><strong>✅ Vai trò:</strong> ${answerRole.answer}<div class="diagram-answer-reading">(${answerRole.reading})</div><div class="diagram-answer-meaning">${answerRole.meaning}</div></div></div>`;
+
+                    let answerHtmlInner = `<div><strong>✅ Tên:</strong> ${answerName}</div>`;
+
+                    // Helper to check and score fields
+                    const checkField = (fieldKey, fieldName, points) => {
+                         const answerDataStr = q.dataset[`answer${fieldKey}`]; // e.g. answerLayer
+                         if (answerDataStr) {
+                             const answerData = JSON.parse(answerDataStr);
+                             const input = q.querySelector(`#part6-q${index}-${fieldKey.toLowerCase()}`);
+                             if (input) {
+                                if (input.value.trim() === answerData.answer) { totalScore += points; input.classList.add('correct'); } else { input.classList.add('incorrect'); }
+                             }
+                             answerHtmlInner += `<div><strong>✅ ${fieldName}:</strong> ${answerData.answer}<div class="diagram-answer-reading">(${answerData.reading})</div><div class="diagram-answer-meaning">${answerData.meaning}</div></div>`;
+                         }
+                    };
+
+                    checkField('Layer', 'Tầng OSI', 3);
+                    checkField('Flow', 'Luồng dữ liệu', 3);
+                    checkField('Role', 'Vai trò', 4);
+                    checkField('Merit', 'Ưu điểm', 4);
+                    checkField('Logic', 'Nguyên lý/Logic', 4);
+
+                    const answerHtml = `<div class="diagram-answer-block">${answerHtmlInner}</div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
                 });
             }
@@ -612,6 +677,17 @@
                     maxScore += 20;
                     const modelAnswer = JSON.parse(q.dataset.modelAnswer);
                     const answerHtml = `<div class="report-answer-block"><strong>✅ Đáp án mẫu (Tham khảo):</strong><pre>${modelAnswer.japanese}</pre><div class="option-analysis-block" style="border-left-color: #ffb74d;"><div class="option-reading"><strong>(Cách đọc):</strong> ${modelAnswer.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${modelAnswer.meaning}</div></div></div>`;
+                    q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
+                });
+            }
+            // P8
+            const p8Check = document.getElementById('check-part8');
+            if (p8Check && p8Check.checked) {
+                const part8Questions = document.querySelectorAll('#part8-questions .question');
+                part8Questions.forEach((q, index) => {
+                    maxScore += 20;
+                    const modelAnswer = JSON.parse(q.dataset.modelAnswer);
+                    const answerHtml = `<div class="report-answer-block" style="border-color: #3f51b5; background: #e8eaf6;"><strong>✅ Đáp án mẫu (Tham khảo):</strong><pre>${modelAnswer.japanese}</pre><div class="option-analysis-block" style="border-left-color: #3f51b5;"><div class="option-reading"><strong>(Cách đọc):</strong> ${modelAnswer.reading}</div><div class="option-meaning"><strong>(Nghĩa):</strong> ${modelAnswer.meaning}</div></div></div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
                 });
             }

@@ -1,0 +1,58 @@
+[
+  {
+    "image": "専用線方式.png",
+    "name": "専用線方式",
+    "flow": {
+      "answer": "専用回線でデータを通信する",
+      "reading": "せんようかいせんで データを つうしんする",
+      "meaning": "Truyền dữ liệu bằng đường truyền riêng."
+    },
+    "merit": {
+      "answer": "安全で、通信速度が安定",
+      "reading": "あんぜんで、 つうしんそくどが あんてい",
+      "meaning": "An toàn, tốc độ truyền ổn định."
+    }
+  },
+  {
+    "image": "パケット交換方式.png",
+    "name": "パケット交換方式",
+    "flow": {
+      "answer": "データをパケットに分けて共有回線で送る",
+      "reading": "データを ぱけっとに わけて きょうゆうかいせんで おくる",
+      "meaning": "Chia dữ liệu thành các gói và gửi trên đường truyền chung."
+    },
+    "merit": {
+      "answer": "コストが安く、効率が良い",
+      "reading": "コストが やすく、 こうりつが よい",
+      "meaning": "Chi phí rẻ, hiệu quả cao."
+    }
+  },
+  {
+    "image": "parity.png",
+    "name": "誤り検出 (図3)",
+    "role": {
+      "answer": "誤りの場所を探すこと",
+      "reading": "あやまりの ばしょを さがす こと",
+      "meaning": "Tìm kiếm vị trí bị lỗi."
+    },
+    "logic": {
+      "answer": "縦と横で、1の個数が偶数かを調べて、交差点で誤りを見つけること",
+      "reading": "たてと よこで、 1の こすうが ぐうすうかを しらべて、 こうさてんで あやまりを みつける こと",
+      "meaning": "Kiểm tra số chữ số 1 theo hàng dọc và ngang có phải là số chẵn không, và tìm lỗi tại giao điểm."
+    }
+  },
+  {
+    "image": "parity.png",
+    "name": "誤り訂正 (図4)",
+    "role": {
+      "answer": "見つけた誤りを直すこと",
+      "reading": "みつけた あやまりを なおす こと",
+      "meaning": "Sửa lại lỗi đã tìm thấy."
+    },
+    "logic": {
+      "answer": "誤りの位置の1を0に変えること",
+      "reading": "あやまりの いちの 1を 0に かえる こと",
+      "meaning": "Chuyển đổi số 1 tại vị trí lỗi thành số 0."
+    }
+  }
+]

@@ -88,18 +88,19 @@
         
         <label style="margin-top: 15px;">3. Chọn dạng bài và số câu:</label>
         <div id="exam-part-container">
-            <div class="part-control"><label><input type="checkbox" id="check-part1" checked> **P1:** Nghe -> Chọn (Việt)</label><label>Số câu: <input type="number" id="count-part1" value="5" min="0"></label></div>
-            <div class="part-control"><label><input type="checkbox" id="check-part2" checked> **P2:** Đọc (Kanji) -> Viết</label><label>Số câu: <input type="number" id="count-part2" value="5" min="0"></label></div>
-            <div class="part-control"><label><input type="checkbox" id="check-part3" checked> **P3:** Đọc (Eng/Alphabet) -> Viết</label><label>Số câu: <input type="number" id="count-part3" value="5" min="0"></label></div>
-            <div class="part-control"><label><input type="checkbox" id="check-part4" checked> **P4:** Đọc (Việt) -> Chọn (Nhật)</label><label>Số câu: <input type="number" id="count-part4" value="5" min="0"></label></div>
-            <div class="part-control fe"><label><input type="checkbox" id="check-part5" checked> **P5 (Bài 2):** FE (Trắc nghiệm)</label><label>Số câu: <input type="number" id="count-part5" value="5" min="0"></label></div>
-            <div class="part-control diagram"><label><input type="checkbox" id="check-part6" checked> **P6 (Bài 3):** Sơ đồ (Tự luận)</label><label>Số câu: <input type="number" id="count-part6" value="2" min="0"></label></div>
-            <div class="part-control report"><label><input type="checkbox" id="check-part7" checked> **P7 (Bài 4):** Báo cáo (Tự luận)</label><label>Số câu: <input type="number" id="count-part7" value="1" min="0"></label></div>
-            <div class="part-control presentation" style="background: #e8eaf6; border-color: #3f51b5; grid-column: 1 / -1;"><label><input type="checkbox" id="check-part8" checked> **P8 (Bài 5):** Thuyết trình (Tự luận)</label><label>Số câu: <input type="number" id="count-part8" value="1" min="0"></label></div>
+            <div class="part-control"><label><input type="checkbox" id="check-part1" checked> P1: Nghe -> Chọn (Việt)</label><label>Số câu: <input type="number" id="count-part1" value="5" min="0"></label></div>
+            <div class="part-control"><label><input type="checkbox" id="check-part2" checked> P2: Đọc (Kanji) -> Viết</label><label>Số câu: <input type="number" id="count-part2" value="5" min="0"></label></div>
+            <div class="part-control"><label><input type="checkbox" id="check-part3" checked> P3: Đọc (Eng/Alphabet) -> Viết</label><label>Số câu: <input type="number" id="count-part3" value="5" min="0"></label></div>
+            <div class="part-control"><label><input type="checkbox" id="check-part4" checked> P4: Đọc (Việt) -> Chọn (Nhật)</label><label>Số câu: <input type="number" id="count-part4" value="5" min="0"></label></div>
+            <div class="part-control fe"><label><input type="checkbox" id="check-part5" checked> P5 (Bài 2): FE (Trắc nghiệm)</label><label>Số câu: <input type="number" id="count-part5" value="10" min="0"></label></div>
+            <div class="part-control diagram"><label><input type="checkbox" id="check-part6" checked> P6 (Bài 3): Sơ đồ (Tự luận)</label><label>Số câu: <input type="number" id="count-part6" value="2" min="0"></label></div>
+            <div class="part-control report"><label><input type="checkbox" id="check-part7" checked> P7 (Bài 4): Báo cáo (Tự luận)</label><label>Số câu: <input type="number" id="count-part7" value="1" min="0"></label></div>
+            <div class="part-control presentation" style="background: #e8eaf6; border-color: #3f51b5; grid-column: 1 / -1;"><label><input type="checkbox" id="check-part8" checked> P8 (Bài 5): Thuyết trình (Tự luận)</label><label>Số câu: <input type="number" id="count-part8" value="2" min="0"></label></div>
         </div>
         
         <div id="voice-settings"><label for="voice-select">4. Cài đặt Giọng đọc (Tùy chọn)</label><select id="voice-select" disabled><option value="">-- Đang tải...</option></select></div>
         <button id="generate-btn" disabled>Tạo Đề thi Ngẫu nhiên Mới</button>
+        <button id="clear-btn" style="width: 100%; padding: 10px; margin-top: 10px; background-color: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">Xóa Dữ liệu Đã lưu & Reset</button>
         <div id="status-message"></div>
     </div>
     
@@ -138,6 +139,7 @@
         function initializeApp() {
             document.getElementById('file-input').addEventListener('change', handleFileUpload);
             document.getElementById('generate-btn').addEventListener('click', generateExamFromSelection);
+            document.getElementById('clear-btn').addEventListener('click', clearAllData);
             document.getElementById('submit-btn').addEventListener('click', calculateScore);
             document.getElementById('retry-btn').addEventListener('click', retryCurrentExam);
             document.getElementById('fe-file-input').addEventListener('change', handleFeFileUpload);
@@ -387,6 +389,13 @@
             if (storedSnapshot) currentExamSnapshot = JSON.parse(storedSnapshot);
             
             if (storedDescription) document.getElementById('vocab-coverage').textContent = storedDescription;
+        }
+
+        function clearAllData() {
+            if (confirm('Bạn có chắc chắn muốn xóa toàn bộ dữ liệu đã lưu (Excel, FE, Sơ đồ, Bài thi đang làm)?\nTrang sẽ được tải lại.')) {
+                localStorage.clear();
+                location.reload();
+            }
         }
 
         function shuffle(array) {

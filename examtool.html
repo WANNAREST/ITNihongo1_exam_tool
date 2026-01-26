@@ -660,8 +660,10 @@
             if (p6Check && p6Check.checked) {
                 const part6Questions = document.querySelectorAll('#part6-questions .question');
                 part6Questions.forEach((q, index) => {
-                    maxScore += 10;
+                    // Logic tính điểm Max động (không cố định 10 điểm nữa)
                     const answerName = q.dataset.answerName; 
+                    if (answerName) maxScore += 3; // Mặc định có tên là +3 điểm max
+
                     const inputName = q.querySelector(`#part6-q${index}-name`);
                     if (inputName.value.trim() === answerName) { totalScore += 3; inputName.classList.add('correct'); } else { inputName.classList.add('incorrect'); }
 
@@ -671,6 +673,7 @@
                     const checkField = (fieldKey, fieldName, points) => {
                          const answerDataStr = q.dataset[`answer${fieldKey}`]; // e.g. answerLayer
                          if (answerDataStr) {
+                             maxScore += points; // Cộng điểm tối đa nếu câu hỏi có phần này
                              const answerData = JSON.parse(answerDataStr);
                              const input = q.querySelector(`#part6-q${index}-${fieldKey.toLowerCase()}`);
                              if (input) {
@@ -712,16 +715,112 @@
                 part8Questions.forEach((q, index) => {
                     maxScore += 20;
                     const modelAnswer = JSON.parse(q.dataset.modelAnswer);
-                    const answerHtml = `<div class="report-answer-block" style="border-color: #3f51b5; background: #e8eaf6;"><strong>✅ Đáp án mẫu (Tham khảo - Tiếng Việt):</strong><pre style="font-size: 1em;">${modelAnswer.meaning}</pre><div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #3f51b5; color: #666;"><em>Đáp án tiếng Nhật tham khảo:</em><div style="margin-top: 5px;">${modelAnswer.japanese}</div><div style="font-size: 0.9em; color: #999; margin-top: 3px;">(${modelAnswer.reading})</div></div></div>`;
+                    const userInput = q.querySelector(`#part8-q${index}-answer`).value;
+                    
+                    // AI Grading Logic
+                    const aiGrade = gradeEssayAI(userInput, modelAnswer.meaning);
+                    totalScore += aiGrade.score;
+
+                    // UI Feedback Generation
+                    let feedbackColor = aiGrade.score >= 15 ? '#28a745' : (aiGrade.score >= 10 ? '#fd7e14' : '#dc3545');
+                    let missingKeywordsHtml = aiGrade.missing.length > 0 ? `<div style="margin-top:5px; font-size: 0.9em; color:#d63384;"><strong>⚠️ Từ khóa quan trọng còn thiếu:</strong> ${aiGrade.missing.join(', ')}</div>` : '';
+                    
+                    const answerHtml = `
+                        <div class="report-answer-block" style="border-color: #3f51b5; background: #e8eaf6;">
+                            <div style="border-bottom: 1px solid #c5cae9; padding-bottom: 10px; margin-bottom: 10px;">
+                                <strong style="color: ${feedbackColor}; font-size: 1.1em;">🤖 AI Chấm điểm: ${aiGrade.score}/20</strong>
+                                <span style="margin-left: 10px; font-weight: bold; color: ${feedbackColor};">(${aiGrade.feedback})</span>
+                                ${missingKeywordsHtml}
+                            </div>
+                            
+                            <strong>✅ Đáp án mẫu (Tham khảo - Tiếng Việt):</strong>
+                            <pre style="font-size: 1em; margin-top: 5px;">${modelAnswer.meaning}</pre>
+                            
+                            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #3f51b5; color: #666;">
+                                <em>Đáp án tiếng Nhật tham khảo:</em>
+                                <div style="margin-top: 5px;">${modelAnswer.japanese}</div>
+                                <div style="font-size: 0.9em; color: #999; margin-top: 3px;">(${modelAnswer.reading})</div>
+                            </div>
+                        </div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
                 });
             }
 
             const resultsDiv = document.getElementById('results');
             if (maxScore === 0) { resultsDiv.innerHTML = `Bạn chưa tạo bài thi.`; resultsDiv.className = 'results-fail'; } 
-            else { resultsDiv.innerHTML = `Tổng điểm (Tự động): ${totalScore} / ${maxScore} <br><small>(Bài 3 và Bài 4 cần bạn tự chấm)</small>`; resultsDiv.className = (totalScore >= maxScore * 0.7) ? 'results-pass' : 'results-fail'; }
+            else { resultsDiv.innerHTML = `Tổng điểm (Tự động): ${totalScore} / ${maxScore} `; resultsDiv.className = (totalScore >= maxScore * 0.7) ? 'results-pass' : 'results-fail'; }
             document.getElementById('retry-btn').style.display = 'block';
             window.scrollTo({ top: document.getElementById('results').offsetTop, behavior: 'smooth' });
+        }
+
+        // <<< HỆ THỐNG AI CHẤM ĐIỂM (SIMULATION) >>>
+        function gradeEssayAI(userText, modelText) {
+            if (!userText || userText.trim().length < 5) {
+                return { score: 0, feedback: "Chưa làm bài hoặc bài làm quá ngắn", missing: [] };
+            }
+
+            // 1. Chuẩn hóa văn bản (Lower case, remove punctuation)
+            const normalize = (txt) => txt.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"'“”]/g, "").replace(/\s+/g, " ").trim();
+            
+            // 2. Danh sách Stop Words Tiếng Việt cơ bản (từ không mang ý nghĩa chính)
+            const stopWords = ['thì', 'là', 'mà', 'và', 'của', 'những', 'cái', 'việc', 'trong', 'khi', 'để', 'các', 'về', 'có', 'được', 'cho', 'với', 'như', 'bạn', 'hãy', 'nên', 'cần', 'một', 'sự', 'này', 'đó', 'tại', 'bởi', 'vì', 'rằng'];
+            
+            // 3. Tách từ khóa (Keywords Extraction)
+            const getKeywords = (txt) => {
+                return normalize(txt).split(" ").filter(w => w.length > 1 && !stopWords.includes(w));
+            };
+
+            const userTokens = getKeywords(userText);
+            const modelTokens = getKeywords(modelText);
+            
+            // Nếu model answer quá ngắn hoặc lỗi
+            if (modelTokens.length === 0) return { score: 20, feedback: "Đáp án mẫu không đủ dữ liệu để so sánh", missing: [] };
+
+            // 4. Tính toán độ phủ từ khóa (Coverage)
+            const userTokenSet = new Set(userTokens);
+            const modelTokenSet = new Set(modelTokens);
+            
+            let matchCount = 0;
+            const missingWords = [];
+            
+            modelTokenSet.forEach(token => {
+                if (userTokenSet.has(token)) {
+                    matchCount++;
+                } else {
+                    missingWords.push(token);
+                }
+            });
+
+            const coverage = matchCount / modelTokenSet.size;
+            
+            // 5. Tính điểm cơ bản (Base Score) - STRICT MODE (Khắt khe hơn)
+            let score = 0;
+            let feedback = "";
+            let finalMissing = [];
+
+            // Tăng ngưỡng chấm điểm: Phải đúng >85% từ khóa mới được điểm tối đa
+            if (coverage >= 0.85) { score = 20; feedback = "Xuất sắc! (Đầy đủ toàn bộ ý chính)"; }
+            else if (coverage >= 0.65) { score = 16; feedback = "Khá Tốt (Còn thiếu vài ý nhỏ)"; }
+            else if (coverage >= 0.45) { score = 10; feedback = "Trung Bình (Thiếu nhiều ý quan trọng)"; }
+            else if (coverage >= 0.25) { score = 5; feedback = "Kém (Chưa nắm được ý chính)"; }
+            else { score = 0; feedback = "Rất Kém (Sai hoặc quá sơ sài)"; }
+
+            // 6. Kiểm tra độ dài nghiêm ngặt hơn (Strict Length Penalty)
+            // Nếu bài làm ngắn hơn 50% so với đáp án mẫu -> Trừ 30% số điểm hiện tại
+            if (userText.length < modelText.length * 0.5) {
+                score = Math.floor(score * 0.7);
+                feedback += " [Cảnh báo: Bài quá ngắn]";
+            }
+            // Nếu bài làm ngắn hơn 30% -> Trừ 50% số điểm
+            if (userText.length < modelText.length * 0.3) {
+                score = Math.floor(score * 0.5);
+                feedback += " [Cảnh báo: Bài quá sơ sài]";
+            }
+            
+            // Lọc danh sách từ thiếu (chỉ lấy 5 từ đầu tiên để gợi ý)
+            finalMissing = missingWords.length > 0 ? missingWords.slice(0, 5) : [];
+
+            return { score, feedback, missing: finalMissing };
         }
     </script>
 </body>

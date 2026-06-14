@@ -9,38 +9,156 @@
     
     <style>
         /* (CSS giữ nguyên từ bản trước) */
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; background-color: #f4f7f6; color: #333; max-width: 900px; margin: 20px auto; padding: 20px; }
-        h1, h2 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 5px; }
-        h3 { color: #00796b; margin-top: 0; border-bottom: 1px solid #b2dfdb; padding-bottom: 5px; }
-        .exam-section { background-color: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        :root {
+            --ink: #1d2733;
+            --muted: #5f6b7a;
+            --line: rgba(255,255,255,0.45);
+            --panel: rgba(255,255,255,0.9);
+            --panel-strong: rgba(255,255,255,0.96);
+            --green: #00796b;
+            --blue: #1d5fbf;
+            --sakura: #d64d7f;
+            --gold: #d9902f;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--ink);
+            margin: 0;
+            padding: 0 20px 44px;
+            background:
+                linear-gradient(180deg, rgba(248,251,252,0.78), rgba(238,246,242,0.9) 42%, rgba(248,250,252,0.96)),
+                url("images/hero-japan-study.png") center top / cover fixed;
+        }
+        body > :not(.hero-section) { max-width: 1120px; margin-left: auto; margin-right: auto; }
+        h1, h2 { color: #123b65; border-bottom: 1px solid rgba(18,59,101,0.22); padding-bottom: 8px; letter-spacing: 0; }
+        h3 { color: var(--green); margin-top: 0; border-bottom: 1px solid rgba(0,121,107,0.22); padding-bottom: 8px; }
+        .hero-section {
+            position: relative;
+            min-height: 420px;
+            margin: 0 -20px 34px;
+            padding: 56px 20px 34px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            color: #fff;
+            background:
+                linear-gradient(90deg, rgba(10,27,42,0.76), rgba(10,27,42,0.44) 48%, rgba(10,27,42,0.18)),
+                url("images/hero-japan-study.png") center / cover no-repeat;
+            box-shadow: 0 20px 50px rgba(24,42,60,0.18);
+        }
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 120px;
+            background: linear-gradient(180deg, transparent, rgba(244,248,247,0.96));
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            width: min(1120px, 100%);
+            margin: 0 auto;
+            padding-bottom: 38px;
+        }
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid rgba(255,255,255,0.38);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.14);
+            backdrop-filter: blur(12px);
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+        .hero-title {
+            max-width: 780px;
+            margin: 18px 0 14px;
+            font-size: clamp(2.2rem, 6vw, 5.4rem);
+            line-height: 0.95;
+            border: 0;
+            color: #fff;
+            text-shadow: 0 10px 28px rgba(0,0,0,0.28);
+        }
+        .hero-copy {
+            max-width: 660px;
+            margin: 0;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255,255,255,0.88);
+        }
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.92);
+            color: #17324a;
+            text-decoration: none;
+            font-weight: 800;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+        }
+        .hero-link.secondary {
+            background: rgba(16,38,52,0.5);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.34);
+            box-shadow: none;
+            backdrop-filter: blur(10px);
+        }
+        .exam-section {
+            background: var(--panel-strong);
+            border: 1px solid rgba(255,255,255,0.72);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 18px 46px rgba(27,48,65,0.12);
+            backdrop-filter: blur(16px);
+        }
         
-        #admin-panel { background-color: #e0f2f1; border: 1px solid #4db6ac; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        #admin-panel { background: rgba(240,253,250,0.92); border: 1px solid rgba(77,182,172,0.5); padding: 24px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 18px 50px rgba(0,77,64,0.13); backdrop-filter: blur(16px); }
         #admin-panel label { font-weight: bold; display: block; margin-bottom: 5px; }
-        input[type="file"] { border: 1px solid #ccc; padding: 8px; border-radius: 4px; background: white; width: 98%; }
-        #sheet-list-container { max-height: 150px; overflow-y: auto; background: #fff; border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
+        input[type="file"] { border: 1px solid rgba(30,64,85,0.2); padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.92); width: 100%; }
+        #sheet-list-container { max-height: 150px; overflow-y: auto; background: rgba(255,255,255,0.88); border: 1px solid rgba(30,64,85,0.16); padding: 12px; margin-top: 10px; border-radius: 10px; }
         #sheet-list-container label { display: block; font-weight: normal; }
         
-        #exam-part-container { margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .part-control { background: #f1f8e9; border: 1px solid #c5e1a5; padding: 10px; border-radius: 5px; }
+        #exam-part-container { margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .part-control { background: rgba(241,248,233,0.9); border: 1px solid rgba(139,195,74,0.36); padding: 13px; border-radius: 12px; box-shadow: 0 8px 20px rgba(30,64,85,0.07); }
         .part-control input[type="number"] { width: 60px; padding: 5px; }
         .part-control.fe { background: #fce4ec; border-color: #f06292; }
         .part-control.diagram { background: #e3f2fd; border-color: #90caf9; }
         .part-control.report { background: #fff3e0; border-color: #ffb74d; grid-column: 1 / -1; }
+        .part-control.answer-question { background: #e8f5e9; border-color: #66bb6a; grid-column: 1 / -1; }
 
-        #voice-settings { margin-top: 15px; background: #fff8e1; border: 1px solid #ffe082; padding: 10px; border-radius: 5px; }
-        #voice-select { width: 100%; padding: 8px; font-size: 0.9em; border-radius: 4px; border: 1px solid #ccc; }
-        #generate-btn { background-color: #00796b; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 1.1em; font-weight: bold; margin-top: 20px; width: 100%; }
+        #voice-settings { margin-top: 15px; background: rgba(255,248,225,0.92); border: 1px solid rgba(255,224,130,0.75); padding: 13px; border-radius: 12px; }
+        #voice-select { width: 100%; padding: 10px; font-size: 0.9em; border-radius: 8px; border: 1px solid rgba(30,64,85,0.18); }
+        #generate-btn { background: linear-gradient(135deg, #00796b, #1d5fbf); color: white; border: none; padding: 14px 20px; border-radius: 10px; cursor: pointer; font-size: 1.1em; font-weight: bold; margin-top: 20px; width: 100%; box-shadow: 0 14px 26px rgba(0,121,107,0.25); }
         #status-message { margin-top: 15px; font-weight: bold; }
         
-        #fe-data-panel { background-color: #fce4ec; border: 1px solid #f06292; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-        #diagram-data-panel { background-color: #e3f2fd; border: 1px solid #90caf9; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-        #report-data-panel { background-color: #fff3e0; border: 1px solid #ffb74d; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        #fe-data-panel, #diagram-data-panel, #report-data-panel, #presentation-data-panel, #answer-question-data-panel {
+            padding: 22px !important;
+            border-radius: 16px !important;
+            margin-bottom: 22px !important;
+            box-shadow: 0 14px 34px rgba(27,48,65,0.1);
+            backdrop-filter: blur(14px);
+        }
+        #fe-data-panel { background: rgba(252,228,236,0.92); border: 1px solid rgba(240,98,146,0.48); }
+        #diagram-data-panel { background: rgba(227,242,253,0.92); border: 1px solid rgba(144,202,249,0.55); }
+        #report-data-panel { background: rgba(255,243,224,0.92); border: 1px solid rgba(255,183,77,0.55); }
+        #presentation-data-panel { background: rgba(232,234,246,0.92) !important; border: 1px solid rgba(63,81,181,0.38) !important; }
+        #answer-question-data-panel { background: rgba(232,245,233,0.92); border: 1px solid rgba(102,187,106,0.52); }
         
-        .question { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #ddd; }
+        .question { margin-bottom: 20px; padding: 18px; border: 1px solid rgba(30,64,85,0.1); border-radius: 12px; background: rgba(255,255,255,0.72); box-shadow: 0 8px 20px rgba(27,48,65,0.06); }
         .question p { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
-        .listen-btn { background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; }
-        input[type="text"] { font-size: 1em; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-        .options-group label { display: block; margin: 8px 0; padding: 8px; border-radius: 5px; }
+        .listen-btn { background: #1d5fbf; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+        input[type="text"] { font-size: 1em; padding: 10px; border: 1px solid rgba(30,64,85,0.18); border-radius: 8px; }
+        .options-group label { display: block; margin: 8px 0; padding: 10px; border-radius: 9px; background: rgba(255,255,255,0.58); border: 1px solid rgba(30,64,85,0.08); }
         .correct { background-color: #d4edda !important; border: 1px solid #c3e6cb; }
         .incorrect { background-color: #f8d7da !important; border: 1px solid #f5c6cb; }
         input[type="text"].correct { border-color: #28a745; background-color: #f7fff9; }
@@ -64,19 +182,37 @@
         .diagram-answer-reading { color: #0056b3; font-style: italic; font-size: 0.9em; }
         .diagram-answer-meaning { color: #333; font-weight: bold; font-size: 0.9em; }
         
-        .diagram-image { max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
+        .diagram-image { max-width: 100%; height: auto; border: 1px solid rgba(30,64,85,0.14); border-radius: 10px; margin-bottom: 10px; box-shadow: 0 10px 24px rgba(27,48,65,0.1); }
         
-        .report-textarea { width: 98%; height: 150px; font-size: 1em; padding: 10px; border: 1px solid #ccc; }
+        .report-textarea { width: 100%; height: 150px; font-size: 1em; padding: 12px; border: 1px solid rgba(30,64,85,0.18); border-radius: 10px; background: rgba(255,255,255,0.92); }
         .report-answer-block { margin-top: 10px; padding: 10px; background: #fff9e6; border: 1px solid #ffe0b2; border-radius: 4px; }
         .report-answer-block strong { color: #e65100; }
         .report-answer-block pre { background: #fff; padding: 10px; border-radius: 4px; border: 1px dashed #ffe0b2; white-space: pre-wrap; word-wrap: break-word; font-family: monospace; font-size: 1.1em; }
 
-        #submit-btn { display: block; width: 100%; padding: 15px; font-size: 1.25em; font-weight: bold; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        #submit-btn { display: block; width: 100%; padding: 16px; font-size: 1.25em; font-weight: bold; background: linear-gradient(135deg, #1f9d55, #00796b); color: white; border: none; border-radius: 12px; cursor: pointer; box-shadow: 0 16px 30px rgba(31,157,85,0.22); }
         #results { margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 1.2em; font-weight: bold; text-align: center; }
         #retry-btn { display: none; width: 100%; padding: 12px; font-size: 1.1em; font-weight: bold; background-color: #ffc107; color: #212529; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        @media (max-width: 760px) {
+            body { padding-left: 12px; padding-right: 12px; }
+            .hero-section { min-height: 360px; margin-left: -12px; margin-right: -12px; padding-top: 36px; }
+            #exam-part-container { grid-template-columns: 1fr; }
+            .part-control.report, .part-control.presentation, .part-control.answer-question { grid-column: auto !important; }
+            .exam-section, #admin-panel { padding: 18px; }
+        }
     </style>
 </head>
 <body>
+    <section class="hero-section">
+        <div class="hero-inner">
+            <div class="hero-kicker">IT Nihongo Exam Tool</div>
+            <h1 class="hero-title">Luyện thi IT tiếng Nhật trong một không gian tập trung hơn</h1>
+            <p class="hero-copy">Tạo đề ngẫu nhiên, tải dữ liệu FE, luyện câu hỏi tự luận và xem đáp án tham khảo trong một giao diện rõ ràng, hiện đại hơn.</p>
+            <div class="hero-actions">
+                <a class="hero-link" href="#admin-panel">Tạo đề ngay</a>
+                <a class="hero-link secondary" href="#fe-data-panel">Tải dữ liệu JSON</a>
+            </div>
+        </div>
+    </section>
     
     <div id="admin-panel">
         <h3>Bảng điều khiển (Bản 14.0 - Fix Lỗi P3)</h3>
@@ -96,6 +232,7 @@
             <div class="part-control diagram"><label><input type="checkbox" id="check-part6" checked> P6 (Bài 3): Sơ đồ (Tự luận)</label><label>Số câu: <input type="number" id="count-part6" value="2" min="0"></label></div>
             <div class="part-control report"><label><input type="checkbox" id="check-part7" checked> P7 (Bài 4): Báo cáo (Tự luận)</label><label>Số câu: <input type="number" id="count-part7" value="1" min="0"></label></div>
             <div class="part-control presentation" style="background: #e8eaf6; border-color: #3f51b5; grid-column: 1 / -1;"><label><input type="checkbox" id="check-part8" checked> P8 (Bài 5): Thuyết trình (Tự luận)</label><label>Số câu: <input type="number" id="count-part8" value="2" min="0"></label></div>
+            <div class="part-control answer-question"><label><input type="checkbox" id="check-part9" checked> P9 (Bài 6): Trả lời câu hỏi (Tự luận)</label><label>Số câu: <input type="number" id="count-part9" value="5" min="0"></label></div>
         </div>
         
         <div id="voice-settings"><label for="voice-select">4. Cài đặt Giọng đọc (Tùy chọn)</label><select id="voice-select" disabled><option value="">-- Đang tải...</option></select></div>
@@ -108,6 +245,7 @@
     <div id="diagram-data-panel"><h3>Khu vực Dữ liệu Sơ đồ FE (Bài 3/P6)</h3><p>Tải file .json chứa dữ liệu sơ đồ.</p><label for="diagram-file-input">Tải file Sơ đồ FE (.json):</label><input type="file" id="diagram-file-input" accept=".json"></div>
     <div id="report-data-panel"><h3>Khu vực Dữ liệu Báo cáo (Bài 4/P7)</h3><p>Tải file .json chứa các tình huống báo cáo.</p><label for="report-file-input">Tải file Báo cáo (.json):</label><input type="file" id="report-file-input" accept=".json"></div>
     <div id="presentation-data-panel" style="background-color: #e8eaf6; border: 1px solid #3f51b5; padding: 20px; border-radius: 8px; margin-bottom: 30px;"><h3>Khu vực Dữ liệu Presentation (Bài 5/P8)</h3><p>Tải file .json chứa các câu hỏi Presentation.</p><label for="presentation-file-input">Tải file Presentation (.json):</label><input type="file" id="presentation-file-input" accept=".json"></div>
+    <div id="answer-question-data-panel"><h3>Khu vực dữ liệu Trả lời câu hỏi (Bài 6/P9)</h3><p>Tải file .json chứa các câu hỏi tự luận và đáp án tham khảo.</p><label for="answer-question-file-input">Tải file Trả lời câu hỏi (.json):</label><input type="file" id="answer-question-file-input" accept=".json"></div>
 
     <h1>Bài thi giữa kỳ: IT Tiếng Nhật & FE</h1>
     <p id="vocab-coverage">Nội dung: (Chưa có dữ liệu)</p>
@@ -121,6 +259,7 @@
         <div id="part6-container" class="exam-section" style="display:none;"><h2>Phần 6 (Bài 3): Giải thích Sơ đồ FE (Tự luận)</h2><div id="part6-questions"></div></div>
         <div id="part7-container" class="exam-section" style="display:none;"><h2>Phần 7 (Bài 4): Báo cáo (Tự luận)</h2><div id="part7-questions"></div></div>
         <div id="part8-container" class="exam-section" style="display:none;"><h2>Phần 8 (Bài 5): Thuyết trình (Tự luận)</h2><div id="part8-questions"></div></div>
+        <div id="part9-container" class="exam-section" style="display:none;"><h2>Phần 9 (Bài 6): Trả lời câu hỏi (Tự luận)</h2><div id="part9-questions"></div></div>
     </div>
 
     <button id="submit-btn">Nộp bài và Xem Đáp Án</button>
@@ -129,10 +268,10 @@
 
     <script>
         let vocabKanjiHiragana = [], vocabAlphabet = [], vocabPureKatakana = [];
-        let feQuestions = [], feDiagrams = [], feReports = [], fePresentations = [];
-        let currentExamSnapshot = { q1Data: [], q2Data: [], q3Data: [], q4Data: [], q5Data: [], q6Data: [], q7Data: [], q8Data: [] };
+        let feQuestions = [], feDiagrams = [], feReports = [], fePresentations = [], feAnswerQuestions = [];
+        let currentExamSnapshot = { q1Data: [], q2Data: [], q3Data: [], q4Data: [], q5Data: [], q6Data: [], q7Data: [], q8Data: [], q9Data: [] };
         let workbookData;
-        const TARGET_HEADERS = { KOTOBA: "言葉", YOMIKATA: "読み方", IMI: "意味", KATAKANA: "カタカナ語", JUYOUGOI: "重要語彙" };
+        const TARGET_HEADERS = { KOTOBA: "言葉", YOMIKATA: "読み方", IMI: "意味", KATAKANA: "カタカナ語", JUYOUGOI: "重要語彙", NO: "No.", EXAMPLE: "例文", VIETNAMESE: "ベトナム語訳" };
 
         document.addEventListener('DOMContentLoaded', initializeApp);
 
@@ -146,6 +285,7 @@
             document.getElementById('diagram-file-input').addEventListener('change', handleFeDiagramUpload); 
             document.getElementById('report-file-input').addEventListener('change', handleFeReportUpload);
             document.getElementById('presentation-file-input').addEventListener('change', handleFePresentationUpload);
+            document.getElementById('answer-question-file-input').addEventListener('change', handleFeAnswerQuestionUpload);
             
             populateVoiceList();
             if (speechSynthesis.onvoiceschanged !== undefined) { speechSynthesis.onvoiceschanged = populateVoiceList; }
@@ -195,6 +335,7 @@
                     localStorage.setItem('feQuestions', JSON.stringify(feQuestions));
                     statusMsg.textContent = `Tải file FE (P5) thành công! (${feQuestions.length} câu)`;
                     statusMsg.style.color = "#155724";
+                    document.getElementById('generate-btn').disabled = false;
                 } catch (error) { statusMsg.textContent = `Lỗi file FE (P5): ${error.message}.`; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsText(file);
@@ -213,6 +354,7 @@
                     localStorage.setItem('feDiagrams', JSON.stringify(feDiagrams)); 
                     statusMsg.textContent = `Tải file Sơ đồ (P6) thành công! (${feDiagrams.length} thiết bị)`;
                     statusMsg.style.color = "#155724";
+                    document.getElementById('generate-btn').disabled = false;
                 } catch (error) { statusMsg.textContent = `Lỗi file Sơ đồ (P6): ${error.message}.`; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsText(file);
@@ -231,6 +373,7 @@
                     localStorage.setItem('feReports', JSON.stringify(feReports));
                     statusMsg.textContent = `Tải file Báo cáo (P7) thành công! (${feReports.length} tình huống)`;
                     statusMsg.style.color = "#155724";
+                    document.getElementById('generate-btn').disabled = false;
                 } catch (error) { statusMsg.textContent = `Lỗi file Báo cáo (P7): ${error.message}.`; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsText(file);
@@ -249,7 +392,27 @@
                     localStorage.setItem('fePresentations', JSON.stringify(fePresentations));
                     statusMsg.textContent = `Tải file Presentation (P8) thành công! (${fePresentations.length} câu hỏi)`;
                     statusMsg.style.color = "#155724";
+                    document.getElementById('generate-btn').disabled = false;
                 } catch (error) { statusMsg.textContent = `Lỗi file Presentation (P8): ${error.message}.`; statusMsg.style.color = "#a94442"; }
+            };
+            reader.readAsText(file);
+        }
+        function handleFeAnswerQuestionUpload(event) {
+            const file = event.target.files[0];
+            const statusMsg = document.getElementById('status-message');
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const text = e.target.result;
+                    const parsedData = JSON.parse(text);
+                    if (!Array.isArray(parsedData)) throw new Error("File JSON phải là array");
+                    feAnswerQuestions = parsedData;
+                    localStorage.setItem('feAnswerQuestions', JSON.stringify(feAnswerQuestions));
+                    statusMsg.textContent = `Tải file Trả lời câu hỏi (P9) thành công! (${feAnswerQuestions.length} câu hỏi)`;
+                    statusMsg.style.color = "#155724";
+                    document.getElementById('generate-btn').disabled = false;
+                } catch (error) { statusMsg.textContent = `Lỗi file Trả lời câu hỏi (P9): ${error.message}.`; statusMsg.style.color = "#a94442"; }
             };
             reader.readAsText(file);
         }
@@ -299,8 +462,19 @@
         }
 
         function generateExamFromSelection() {
-            const success = buildVocabularyPool();
-            if (!success) return;
+            const needsVocabulary = [1, 2, 3, 4].some(part => {
+                const checked = document.getElementById(`check-part${part}`).checked;
+                const count = parseInt(document.getElementById(`count-part${part}`).value, 10);
+                return checked && count > 0;
+            });
+            if (needsVocabulary && workbookData) {
+                const success = buildVocabularyPool();
+                if (!success) return;
+            } else if (needsVocabulary && !workbookData) {
+                vocabKanjiHiragana = [];
+                vocabAlphabet = [];
+                vocabPureKatakana = [];
+            }
             generateNewExamData(); 
             renderExamFromSnapshot(); 
         }
@@ -312,6 +486,14 @@
             return null;
         }
 
+        function isKatakanaText(text) {
+            return /^[\u30A0-\u30FFー・]+$/.test(String(text || "").trim());
+        }
+
+        function isAlphabetText(text) {
+            return /^[a-zA-Z0-9\s\.\-\/()]+$/.test(String(text || "").trim());
+        }
+
         // <<< HÀM SỬA LỖI LOGIC PHẦN 3 >>>
         function parseSheetData(worksheet) {
             const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
@@ -321,14 +503,17 @@
                 if (!row || row.length === 0) continue; 
                 if (!headerFound) {
                     const headerRow = row.map(cell => String(cell || ""));
-                    if (headerRow.includes(TARGET_HEADERS.KOTOBA) && headerRow.includes(TARGET_HEADERS.IMI)) {
+                    if (headerRow.includes(TARGET_HEADERS.KOTOBA) && headerRow.includes(TARGET_HEADERS.YOMIKATA) && headerRow.includes(TARGET_HEADERS.IMI)) {
                         headerFound = true;
                         colIndices.KOTOBA = headerRow.indexOf(TARGET_HEADERS.KOTOBA);
                         colIndices.YOMIKATA = headerRow.indexOf(TARGET_HEADERS.YOMIKATA);
                         colIndices.IMI = headerRow.indexOf(TARGET_HEADERS.IMI);
+                        colIndices.NO = headerRow.indexOf(TARGET_HEADERS.NO);
+                        colIndices.EXAMPLE = headerRow.indexOf(TARGET_HEADERS.EXAMPLE);
+                        colIndices.VIETNAMESE = headerRow.indexOf(TARGET_HEADERS.VIETNAMESE);
                         colIndices.JUYOUGOI = headerRow.indexOf(TARGET_HEADERS.JUYOUGOI);
                         colIndices.KATAKANA = headerRow.findIndex(cell => cell.includes(TARGET_HEADERS.KATAKANA));
-                        if (colIndices.KOTOBA === -1 || colIndices.IMI === -1 || colIndices.JUYOUGOI === -1) { throw new Error("Không tìm thấy các cột header cần thiết."); }
+                        if (colIndices.KOTOBA === -1 || colIndices.YOMIKATA === -1 || colIndices.IMI === -1) { throw new Error("Không tìm thấy các cột header cần thiết."); }
                         continue; 
                     }
                 }
@@ -339,12 +524,12 @@
                     const katakanaCell = (colIndices.KATAKANA !== -1 && row[colIndices.KATAKANA]) ? String(row[colIndices.KATAKANA]).trim() : "";
                     const juyouCell = row[colIndices.JUYOUGOI] ? String(row[colIndices.JUYOUGOI]).trim() : "";
                     if (kotoba === "" || kotoba === TARGET_HEADERS.KOTOBA) continue;
-                    const isKatakana = (katakanaCell === '〇');
+                    const isKatakana = (katakanaCell === '〇') || (!katakanaCell && isKatakanaText(kotoba));
                     
                     const item = { "言葉": kotoba, "読み方": yomikata, "意味": imi };
                     if (isKatakana) {
                         // <<< LOGIC MỚI: Kiểm tra xem kotoba CÓ PHẢI LÀ Alphabet không >>>
-                        const isAlpha = /^[a-zA-Z0-9\s\.\-\/\(\)]+$/.test(kotoba);
+                        const isAlpha = isAlphabetText(kotoba);
                         
                         if (isAlpha) {
                             // Nếu kotoba là Alphabet (ví dụ: "ARP"), dùng trực tiếp cho Phần 3
@@ -378,10 +563,14 @@
             const storedFeQuestions = localStorage.getItem('feQuestions'); 
             const storedFeDiagrams = localStorage.getItem('feDiagrams'); 
             const storedFeReports = localStorage.getItem('feReports'); 
+            const storedFePresentations = localStorage.getItem('fePresentations');
+            const storedFeAnswerQuestions = localStorage.getItem('feAnswerQuestions');
             
             if (storedFeQuestions) feQuestions = JSON.parse(storedFeQuestions);
             if (storedFeDiagrams) feDiagrams = JSON.parse(storedFeDiagrams);
             if (storedFeReports) feReports = JSON.parse(storedFeReports);
+            if (storedFePresentations) fePresentations = JSON.parse(storedFePresentations);
+            if (storedFeAnswerQuestions) feAnswerQuestions = JSON.parse(storedFeAnswerQuestions);
             
             if (storedKanjiHiragana) vocabKanjiHiragana = JSON.parse(storedKanjiHiragana);
             if (storedAlphabet) vocabAlphabet = JSON.parse(storedAlphabet);
@@ -389,6 +578,9 @@
             if (storedSnapshot) currentExamSnapshot = JSON.parse(storedSnapshot);
             
             if (storedDescription) document.getElementById('vocab-coverage').textContent = storedDescription;
+            if (feQuestions.length || feDiagrams.length || feReports.length || fePresentations.length || feAnswerQuestions.length) {
+                document.getElementById('generate-btn').disabled = false;
+            }
         }
 
         function clearAllData() {
@@ -434,6 +626,22 @@
             }
             return distractors;
         }
+
+        function formatAnswerValue(answer) {
+            if (answer && typeof answer === 'object') {
+                return Object.entries(answer).map(([key, value]) => `${key}: ${value}`).join('\n');
+            }
+            return answer || '';
+        }
+
+        function getAnswerQuestionModelText(item) {
+            if (!item) return '';
+            if (item.model_answer) {
+                if (typeof item.model_answer === 'string') return item.model_answer;
+                return item.model_answer.japanese || item.model_answer.meaning || formatAnswerValue(item.model_answer);
+            }
+            return formatAnswerValue(item.answer);
+        }
         
         function generateNewExamData() {
             const combinedPool_P1_P4 = [...vocabKanjiHiragana, ...vocabPureKatakana];
@@ -462,12 +670,15 @@
             const p8Count = parseInt(document.getElementById('count-part8').value, 10);
             if (document.getElementById('check-part8').checked && p8Count > 0) { currentExamSnapshot.q8Data = shuffle(fePresentations).slice(0, Math.min(p8Count, fePresentations.length)); } else { currentExamSnapshot.q8Data = []; }
 
+            const p9Count = parseInt(document.getElementById('count-part9').value, 10);
+            if (document.getElementById('check-part9').checked && p9Count > 0) { currentExamSnapshot.q9Data = shuffle(feAnswerQuestions).slice(0, Math.min(p9Count, feAnswerQuestions.length)); } else { currentExamSnapshot.q9Data = []; }
+
             localStorage.setItem('currentExamSnapshot', JSON.stringify(currentExamSnapshot));
         }
 
         function renderExamFromSnapshot() {
             resetExamStyles(); 
-            const { q1Data, q2Data, q3Data, q4Data, q5Data, q6Data, q7Data, q8Data } = currentExamSnapshot;
+            const { q1Data, q2Data, q3Data, q4Data, q5Data, q6Data, q7Data, q8Data, q9Data } = currentExamSnapshot;
             const combinedPool_P1_P4 = [...vocabKanjiHiragana, ...vocabPureKatakana];
             
             // (P1)
@@ -574,6 +785,17 @@
                     p8Questions.innerHTML += `<div class="question" data-model-answer='${JSON.stringify(item.model_answer)}'><p>Câu 8.${index + 1}: ${item.scenario.title}</p><p style="font-weight:normal;">${item.scenario.meaning}</p><div class="question-inputs"><textarea id="part8-q${index}-answer" class="report-textarea" placeholder="Viết câu trả lời của bạn bằng tiếng Việt vào đây..."></textarea></div></div>`;
                 });
             } else { document.getElementById('part8-container').style.display = 'none'; }
+
+            // (P9)
+            const p9Questions = document.getElementById('part9-questions');
+            if (q9Data && q9Data.length > 0) {
+                p9Questions.innerHTML = ''; document.getElementById('part9-container').style.display = 'block';
+                q9Data.forEach((item, index) => {
+                    const imageHtml = item.image ? `<img src="images/${item.image}" alt="P9 image" class="diagram-image">` : '';
+                    const noteHtml = item.note ? `<div class="option-note">${item.note}</div>` : '';
+                    p9Questions.innerHTML += `<div class="question">${imageHtml}<p>Câu 9.${index + 1}: ${item.question}</p>${noteHtml}<div class="question-inputs"><textarea id="part9-q${index}-answer" class="report-textarea" placeholder="Viết câu trả lời của bạn vào đây..."></textarea></div></div>`;
+                });
+            } else { document.getElementById('part9-container').style.display = 'none'; }
         }
         
         function resetExamStyles() {
@@ -742,6 +964,19 @@
                                 <div style="font-size: 0.9em; color: #999; margin-top: 3px;">(${modelAnswer.reading})</div>
                             </div>
                         </div>`;
+                    q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
+                });
+            }
+            // P9
+            const p9Check = document.getElementById('check-part9');
+            if (p9Check && p9Check.checked) {
+                const part9Questions = document.querySelectorAll('#part9-questions .question');
+                part9Questions.forEach((q, index) => {
+                    maxScore += 20;
+                    const item = currentExamSnapshot.q9Data[index];
+                    const modelText = getAnswerQuestionModelText(item);
+                    const noteHtml = item && item.note ? `<div class="option-note">${item.note}</div>` : '';
+                    const answerHtml = `<div class="report-answer-block" style="border-color: #66bb6a; background: #e8f5e9;"><strong>✅ Đáp án mẫu (Tham khảo):</strong><pre>${modelText}</pre>${noteHtml}</div>`;
                     q.querySelector('.question-inputs').insertAdjacentHTML('afterend', answerHtml);
                 });
             }
